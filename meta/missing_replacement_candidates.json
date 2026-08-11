@@ -1,0 +1,11 @@
+[
+  {
+    "missing_source_url": "https://open.dingtalk.com/document/development/configure-an-rds-data-source",
+    "reason": "The current doc tree contains this URL, but its OSS body returns 404 and the rendered page has no initial content metadata.",
+    "search_candidates": [
+      "https://developers.dingtalk.com/document/isvapp/add-data-sources-for-rds",
+      "https://developers.dingtalk.com/document/isvapp/configure-the-rds-event-data-source"
+    ],
+    "note": "Candidates are from open.dingtalk.com/api/open/search for the same title; they are not substituted into docs/ to avoid source confusion."
+  }
+]

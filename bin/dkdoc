@@ -1,0 +1,264 @@
+#!/usr/bin/env python3
+"""dkdoc — 钉钉开放平台知识库查询 CLI（零依赖，cwd 无关，可通过软链调用）。
+
+子命令:
+  find  <词>...        按标题/面包屑/小标题/摘要找文档（多词=AND）
+  api   <词|url片段>   查接口表（名称/endpoint/method/权限点/新旧版本）
+  err   <错误码|词>    查错误码表（新版字符串码；旧版数字码会提示走 grep 兜底）
+  event <事件名|词>    查事件表（按 EventType 标识或标题）
+  perm  <权限点|词>    查权限点覆盖的接口
+  links <路径|slug>    一篇文档的正链（它引用谁）与反链（谁引用它）
+  cat   <路径|slug>    打印文档正文（含 source_url 头）
+  grep  <pattern> [子路径]  全文检索兜底（优先 rg，无 rg 退化为 python 扫描）
+  where                打印知识库根目录绝对路径
+
+通用选项: -n N 每类结果上限（默认 10）
+提示: 结果里的 docs/... 路径都相对知识库根；引用给用户时用 source_url。
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))  # realpath 兼容软链安装
+
+
+def load_jsonl(rel):
+    p = os.path.join(ROOT, rel)
+    with open(p, encoding="utf-8") as f:
+        return [json.loads(line) for line in f]
+
+
+def kb_flags():
+    m = {}
+    for r in load_jsonl("meta/kb_manifest.jsonl"):
+        if r["tier"] == "T2" or r.get("deprecated"):
+            m[r["local_path"]] = "⚠归档"
+        elif r["tier"] == "DROP":
+            m[r["local_path"]] = "◇边缘"
+    return m
+
+
+def resolve_doc(query, docs=None):
+    """按 局部路径/slug/文件名/子串 唯一定位一篇文档；多命中则返回列表。"""
+    docs = docs or load_jsonl("meta/documents.jsonl")
+    q = query.strip().lstrip("./")
+    exact = [d for d in docs if d["local_path"] == q or d["slug"] == q
+             or os.path.basename(d["local_path"]) == os.path.basename(q)]
+    if len(exact) == 1:
+        return exact[0], None
+    hits = exact or [d for d in docs if q.lower() in d["local_path"].lower()]
+    if len(hits) == 1:
+        return hits[0], None
+    return None, hits
+
+
+def print_doc_hit(d, flags, indent="  "):
+    crumb = " › ".join(d.get("breadcrumb") or [])
+    tag = " " + flags.get(d["local_path"], "") if flags.get(d["local_path"]) else ""
+    print(d["local_path"] + tag)
+    print(f"{indent}{d['title']} · {crumb} · {d['updated_at'][:10]}")
+    print(f"{indent}{d['source_url']}")
+
+
+def cmd_find(terms, n):
+    if not terms:
+        return usage("find 需要至少一个关键词")
+    docs = load_jsonl("meta/documents.jsonl")
+    flags = kb_flags()
+    tl = [t.lower() for t in terms]
+    scored = []
+    for d in docs:
+        title = d["title"].lower()
+        crumb = " ".join(d.get("breadcrumb") or []).lower()
+        rest = (" ".join(d.get("headings") or []) + " " + d.get("snippet", "")).lower()
+        hay = " ".join((title, crumb, rest))
+        if not all(t in hay for t in tl):
+            continue
+        score = sum(3 for t in tl if t in title) + sum(2 for t in tl if t in crumb)
+        tier_rank = 1 if d["local_path"] in flags else 0
+        scored.append((-score, tier_rank, d["local_path"], d))
+    scored.sort()
+    if not scored:
+        print(f"目录/标题层无命中。兜底: dkdoc grep '{' '.join(terms)}'")
+        return 1
+    for _, _, _, d in scored[:n]:
+        print_doc_hit(d, flags)
+    if len(scored) > n:
+        print(f"…共 {len(scored)} 条，-n 加大上限")
+    return 0
+
+
+def cmd_api(terms, n):
+    tl = [t.lower() for t in terms]
+    rows = [r for r in load_jsonl("graph/api.jsonl")
+            if all(t in " ".join(str(r.get(k) or "") for k in ("title", "endpoint", "method")).lower() for t in tl)]
+    rows.sort(key=lambda r: (r.get("archived", False), r["title"]))
+    for r in rows[:n]:
+        tag = " ⚠归档" if r.get("archived") else ""
+        perm = f" · 权限:{r['permission']}" if r.get("permission") else ""
+        print(f"{r['title']}{tag} · {(r.get('method') or '?')} {r.get('endpoint') or ''} · {r.get('version') or ''}{perm}")
+        print(f"  {r['doc_path']}")
+        print(f"  {r['source_url']}")
+    if not rows:
+        print(f"接口表无命中。试 dkdoc find {' '.join(terms)} 或 dkdoc grep")
+        return 1
+    if len(rows) > n:
+        print(f"…共 {len(rows)} 条，-n 加大上限")
+    return 0
+
+
+def cmd_err(terms, n):
+    q = terms[0] if terms else ""
+    rows = load_jsonl("graph/errcode.jsonl")
+    exact = [r for r in rows if r["error_code"].lower() == q.lower()]
+    hits = exact or [r for r in rows if all(
+        t.lower() in (r["error_code"] + " " + r["message"] + " " + r.get("explanation", "")).lower() for t in terms)]
+    for r in hits[:n]:
+        print(f"{r['error_code']} · {r['message']} · HTTP {r['http_code']}")
+        print(f"  {r.get('explanation','')}")
+        print(f"  {r['source_url']}")
+    if not hits:
+        print(f"错误码表无命中（数字码等未抽全），自动全文兜底 dkdoc grep '{q}' :")
+        return cmd_grep([q], n)
+    if len(hits) > n:
+        print(f"…共 {len(hits)} 条，-n 加大上限")
+    return 0
+
+
+def cmd_event(terms, n):
+    tl = [t.lower() for t in terms]
+    rows = []
+    for r in load_jsonl("graph/event.jsonl"):
+        hay = (r["title"] + " " + " ".join(r.get("event_types", []))).lower()
+        if all(t in hay for t in tl):
+            rows.append(r)
+    for r in rows[:n]:
+        tag = " ⚠归档" if r.get("archived") else ""
+        print(f"{r['title']}{tag} · 事件: {', '.join(r.get('event_types', []))}")
+        print(f"  {r['doc_path']}")
+        print(f"  {r['source_url']}")
+    if not rows:
+        print(f"事件表无命中（178 篇事件文档无标识未入表）。试 dkdoc find {' '.join(terms)} 事件")
+        return 1
+    return 0
+
+
+def cmd_perm(terms, n):
+    q = terms[0] if terms else ""
+    rows = load_jsonl("graph/permission.jsonl")
+    hits = [r for r in rows if r["permission_scope"].lower() == q.lower()] or \
+           [r for r in rows if q.lower() in r["permission_scope"].lower()]
+    for r in hits[:n]:
+        print(f"{r['permission_scope']} · 覆盖 {r['api_count']} 个接口")
+        for a in r.get("current_apis", [])[:n]:
+            print(f"  {a['title']} · {a.get('endpoint','')} · {a['doc_path']}")
+    if not hits:
+        print(f"权限表无命中。试 dkdoc grep '{q}'")
+        return 1
+    return 0
+
+
+def cmd_links(terms, n):
+    if not terms:
+        return usage("links 需要一个 路径|slug")
+    d, cands = resolve_doc(terms[0])
+    if d is None:
+        print("定位不唯一/无命中：")
+        for c in (cands or [])[:10]:
+            print("  " + c["local_path"])
+        return 1
+    lp = d["local_path"]
+    edges = load_jsonl("graph/links.jsonl")
+    out = [e for e in edges if e["from"] == lp]
+    inc = [e for e in edges if e["to"] == lp]
+    print(f"{lp}\n  {d['title']} · {d['source_url']}")
+    print(f"\n正链（本篇引用 {len(out)} 篇）:")
+    for e in out[:n]:
+        print(f"  → {e['to']}（{e['text'][:30]}）")
+    print(f"\n反链（{len(inc)} 篇引用本篇）:")
+    for e in inc[:n]:
+        print(f"  ← {e['from']}")
+    if len(inc) > n or len(out) > n:
+        print("…-n 加大上限")
+    return 0
+
+
+def cmd_cat(terms, n):
+    if not terms:
+        return usage("cat 需要一个 路径|slug")
+    d, cands = resolve_doc(terms[0])
+    if d is None:
+        print("定位不唯一/无命中：")
+        for c in (cands or [])[:10]:
+            print("  " + c["local_path"])
+        return 1
+    sys.stdout.write(open(os.path.join(ROOT, d["local_path"]), encoding="utf-8").read())
+    return 0
+
+
+def cmd_grep(terms, n):
+    if not terms:
+        return usage("grep 需要 pattern")
+    pattern, sub = terms[0], (terms[1] if len(terms) > 1 else "docs")
+    try:
+        r = subprocess.run(["rg", "-n", "--no-heading", "-m", "5", pattern, sub],
+                           cwd=ROOT, capture_output=True, text=True)
+        lines = r.stdout.splitlines()
+        for line in lines[:max(n * 5, 50)]:
+            print(line)
+        if len(lines) > max(n * 5, 50):
+            print(f"…共 {len(lines)} 行命中，收窄 pattern 或指定子路径")
+        return 0 if lines else 1
+    except FileNotFoundError:
+        pat = re.compile(pattern)
+        cnt = 0
+        for dirpath, _, files in os.walk(os.path.join(ROOT, sub)):
+            for fn in files:
+                if not fn.endswith(".md"):
+                    continue
+                fp = os.path.join(dirpath, fn)
+                for i, line in enumerate(open(fp, encoding="utf-8", errors="ignore"), 1):
+                    if pat.search(line):
+                        print(f"{os.path.relpath(fp, ROOT)}:{i}:{line.rstrip()[:200]}")
+                        cnt += 1
+                        if cnt >= max(n * 5, 50):
+                            print("…已截断")
+                            return 0
+                        break
+        return 0 if cnt else 1
+
+
+def usage(msg=""):
+    if msg:
+        print("错误: " + msg + "\n", file=sys.stderr)
+    print(__doc__.strip())
+    return 2
+
+
+def main():
+    argv = sys.argv[1:]
+    n = 10
+    if "-n" in argv:
+        i = argv.index("-n")
+        try:
+            n = int(argv[i + 1])
+            del argv[i:i + 2]
+        except (IndexError, ValueError):
+            return usage("-n 需要整数")
+    if not argv:
+        return usage()
+    cmd, terms = argv[0], argv[1:]
+    if cmd == "where":
+        print(ROOT)
+        return 0
+    table = {"find": cmd_find, "api": cmd_api, "err": cmd_err, "event": cmd_event,
+             "perm": cmd_perm, "links": cmd_links, "cat": cmd_cat, "grep": cmd_grep}
+    if cmd not in table:
+        return usage(f"未知子命令 {cmd}")
+    return table[cmd](terms, n)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

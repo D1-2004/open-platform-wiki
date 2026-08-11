@@ -1,0 +1,188 @@
+[
+  {
+    "groupCode": "open_app",
+    "groupName": "应用开发",
+    "sort": 1,
+    "tabs": [
+      {
+        "tabCode": "XOnnmGCTbn",
+        "tabName": "开发指南",
+        "sort": 1
+      },
+      {
+        "tabCode": "4a8AMF6u2A",
+        "tabName": "服务端API",
+        "sort": 2
+      },
+      {
+        "tabCode": "Ogu5SlPY4t",
+        "tabName": "客户端JSAPI",
+        "sort": 3
+      },
+      {
+        "tabCode": "LFcRvVD08N",
+        "tabName": "事件订阅",
+        "sort": 4
+      },
+      {
+        "tabCode": "QzuirX2lH7",
+        "tabName": "钉钉CLI",
+        "sort": 5
+      },
+      {
+        "tabCode": "JDICnQyZLF",
+        "tabName": "开发工具",
+        "sort": 6
+      },
+      {
+        "tabCode": "TjCzIgfQs3",
+        "tabName": "平台服务",
+        "sort": 7
+      }
+    ]
+  },
+  {
+    "groupCode": "workflow",
+    "groupName": "连接平台",
+    "sort": 2,
+    "tabs": [
+      {
+        "tabCode": "6Ar2XD4H6b",
+        "tabName": "平台介绍",
+        "sort": 1
+      },
+      {
+        "tabCode": "iO2mVD3wB2",
+        "tabName": "开发指南",
+        "sort": 2
+      },
+      {
+        "tabCode": "gUzBRSLRRd",
+        "tabName": "连接器中心",
+        "sort": 3
+      },
+      {
+        "tabCode": "PnMXTPmQSS",
+        "tabName": "连接平台自动化",
+        "sort": 4
+      }
+    ]
+  },
+  {
+    "groupCode": "aipass",
+    "groupName": "AI PaaS",
+    "sort": 4,
+    "tabs": [
+      {
+        "tabCode": "pm4vgiS9Br",
+        "tabName": "平台介绍",
+        "sort": 1
+      },
+      {
+        "tabCode": "UUtSqrTcwj",
+        "tabName": "炼丹炉大模型平台",
+        "sort": 2
+      },
+      {
+        "tabCode": "9d1vBG1t78",
+        "tabName": "AI 助理创建平台",
+        "sort": 3
+      },
+      {
+        "tabCode": "Y89FJMobWr",
+        "tabName": "AI 客服助理",
+        "sort": 4
+      }
+    ]
+  },
+  {
+    "groupCode": "hardware",
+    "groupName": "硬件开发",
+    "sort": 5,
+    "tabs": [
+      {
+        "tabCode": "bUKfVUPJsL",
+        "tabName": "智能硬件",
+        "sort": 1
+      }
+    ]
+  },
+  {
+    "groupCode": "cardtemplate",
+    "groupName": "互动卡片",
+    "sort": 6,
+    "tabs": [
+      {
+        "tabCode": "N4KJ5HbqnQ",
+        "tabName": "开发指南",
+        "sort": 1
+      },
+      {
+        "tabCode": "MhNX42mFB1",
+        "tabName": "卡片模板搭建器",
+        "sort": 2
+      },
+      {
+        "tabCode": "ukxqoQhFaf",
+        "tabName": "互动卡片搭建平台",
+        "sort": 3
+      },
+      {
+        "tabCode": "zGou6m9pee",
+        "tabName": "卡片规范设计",
+        "sort": 4
+      }
+    ]
+  },
+  {
+    "groupCode": "building",
+    "groupName": "专属版客户端插件",
+    "sort": 7,
+    "tabs": [
+      {
+        "tabCode": "XYCsE5MGJh",
+        "tabName": "功能介绍",
+        "sort": 1
+      },
+      {
+        "tabCode": "sakFIe9HDV",
+        "tabName": "插件开发",
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "groupCode": "dpaas",
+    "groupName": "数据资产",
+    "sort": 8,
+    "tabs": [
+      {
+        "tabCode": "fIz0pQ6X4y",
+        "tabName": "平台介绍",
+        "sort": 1
+      },
+      {
+        "tabCode": "D2Ew8aWjy0",
+        "tabName": "宜数（智能问数）",
+        "sort": 2
+      }
+    ]
+  },
+  {
+    "groupCode": "dashboard",
+    "groupName": "工作台",
+    "sort": 9,
+    "tabs": [
+      {
+        "tabCode": "ECKYIf1yqx",
+        "tabName": "平台介绍",
+        "sort": 1
+      },
+      {
+        "tabCode": "Qzb8Lpee2t",
+        "tabName": "使用教程",
+        "sort": 2
+      }
+    ]
+  }
+]
