@@ -1,4 +1,16 @@
-# 变更维护协议（ingest）
+# 变更维护协议（ingest 与所有权）
+
+> 答疑 Agent 不需要读本文件。本文件面向被明确要求维护本库的人/Agent。
+
+## 所有权速查：什么能改，什么不能
+
+| 层 | 内容 | 谁改 |
+|---|---|---|
+| 原始层 | `docs/`、`meta/documents.jsonl` 等 | 只由 ingest 的 `--apply` 整体换入，手改会被下次快照覆盖 |
+| 结构层 | `index/`（除 TOPICS.md）、`graph/`（除 GRAPH.md）、`meta/kb_manifest.jsonl` | 脚本全量重建，手改会被 lint 报漂移 |
+| 认知层 | `index/TOPICS.md`、README/AGENTS/CLAUDE、`graph/GRAPH.md`、`ops/scripts/` 内策展数据（TAB_HINTS/TIER_BY_TAB）、`evals/` | 人 / LLM 手改 |
+
+改完 AGENTS.md/索引/dkdoc 后跑 `evals/run_opencode.sh` 做质量回归（见 [../evals/README.md](../evals/README.md)），对照 `evals/RESULTS.md` 防退化；结构一致性用 `lint.py`。
 
 设计沿用 llm-wiki 范式的生命周期合同（dongxiang-workspace `wiki/concepts/llm-wiki-pattern.md`，2026-08-07/08-10 结论），针对"上游是可全量重爬的官方文档站"做了简化：**结构层不需要 LLM 增量编译，全量脚本重建即可；LLM 只维护认知层一页（TOPICS.md）。**
 
