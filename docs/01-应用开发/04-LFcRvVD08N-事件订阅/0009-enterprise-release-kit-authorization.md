@@ -1,0 +1,69 @@
+---
+title: "企业解除套件授权"
+source_url: "https://open.dingtalk.com/document/development/enterprise-release-kit-authorization"
+namespace: "development"
+slug: "enterprise-release-kit-authorization"
+group: "应用开发"
+tab: "事件订阅"
+breadcrumb: "身份与免登 > 企业解除套件授权"
+doc_id: "JrxvxzEmyB"
+updated_at: "2022-01-19 19:29:22"
+---
+
+> Source: https://open.dingtalk.com/document/development/enterprise-release-kit-authorization
+> Path: 应用开发 / 事件订阅 / 身份与免登 > 企业解除套件授权
+> Updated: 2022-01-19 19:29:22
+
+# 企业解除套件授权
+
+## 事件信息
+
+| 名称 | 值 |
+| --- | --- |
+| 中文名称 | 企业解除套件授权 |
+| 英文名称 | org\_suite\_relieve |
+
+## 功能描述
+
+企业解除套件授权事件，解除第三方企业应用授权时推送。
+
+## 支持应用类型
+
+| 应用类型 | Stream模式推送 | HTTP推送 | SyncHTTP/RDS推送 |
+| --- | --- | --- | --- |
+| 第三方企业应用 | 支持 | 不支持 | 支持 |
+
+## 事件体描述
+
+Stream模式推送
+
+### **事件体示例**
+
+```
+{
+  "eventUnifiedAppId": "bbb381b6-f01xxxxx58daac",
+  "eventCorpId": "ding9f50b15bxxxx16741",
+  "eventType": "org_suite_relieve",
+  "eventId": "c7c7120f2c07419**ebdba0318c8",
+  "eventBornTime": 1683533823336,
+  "data": {}
+}
+```
+
+SyncHTTP/RDS推送
+
+为RDS推送方式时，数据插入表open\_sync\_biz\_data中。
+
+### **biz\_data数据示例(biz\_type=4)**
+
+```
+{
+  "corp_id": "ding9f50b15bxxxx16741",
+  "biz_id": "1663**35567",
+  "biz_type": 4,
+  "biz_data": {
+    "eventId": "c7c7120f2c07419**ebdba0318c8",
+    "syncAction": "org_suite_relieve"
+  }
+}
+```

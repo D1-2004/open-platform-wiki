@@ -1,0 +1,100 @@
+---
+title: "群会话更换群主"
+source_url: "https://open.dingtalk.com/document/development/group-session-change-group-master"
+namespace: "development"
+slug: "group-session-change-group-master"
+group: "应用开发"
+tab: "事件订阅"
+breadcrumb: "即时通讯 IM > 会话管理 > 群会话更换群主"
+doc_id: "q0jks6TMlU"
+updated_at: "2022-01-19 19:29:22"
+---
+
+> Source: https://open.dingtalk.com/document/development/group-session-change-group-master
+> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 会话管理 > 群会话更换群主
+> Updated: 2022-01-19 19:29:22
+
+# 群会话更换群主
+
+## 事件信息
+
+| 名称 | 值 |
+| --- | --- |
+| 中文名称 | 群会话更换群主 |
+| 英文名称 | chat\_update\_owner |
+
+## 功能描述
+
+开发者监听群回调事件可以更及时地响应群的变化，与业务集成。该文档为群会话更换群主事件字段说明。
+
+## 支持应用类型
+
+| 应用类型 | Stream模式推送 | HTTP推送 | SyncHTTP/RDS推送 |
+| --- | --- | --- | --- |
+| 企业内部应用 | 支持 | 支持 | 不支持 |
+| 第三方企业应用 | 支持 | 不支持 | 支持 |
+
+## 事件体描述
+
+Stream模式推送
+
+### **事件体示例**
+
+```
+{
+  "eventUnifiedAppId": "bbb381b6-f01xxxxx58daac",
+  "eventCorpId": "ding9f50b15bxxxx16741",
+  "eventType": "chat_update_owner",
+  "eventId": "c7c7120f2c07419**ebdba0318c8",
+  "eventBornTime": 1683533823336,
+  "data": {
+    "owner": "manager4220",
+    "timeStamp": 1608026611710,
+    "corpId": "dinge8a56572f80bxxxx",
+    "operatorUnionId": "FxhxxxMBEp8iE",
+    "openConversationId": "cidmfWxxxx"
+  }
+}
+```
+
+HTTP推送
+
+### **事件体示例**
+
+```
+{
+  "EventType": "chat_update_owner",
+  "EventTime": 1663143335567,
+  "CorpId": "ding9f50b15bxxxx16741",
+  "BizId": "1663**35567",
+  "eventId": "c7c7120f2c07419**ebdba0318c8",
+  "owner": "manager4220",
+  "timeStamp": 1608026611710,
+  "corpId": "dinge8a56572f80bxxxx",
+  "operatorUnionId": "FxhxxxMBEp8iE",
+  "openConversationId": "cidmfWxxxx"
+}
+```
+
+SyncHTTP/RDS推送
+
+为RDS推送方式时，数据插入表open\_sync\_biz\_data\_medium中。
+
+### **biz\_data数据示例(biz\_type=180)**
+
+```
+{
+  "corp_id": "ding9f50b15bxxxx16741",
+  "biz_id": "1663**35567",
+  "biz_type": 180,
+  "biz_data": {
+    "owner": "manager4220",
+    "timeStamp": 1608026611710,
+    "eventId": "c7c7120f2c07419**ebdba0318c8",
+    "corpId": "dinge8a56572f80bxxxx",
+    "syncAction": "chat_update_owner",
+    "operatorUnionId": "FxhxxxMBEp8iE",
+    "openConversationId": "cidmfWxxxx"
+  }
+}
+```

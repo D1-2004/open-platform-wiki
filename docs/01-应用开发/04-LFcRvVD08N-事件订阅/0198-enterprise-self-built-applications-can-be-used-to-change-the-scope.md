@@ -1,0 +1,89 @@
+---
+title: "企业内部应用可使用范围变更"
+source_url: "https://open.dingtalk.com/document/development/enterprise-self-built-applications-can-be-used-to-change-the-scope"
+namespace: "development"
+slug: "enterprise-self-built-applications-can-be-used-to-change-the-scope"
+group: "应用开发"
+tab: "事件订阅"
+breadcrumb: "应用管理 > 企业内部应用可使用范围变更"
+doc_id: "uTlebKlKis"
+updated_at: "2022-01-19 19:29:22"
+---
+
+> Source: https://open.dingtalk.com/document/development/enterprise-self-built-applications-can-be-used-to-change-the-scope
+> Path: 应用开发 / 事件订阅 / 应用管理 > 企业内部应用可使用范围变更
+> Updated: 2022-01-19 19:29:22
+
+# 企业内部应用可使用范围变更
+
+## 事件信息
+
+| 名称 | 值 |
+| --- | --- |
+| 中文名称 | 企业内部应用可使用范围变更 |
+| 英文名称 | inner\_app\_scopes\_change |
+
+## 功能描述
+
+当开发者对企业内部应用进行可使用范围变更时，推送事件相关数据。
+
+## 支持应用类型
+
+| 应用类型 | Stream模式推送 | HTTP推送 | SyncHTTP/RDS推送 |
+| --- | --- | --- | --- |
+| 企业内部应用 | 支持 | 支持 | 不支持 |
+
+## 事件体描述
+
+Stream模式推送
+
+### **事件体示例**
+
+```
+{
+  "eventUnifiedAppId": "bbb381b6-f01xxxxx58daac",
+  "eventCorpId": "ding9f50b15bxxxx16741",
+  "eventType": "inner_app_scopes_change",
+  "eventId": "c7c7120f2c07419**ebdba0318c8",
+  "eventBornTime": 1683533823336,
+  "data": {
+    "eventId": "4d1***de",
+    "roleIds": [
+      1
+    ],
+    "userIds": [
+      "managerxx"
+    ],
+    "operatorUnionId": "RHC***xxx",
+    "deptIds": [
+      1
+    ],
+    "unifiedAppId": "7f1***7bc"
+  }
+}
+```
+
+HTTP推送
+
+### **事件体示例**
+
+```
+{
+  "EventType": "inner_app_scopes_change",
+  "EventTime": 1663143335567,
+  "CorpId": "ding9f50b15bxxxx16741",
+  "BizId": "1663**35567",
+  "eventId": "4d1***de",
+  "roleIds": [
+    1
+  ],
+  "userIds": [
+    "managerxx"
+  ],
+  "operatorUnionId": "RHC***xxx",
+  "deptIds": [
+    1
+  ],
+  "unifiedAppId": "7f1***7bc"
+}
+```

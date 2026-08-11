@@ -1,0 +1,43 @@
+---
+title: "Android登录SDK合规指南"
+source_url: "https://open.dingtalk.com/document/dingstart/mini-app-android-login-sdk-compliance-guide"
+namespace: "dingstart"
+slug: "mini-app-android-login-sdk-compliance-guide"
+group: "应用开发"
+tab: "开发指南"
+breadcrumb: "接入移动客户端 > 接入钉钉登录 > 合规指南 > Android登录SDK合规指南"
+doc_id: "GErJisOzyu"
+updated_at: "2025-09-03 15:55:50"
+---
+
+> Source: https://open.dingtalk.com/document/dingstart/mini-app-android-login-sdk-compliance-guide
+> Path: 应用开发 / 开发指南 / 接入移动客户端 > 接入钉钉登录 > 合规指南 > Android登录SDK合规指南
+> Updated: 2025-09-03 15:55:50
+
+# Android登录SDK合规指南
+
+## **概述**
+
+钉钉科技有限公司（注册地址/常用办公地址：浙江省杭州市余杭区五常街道文一西路969号3幢5层518室；联系方式：dingtalkteam@alibaba-inc.com；以下简称“钉钉”或“我们”）尊重并保护用户的隐私。本文将说明钉钉登录SDK（Android）将如何处理最终用户（以下可简称“您”）的个人信息。
+
+钉钉登录SDK（Android）适用于开发者在其App应用中集成钉钉登录功能。开发者的App调用本SDK，可以让最终用户在开发者的App内使用钉钉账号快速登录。
+
+如果开发者目前暂未获取最终用户关于本服务下所需个人信息的授权同意，请不要接入本SDK服务。
+
+## **我们如何收集和使用个人信息**
+
+第三方应用集成钉钉登录SDK（Android）提供上述服务的过程中，我们不会通过第三方应用收集最终用户的个人数据信息。
+
+## **开发者合规指南**
+
+由于钉钉登录SDK（Android）与最终用户无直接的交互对话界面，开发者应当根据适用的法律、法规和监管要求，保证我们可以合法地处理最终用户的相关个人信息。建议开发者在集成本SDK，使用或者计划使用本SDK的服务时，满足以下条件：
+
+1. A**pp首先需制定一份《隐私政策》**，并确保在产品界面中**显著展示**。《隐私政策》须**单独成文**，而不是作为用户协议、用户说明等文件中的一部分存在。App应在《隐私政策》中**明示收集使用个人信息的目的、方式和范围**，并确保《隐私政策》链接**正常有效，易于访问和阅读。**
+2. 应当在应用的显著位置或以其他可触达最终用户的方式告知最终用户（包括但不限于：SDK提供方名称、收集的个人信息类型、使用目的、最终用户可浏览本隐私说明的链接），确保最终用户可以阅读并理解本 SDK 服务的信息收集状况，便于最终用户做出适当的选择。开发者可以参考如下方式提供条款内容：
+
+   - 第三方SDK名称：钉钉登录SDK（Android）
+   - 第三方名称：钉钉科技有限公司
+   - 功能：支持用户使用钉钉账号快速登录
+   - 收集的个人信息类型：无
+   - SDK相关隐私政策链接：[隐私政策](https://terms.alicdn.com/legal-agreement/terms/privacy_policy_full/20230516190209936/20230516190209936.html)
+3. 您应确保在App首次运行时通过明显方式提示最终用户阅读您的《隐私政策》，并取得最终用户的合法授权后，再初始化SDK进行信息收集与处理。如果最终用户不同意您的隐私政策，则不能初始化各项处理个人信息的SDK，也无法使用相应SDK对应功能。
