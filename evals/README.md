@@ -9,7 +9,7 @@
 | `questions.jsonl` | 36 题。`set=core`（12 题，带库内 key_points 与 ref_docs，可精确判卷）+ `set=extended`（24 题，仅问题与参考难度）。`ref_grade` 是当时线上另一套助理的人工分级（A准确完整/B基本可用/C部分偏差/D未有效回答），作难度参照，不是标准答案 |
 | `run_opencode.sh` | 用 opencode 逐题答题 → `runs/<日期>/`。含三条踩坑经验（前台管道/--pure/cwd=库根），换其它 Agent CLI 时同理 |
 | `judge_prompt.md` | 判卷提示词模板 + 历史教训 |
-| `runs/` | 各轮回答与判卷留档（gitignore 掉大文件也可以，成绩摘要建议入库） |
+| `runs/` | 各轮回答与判卷的本地留档（已 gitignore，不入库；每轮成绩摘要写进 RESULTS.md 入库） |
 | `RESULTS.md` | 各轮成绩摘要（日期/被测组合/评级分布/主要失败模式/由此做的修改） |
 
 ## 脱敏口径
