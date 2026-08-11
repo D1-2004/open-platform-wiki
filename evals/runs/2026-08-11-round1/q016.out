@@ -1,0 +1,39 @@
+"主部门"不是独立接口，是用户的一个属性字段。根据你的场景，分**查询**和**修改**两种路径：
+
+---
+
+### 查询用户主部门
+
+**接口：查询用户详情**  
+`POST https://oapi.dingtalk.com/topapi/v2/user/get`  
+权限：`成员信息读权限`  
+返回的 `dept_id_list` 字段第一个即为该用户的主部门ID。
+
+**接口：获取部门用户详情**  
+`POST https://oapi.dingtalk.com/topapi/v2/user/list`  
+权限：`通讯录部门成员读权限`  
+分页获取某部门下所有用户，返回同样含 `dept_id_list`。
+
+---
+
+### 修改用户主部门
+
+**方式一：更新用户信息**（适合普通场景）  
+`POST https://oapi.dingtalk.com/topapi/v2/user/update`  
+权限：`通讯录数据管理权限`  
+修改 `dept_id_list` 参数，列表第一个部门即为主部门。
+
+**方式二：智能人事员工调岗**（推荐，当企业启用了智能人事时）  
+`POST https://api.dingtalk.com/v1.0/hrm/processes/transfer`  
+权限：`智能人事流程读写权限`  
+通过 `mainDeptIdAfterTransfer` 参数**直接指定**主部门ID。
+
+> **注意**：如果企业已升级智能人事的职位管理功能，通讯录的"更新用户信息"接口会报错，此时必须走"智能人事员工调岗"接口来修改部门/主部门。
+
+---
+
+**参考文档：**
+- [查询用户详情](https://open.dingtalk.com/document/development/query-user-details)
+- [更新用户信息](https://open.dingtalk.com/document/development/user-information-update)
+- [智能人事员工调岗](https://open.dingtalk.com/document/development/intelligent-personnel-staff-transfer)
+- [获取部门用户详情](https://open.dingtalk.com/document/development/queries-the-complete-information-of-a-department-user)

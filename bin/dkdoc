@@ -72,7 +72,8 @@ def cmd_find(terms, n):
     for d in docs:
         title = d["title"].lower()
         crumb = " ".join(d.get("breadcrumb") or []).lower()
-        rest = (" ".join(d.get("headings") or []) + " " + d.get("snippet", "")).lower()
+        rest = (" ".join(d.get("headings") or []) + " " + d.get("snippet", "") + " "
+                + d.get("slug", "") + " " + os.path.basename(d["local_path"])).lower()
         hay = " ".join((title, crumb, rest))
         if not all(t in hay for t in tl):
             continue
@@ -140,8 +141,8 @@ def cmd_event(terms, n):
         print(f"  {r['doc_path']}")
         print(f"  {r['source_url']}")
     if not rows:
-        print(f"事件表无命中（178 篇事件文档无标识未入表）。试 dkdoc find {' '.join(terms)} 事件")
-        return 1
+        print(f"事件表无命中（178 篇事件文档无标识未入表），自动全文兜底 dkdoc grep '{terms[0]}' :")
+        return cmd_grep([terms[0]], n)
     return 0
 
 
@@ -155,8 +156,17 @@ def cmd_perm(terms, n):
         for a in r.get("current_apis", [])[:n]:
             print(f"  {a['title']} · {a.get('endpoint','')} · {a['doc_path']}")
     if not hits:
-        print(f"权限表无命中。试 dkdoc grep '{q}'")
-        return 1
+        if "." in q:
+            prefix = q.rsplit(".", 1)[0].lower() + "."
+            sib = [r for r in rows if r["permission_scope"].lower().startswith(prefix)]
+            if sib:
+                print(f"权限点 {q} 未收录；同前缀最接近的兄弟权限点（非精确命中，官方名以线上为准）：")
+                for r in sib[:n]:
+                    apis = r.get("current_apis") or []
+                    hint = f" · 如 {apis[0]['title']} {apis[0]['doc_path']}" if apis else ""
+                    print(f"  {r['permission_scope']} · 覆盖 {r['api_count']} 个接口{hint}")
+        print(f"权限表无精确命中（表只收服务端 API 文档「权限要求」行，未必全），自动全文兜底 dkdoc grep '{q}' :")
+        return cmd_grep([q], n)
     return 0
 
 

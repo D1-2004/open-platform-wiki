@@ -1,0 +1,11 @@
+**media_id 无有效期限制，不会过期。**
+
+根据官方文档说明：
+
+> 本功能文件的存储有效期无限制，通常钉钉组织没有解散，上传文件返回的 media_id 可以一直使用。
+
+另外，media_id 是可复用的，同一个 media_id 可以多次使用。媒体文件存储在钉钉提供给组织的特定存储空间，不占用钉盘空间。
+
+参考文档：
+- https://open.dingtalk.com/document/development/apsara-file-storage-for-hdfs-overview
+- https://open.dingtalk.com/document/development/upload-media-files

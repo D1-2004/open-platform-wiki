@@ -1,0 +1,16 @@
+核心原因在通讯录概述文档中有明确说明：
+
+> **工号对应的字段编码是 job_number，企业内员工的工号可以不唯一，所以不能作为员工在企业内的唯一标识。**
+
+—— `docs/01-应用开发/02-4a8AMF6u2A-服务端API/0047-contacts-overview.md:241`
+
+具体来说：
+
+1. **userId 才是钉钉内唯一标识**，所有新版 API 都以此作为用户标识。
+2. **工号是非必填、可不唯一的字段**（长度 0~64 字符），管理员在后台可选填。
+3. 你们某些环境用到工号，通常是**历史原因**：早期 JSAPI（如 `ding-1.0`、选人组件、H5 免登等）传参用的就是工号而非 userId，旧版接口的响应字段也直接把工号标为"用户标识"。这些旧接口至今仍有环境在用，就会看到工号。
+
+建议统一迁移到 userId，通过[根据手机号查询用户](https://open.dingtalk.com/document/development/query-users-by-phone-number)或[根据unionid获取userid](https://open.dingtalk.com/document/development/query-a-user-by-the-union-id)做映射转换。
+
+**参考文档：**
+- https://open.dingtalk.com/document/development/contacts-overview（名词解释 > 工号）

@@ -1,0 +1,23 @@
+通过以下接口，使用 `chatId` 换取 `openConversationId`：
+
+**接口**：`POST /v1.0/im/chat/{chatId}/convertToOpenConversationId`
+
+**说明**：如果在调用[创建群](https://open.dingtalk.com/document/development/create-group-session)接口时没有保存 `openConversationId`，可通过本接口用 `chatId` 获取。
+
+**要求**：
+- 支持应用类型：企业内部应用
+- 权限点：`qyapi_chat_read`（钉钉群基础信息读权限）
+- 请求头：`x-acs-dingtalk-access-token`（企业内部应用的 accessToken）
+
+**路径参数**：
+- `chatId` — 群会话 chatId（可从创建群接口的返回值获取）
+
+**响应示例**：
+
+```json
+{
+  "openConversationId": "cidl1B8RVUFmkO50OC9uEbySQ=="
+}
+```
+
+参考文档：https://open.dingtalk.com/document/development/obtain-group-openconversationid

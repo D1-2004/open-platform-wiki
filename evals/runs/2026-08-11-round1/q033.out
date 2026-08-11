@@ -1,0 +1,11 @@
+基于对当前知识库（2026-07-07 快照）的检索，**"7.0样式"与"8.0样式"的概念在本快照中未被覆盖**。卡片模板相关文档中未出现这两种样式的区分描述或切换方式。
+
+不过，结合库内现有文档与你问题可能指向的方向：
+
+1. **卡片搭建平台有两个版本**：
+   - **普通版**（`card.dingtalk.com/card-builder`）→ 文档见[互动卡片普通版搭建平台](https://open.dingtalk.com/document/download/ding-card-interactive-card-building-platform-new)
+   - **高级版**（`open-dev.dingtalk.com/fe/card`）→ 使用[卡片模板搭建器](https://open.dingtalk.com/document/development/card-template-overview)
+
+2. **模拟器中可设置客户端版本号**来预览不同版本下的渲染效果（[模拟器文档](https://open.dingtalk.com/document/development/simulator)），但这仅用于开发预览。
+
+建议到线上文档中心搜索"卡片 7.0 样式"或"卡片 8.0 样式"获取最新信息。如果你能更具体描述（比如是在搭建器界面里看到的选项，还是某个接口参数），我可以进一步帮你在库内定位。

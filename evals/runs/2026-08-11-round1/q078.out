@@ -1,0 +1,69 @@
+基于知识库中的文档，定位到根因如下：
+
+## 原因分析
+
+**你很可能使用的是新版 JSAPI `dd.uploadAttachmentToDingTalk`**，官方文档明确标注：
+
+| | Android | iOS | Mac | Windows |
+|---|---|---|---|---|
+| 网页应用(H5) | 支持 | 支持 | **不支持** | **不支持** |
+
+PC端（Mac/Windows）不支持此API，调用后可能返回各种不可预期的错误（包括"文件已删除或不存在"）。
+
+---
+
+## 解决方案
+
+### 方案一：换用旧版 API（已归档，但PC端支持）
+
+旧版 `dd.biz.util.uploadAttachment` 在PC端是支持的，但调用时注意**去掉PC端不支持的参数**：
+
+```javascript
+// PC端不支持 folderId、isCopy、camera，需要做平台判断
+const isPC = /* 根据 UA 判断 DingTalkPC */;
+
+let params = {
+  types: isPC ? ["photo", "file", "space"] : ["photo", "camera", "file", "space"],
+  image: { multiple: true, compress: false, max: 9, spaceId: "xxx" },
+  file: { spaceId: "xxx", max: 1 },
+  space: { corpId: "xxx", spaceId: "xxx", max: 9 },
+  onSuccess: (res) => { /* ... */ },
+  onFail: (err) => { /* ... */ }
+};
+
+// folderId 只支持 Android/iOS，PC端不要传
+if (!isPC) {
+  params.image.folderId = "123";
+  params.file.folderId = "123";
+  params.space.folderId = "123";
+}
+
+dd.biz.util.uploadAttachment(params);
+```
+
+### 方案二：在PC端降级为原生 `<input type="file">`
+
+新版 `uploadAttachmentToDingTalk` 完全不支持PC端，旧版也属于归档接口。更稳妥的做法是判断环境，PC端用原生文件选择 + 服务端上传：
+
+```javascript
+if (isPC) {
+  // PC端降级：用 input 选择文件 + 后端接口上传到钉盘
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    // 调用服务端API上传到钉盘
+  };
+  input.click();
+} else {
+  dd.uploadAttachmentToDingTalk({ /* 移动端参数 */ });
+}
+```
+
+---
+
+## 参考文档
+
+- [uploadAttachmentToDingTalk](https://open.dingtalk.com/document/development/jsapi-upload-attachment-to-ding-talk) — 新版（PC不支持）
+- [上传附件到钉盘/从钉盘选择文件 (H5)](https://open.dingtalk.com/document/development/upload-attachment-to-nail-plate-select-file-from-nail-plate-h5) — ⚠已归档旧版（PC支持但有限制）
+- [H5微应用JSAPI总览](https://open.dingtalk.com/document/development/jsapi-overview-1) — PC端各API支持情况速查表

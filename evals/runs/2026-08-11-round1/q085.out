@@ -1,0 +1,22 @@
+`bpms_task_change` 转交事件的 `staffId` **不是被转交人**，而是执行转交操作的人。
+
+查看事件文档（`0353-oa-approval-event.md`）中 `biz_type=246` 字段说明：
+
+> **staffId** — 当前任务的审批人userId，或 **操作转交动作的用户userId**
+
+要获取被转交人，有两种方式：
+
+### 方式一：监听后续任务开始事件（推荐）
+
+转交后，钉钉会为被转交人创建一个新任务，并触发另一条 `bpms_task_change` 事件，其中 `type: "start"`，**这条新事件的 `staffId` 就是被转交人的 userId**。通过同一个 `processInstanceId` + `taskId` 关联前后两条事件。
+
+### 方式二：调用接口查询操作记录
+
+收到转交通知后，用 `processInstanceId` 调 [获取单个审批实例详情](https://open.dingtalk.com/document/development/obtains-the-details-of-a-single-approval-instance-pop) 接口，在返回的 `operateRecords` 中找 `type: "REDIRECT_TASK"` 的操作记录，里面包含被转交人信息。
+
+---
+
+**参考文档：**
+- [审批任务开始，结束，转交](https://open.dingtalk.com/document/development/event-bpms-task-change)（现行版事件文档）
+- [OA审批事件](https://open.dingtalk.com/document/development/oa-approval-event)（注意：标记为历史文档，但含有详细的字段说明）
+- [获取单个审批实例详情](https://open.dingtalk.com/document/development/obtains-the-details-of-a-single-approval-instance-pop)

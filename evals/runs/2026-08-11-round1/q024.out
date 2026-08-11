@@ -1,0 +1,13 @@
+`Document.Document.Read`（文档应用中文档读权限）在本快照中未直接收录（只找到同系列的 `Document.Document.Write`），但开通流程与所有权限一致：
+
+1. 登录 [开发者后台](https://open-dev.dingtalk.com/)，进入 **应用开发** → 点击目标应用
+2. 左侧点击 **权限管理**，搜索 `Document.Document.Read`
+3. 点击 **立即开通**
+
+如果搜索结果中找不到该权限点，说明它可能是非公开开放的敏感权限或你的企业尚未认证，需要联系钉钉技术支持申请。
+
+参考文档：
+- [添加接口调用权限](https://open.dingtalk.com/document/development/add-api-permission)
+- [应用使用敏感权限](https://open.dingtalk.com/document/development/use-sensitive-permissions)
+
+> 本快照日期 2026-07-07，该权限点未收录，建议以线上开发者后台实际显示的权限列表为准。
