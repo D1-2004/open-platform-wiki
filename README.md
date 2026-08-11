@@ -1,41 +1,81 @@
-# 钉钉开放平台 Wiki（Agent 优先）
+# open-platform-wiki
 
-钉钉开放平台文档中心的完整快照（2026-07-07 抓取，8 大类 / 26 子类 / 3781 篇 Markdown），加上为 Agent 文件系统检索设计的三级索引、类型化关系图谱和可持续的变更维护协议。**拿到这个文件夹即可开始技术答疑，无需联网、无需向量库。**
+钉钉开放平台文档中心的完整本地知识库——**拿到文件夹即可离线技术答疑**，无需联网、向量库或任何第三方依赖。
 
-**用法定位：外挂文件夹**。本目录不是 Agent 的工作区（cwd），而是挂给任意 Agent 的知识库。唯一接入方式就是一句话：
+| | |
+|---|---|
+| 内容 | 官方文档中心全量快照：8 大类 / 26 子类 / **3781 篇** Markdown |
+| 快照日期 | 2026-07-07（[meta/source_manifest.json](meta/source_manifest.json)） |
+| 检索设施 | 三级索引（107 文件）· 关系图谱（5 张边表，8124 条互链）· `dkdoc` 查询 CLI |
+| 维护方式 | 重爬 → 按 `doc_id` 对账 → 全量重建派生层 → lint（[ops/INGEST.md](ops/INGEST.md)） |
+| 使用定位 | **外挂文件夹**：不作为 Agent 工作区（cwd），挂给任意 Agent 使用 |
+
+## 快速开始
+
+把下面这句话交给任意 Agent：
 
 > 钉钉开放平台知识库在 `<本目录绝对路径>`，先读其中 AGENTS.md，再回答我的问题。
 
-Agent 读完 [AGENTS.md](AGENTS.md) 即掌握全部用法，包括随附的零依赖查询 CLI：`python3 <路径>/bin/dkdoc find|api|err|event|perm|links|cat|grep ...`（cwd 无关）。
+Agent 读完 [AGENTS.md](AGENTS.md) 即掌握全部用法。人类直接查也行：
 
-## 三层结构
+```bash
+python3 <路径>/bin/dkdoc find 免登 小程序       # 找文档
+python3 <路径>/bin/dkdoc api 创建群             # 查接口
+python3 <路径>/bin/dkdoc err invalidDept        # 查错误码（未命中自动全文兜底）
+python3 <路径>/bin/dkdoc cat <路径|slug>        # 读正文
+```
+
+## 目录结构
+
+```
+AGENTS.md                   Agent 操作手册：定位/最佳实践/找不到怎么办/ingest/维护  ← 入口
+bin/dkdoc                   查询 CLI：find/api/err/event/perm/links/cat/grep（python3 标准库）
+index/
+  INDEX.md                  L1 总索引：26 子类 + 一句话路由提示
+  <大类>/<子类>.md           L2 子类清单；>200 篇的大类目再按功能域拆 L3
+  TOPICS.md                 高频主题 → 权威文档直达（唯一人工维护的索引页）
+graph/
+  GRAPH.md                  图谱说明 + jq 查询配方
+  links.jsonl               文档互链 8124 条边；hubs.md 被引用 Top100 枢纽榜
+  api/event/errcode/permission.jsonl   接口/事件/错误码/权限点 四张实体表
+docs/                       3781 篇正文快照（每篇头部带 source_url/breadcrumb/updated_at）
+meta/                       documents.jsonl（逐篇元数据+sha256）· kb_manifest.jsonl（T0-T2/DROP 分层）
+                            tombstones.jsonl（下线留档）· source_manifest.json · UNAVAILABLE.md
+ops/
+  INGEST.md                 变更维护协议（原则/流程/决策表/验收清单）
+  changes/                  每次快照对账报告（变更日志）
+  scripts/                  爬虫 + 4 个生成器 + diff_snapshot + lint（全部幂等、cwd 无关）
+```
+
+## 设计：三层架构
+
+沿用 LLM Wiki 范式（原始层不可改 / 编译层脚本维护 / 认知层 LLM 策展），针对"上游可全量重爬"做了简化：
 
 | 层 | 位置 | 谁维护 | 纪律 |
 |---|---|---|---|
-| 原始层（事实源镜像） | `docs/` `meta/` | 爬虫（重跑快照整体换入） | 只读。以 `doc_id` 为稳定身份，删除留 tombstone |
-| 结构层（派生索引） | `index/`（除 TOPICS.md）`graph/` | 脚本全量重建 | 生成物勿手改，改了会被覆盖且 lint 报漂移 |
-| 认知层（人工策展） | `index/TOPICS.md` | 人 / LLM | 只收会饱和的高频主题，快照更新后复核 |
+| 原始层（上游镜像） | `docs/` `meta/` | 爬虫，快照整体换入 | 只读；`doc_id` 为稳定身份，删除写 tombstone |
+| 结构层（派生索引） | `index/`* `graph/`* | 脚本全量重建，从不增量修补 | 生成物勿手改，lint 会报漂移 |
+| 认知层（人工策展） | `index/TOPICS.md` 及各入口文件 | 人 / LLM | 只收会饱和的高频主题；快照更新后复核 |
 
-## 渐进式披露：从粗到细四条路
+<sub>* `index/TOPICS.md` 与 `graph/GRAPH.md` 属认知层，生成器不触碰。</sub>
 
-1. **高频主题**（多数答疑到此为止）→ [index/TOPICS.md](index/TOPICS.md)
-2. **精确实体**：接口名/错误码/事件名/权限点 → `graph/` 五张 JSONL 边表（[graph/GRAPH.md](graph/GRAPH.md) 有查询配方）
-3. **按领域浏览** → [index/INDEX.md](index/INDEX.md)（L1 总索引）→ 子类 L2 → 大类目按功能域拆的 L3
-4. **兜底全文检索** → `rg "关键词" docs/`
-
-## 目录
-
-```
-README.md AGENTS.md CLAUDE.md 入口与 Agent 协议（怎么用 + 怎么维护）
-bin/dkdoc                   查询 CLI：find/api/err/event/perm/links/cat/grep（python3 标准库，无依赖）
-index/                      L1 INDEX.md → L2 子类 → L3 功能域（107 个生成文件）+ TOPICS.md（认知层）
-graph/                      links/api/event/errcode/permission 五张边表 + hubs.md 枢纽榜 + GRAPH.md
-docs/                       3781 篇正文快照，每篇头部有 source_url/breadcrumb/updated_at 元数据
-meta/                       documents.jsonl（逐篇索引+sha256）kb_manifest.jsonl（答疑分层 T0/T1/T2/DROP）
-                            source_manifest.json（快照信息）tombstones.jsonl（下线留档）UNAVAILABLE.md
-ops/                        INGEST.md（变更维护协议）changes/（对账报告）scripts/（爬虫+全部生成器+lint）
-```
+检索采用**渐进式披露**：高频主题（TOPICS）→ 精确实体（graph 四表）→ 领域浏览（L1→L2→L3）→ 全文兜底（grep），多数问题在前两层解决。
 
 ## 维护
 
-快照会过时（抓取于 2026-07-07）。更新流程一页纸：[ops/INGEST.md](ops/INGEST.md)——重跑爬虫出新快照 → `diff_snapshot.py` 按 `doc_id` 对账（增/删/改/移清单）→ `--apply` 换入原始层并全量重建派生层 → 复核 TOPICS.md → `lint.py` 体检。所有脚本幂等，随时可全量重跑。
+```bash
+python3 ops/scripts/build_dingtalk_open_docs_kb.py <新快照目录>   # 1. 重爬
+python3 ops/scripts/diff_snapshot.py <新快照目录>                 # 2. 对账预览（增/删/改/移四张清单）
+python3 ops/scripts/diff_snapshot.py <新快照目录> --apply         # 3. 换层 + 全量重建 + lint
+#  4. 按报告复核 index/TOPICS.md（唯一需要 LLM 的步骤）
+#  5. git commit —— diff 天然暴露本次快照的全部增删改
+```
+
+完整协议（五条原则、变更决策表、新鲜度验收清单）见 [ops/INGEST.md](ops/INGEST.md)；日常体检 `python3 ops/scripts/lint.py`（7 项只读检查）。
+
+## 边界
+
+- 静态快照，时效止于 2026-07-07；时效敏感问题（计费/灰度/上线时间）以线上为准。
+- 源站 90MB 原始 HTML（`raw_html/`）未收编，需要时回源 dump 查转换边界。
+- 已知抓取盲区见 [meta/UNAVAILABLE.md](meta/UNAVAILABLE.md) 与 `meta/failures.json`（1 篇失败）。
+- 文档内容版权归钉钉官方；本仓库提供快照的组织方式、索引与工具。
