@@ -114,6 +114,9 @@ def cmd_err(terms, n):
     q = terms[0] if terms else ""
     rows = load_jsonl("graph/errcode.jsonl")
     exact = [r for r in rows if r["error_code"].lower() == q.lower()]
+    if not exact and q.isdigit():
+        # 旧版数字错误码被抽取器错位进 http_code 字段(旧式表格套新式列映射),按该字段精确补捞
+        exact = [r for r in rows if r.get("http_code") == q]
     hits = exact or [r for r in rows if all(
         t.lower() in (r["error_code"] + " " + r["message"] + " " + r.get("explanation", "")).lower() for t in terms)]
     for r in hits[:n]:
