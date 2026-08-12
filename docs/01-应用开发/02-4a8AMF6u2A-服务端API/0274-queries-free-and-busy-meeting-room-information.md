@@ -45,7 +45,7 @@ updated_at: "2025-09-11 21:02:47"
 
 | 名称 | 类型 | 是否必填 | 描述 |
 | --- | --- | --- | --- |
-| roomIds | Array of String | 是 | 待查询的会议室roomId列表，可调用[查询会议室列表](0433-check-the-meeting-room-list.md)接口获取，建议不超过5个。 |
+| roomIds | Array of String | 是 | 待查询的会议室roomId列表，可调用[查询会议室列表](0437-check-the-meeting-room-list.md)接口获取，建议不超过5个。 |
 | startTime | String | 是 | 查询开始时间，iso8601格式，例如：2022-07-29T14:55Z。 |
 | endTime | String | 是 | 查询结束时间，iso8601格式，例如：2022-07-29T14:55Z。 |
 

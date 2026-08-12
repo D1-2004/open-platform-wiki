@@ -48,7 +48,7 @@ updated_at: "2025-09-11 21:02:48"
 | 名称 | 类型 | 是否必填 | 描述 |
 | --- | --- | --- | --- |
 | meetingRoomsToAdd | Array | 是 | 需要预定的会议室roomId列表，一个日程最多添加5个会议室。 |
-| roomId | String | 否 | 需要预定的会议室roomId列表，可调用[查询会议室列表](0433-check-the-meeting-room-list.md)接口获取，一个日程最多添加5个会议室。 |
+| roomId | String | 否 | 需要预定的会议室roomId列表，可调用[查询会议室列表](0437-check-the-meeting-room-list.md)接口获取，一个日程最多添加5个会议室。 |
 
 ### 请求示例
 

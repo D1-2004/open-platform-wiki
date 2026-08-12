@@ -5,13 +5,13 @@ namespace: "development"
 slug: "group-session-add-persons"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "即时通讯 IM > 会话管理 > 群会话添加人员"
+breadcrumb: "即时通讯 > 会话管理 > 群会话添加人员"
 doc_id: "BED6iH4jfK"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/group-session-add-persons
-> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 会话管理 > 群会话添加人员
+> Path: 应用开发 / 事件订阅 / 即时通讯 > 会话管理 > 群会话添加人员
 > Updated: 2022-01-19 19:29:22
 
 # 群会话添加人员

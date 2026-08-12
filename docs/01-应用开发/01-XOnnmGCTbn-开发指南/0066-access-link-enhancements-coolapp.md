@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发链接增强酷应用 > 接入链接增强"
 doc_id: "0X83fPopqa"
-updated_at: "2026-06-29 15:23:52"
+updated_at: "2026-08-07 14:52:48"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/access-link-enhancements-coolapp
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发链接增强酷应用 > 接入链接增强
-> Updated: 2026-06-29 15:23:52
+> Updated: 2026-08-07 14:52:48
 
 # 接入链接增强
 
@@ -35,7 +35,7 @@ updated_at: "2026-06-29 15:23:52"
 
 ## **前提条件**
 
-- 已完成[创建酷应用](https://open.dingtalk.com/document/dingstart/create-coolapp)流程。
+- 已完成[创建酷应用](0007-create-application.md)流程。
 - 应用类型为企业内部应用或第三方企业应用。
 
 ## **操作步骤**
@@ -47,7 +47,7 @@ updated_at: "2026-06-29 15:23:52"
    | --- | --- |
    | 域名 | - **填写说明：**需要识别增强链接的域名。 - **填写示例：**`www.dingtalk.com`。 |
    | Path | - **填写说明：**请输入域名后面的完整路径（请勿携带参数）。 - **填写示例：**如链接是：https://www.dingtalk.com/test?id=123，则Path填写：`/test`，目前支持**完全匹配**和**正则匹配**两种。 |
-   | 选择卡片 | - **填写说明**：请输入链接转换后展示使用的卡片模板id。可以在[互动卡片高级版搭建平台](../../06-互动卡片/03-ukxqoQhFaf-互动卡片搭建平台/0012-card-building-platform.md)定义。 - **填写示例**：如`07d54d61-xxxx-xxxx-a3a0-a6071ba8a60a`。 |
+   | 选择卡片 | - **填写说明**：请输入链接转换后展示使用的卡片模板id。可以在[互动卡片高级版](../../05-互动卡片/02-ukxqoQhFaf-搭建平台/0001-platform-building-overview.md#8ea07cac63f7j)定义。 - **填写示例**：如`07d54d61-xxxx-xxxx-a3a0-a6071ba8a60a`。 |
    | 卡片数据回调服务 | - **服务说明**：卡片数据回调服务用于在链接增强时请求开发者获取到需转换的链接对应的卡片模板和卡片数据，获取到的数据将用于卡片的渲染。 - **填写说明**：请输入获取卡片数据的业务回调服务地址，用于在链接转换时获取卡片的数据，HTTP接口必须支持POST请求方式，填写时请勿携带任何参数，请填写公网可访问的地址。 - **填写示例**: `https://dingtalk.com/unfurling/callback`。 |
    | 卡片数据回调Secret | - **填写说明**：请输入16位固定长度的自定义的字符长串，用于钉钉调用卡片数据业务回调的请求签名验证。 - **填写示例**：`asfghhesfsfghxxh`。 |
 3. 单击保存，完成链接增强配置信息。
@@ -73,7 +73,7 @@ updated_at: "2026-06-29 15:23:52"
       | >singleChatAnotherUserId | String | 否 | - 如果会话是单聊，表示单聊对方在企业内的员工userId； - 如果会话是群聊，此字段为空。 |
       | corpId | String | 是 | 发送人或群所在的企业CorpId。 |
       | userId | String | 是 | 发送人在企业内的员工userId。 |
-   2. 业务方解析url等参数，并自行调用[创建卡片](../02-4a8AMF6u2A-服务端API/0778-interface-for-creating-a-card-instance.md)接口创建卡片实例（注意卡片创建者的userId在此场景需要必填，否则发送者自己可能看不到卡片）。
+   2. 业务方解析url等参数，并自行调用[创建卡片](../02-4a8AMF6u2A-服务端API/0780-interface-for-creating-a-card-instance.md)接口创建卡片实例（注意卡片创建者的userId在此场景需要必填，否则发送者自己可能看不到卡片）。
    3. 业务方响应钉钉侧数据结构（出参）：
 
       ```
@@ -138,7 +138,7 @@ updated_at: "2026-06-29 15:23:52"
    答：发布后会在企业内部群、以及双方共同组织包含开发者所在企业的单聊中生效
 2. 如何实现千人千面，同一个卡片针对不同的人返回不同的数据?
 
-   答：可以接入卡片的[动态数据源](../../06-互动卡片/01-N4KJ5HbqnQ-开发指南/0008-dynamic-data-source.md)能力。
+   答：可以接入卡片的[动态数据源](../../05-互动卡片/01-N4KJ5HbqnQ-开发指南/0008-dynamic-data-source.md)能力。
 3. 回调接口的超时时间是多少？
 
    答：回调接口的超时时间为3秒。

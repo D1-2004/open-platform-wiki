@@ -7,32 +7,16 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "考勤 > 考勤排班 > 查询成员排班信息"
 doc_id: "zPTYTKGX9C"
-updated_at: "2026-05-27 17:06:05"
+updated_at: "2026-07-08 14:13:46"
 ---
 
 > Source: https://open.dingtalk.com/document/development/query-scheduling-for-a-day
 > Path: 应用开发 / 服务端API / 考勤 > 考勤排班 > 查询成员排班信息
-> Updated: 2026-05-27 17:06:05
+> Updated: 2026-07-08 14:13:46
 
 # 查询成员排班信息
 
 调用本接口，查询某人在某日的排班相关信息。
-
-## 权限
-
-服务端API是以应用维度授权的，在调用接口前，确保已经为应用添加了接口权限。
-
-| 应用类型 | 是否支持调用 | 权限申请方式 | API Explorer调试 |
-| --- | --- | --- | --- |
-| 企业内部应用 | 是 | 考勤组查询权限 | [调试](https://open-dev.dingtalk.com/apiExplorer#/?devType=org&api=dingtalk.oapi.attendance.schedule.listbyday) |
-| 第三方企业应用 | 是 | 考勤组查询权限 | [调试](https://open-dev.dingtalk.com/apiExplorer#/?devType=isv&api=dingtalk.oapi.attendance.schedule.listbyday) |
-| 第三方个人应用 | 否 | — | — |
-
-## 基本信息
-
-**请求方式**：POST
-
-**请求地址**：
 
 ## **请求**
 
@@ -47,7 +31,7 @@ updated_at: "2026-05-27 17:06:05"
 
 | 名称 | 类型 | 是否必填 | 示例值 | 描述 |
 | --- | --- | --- | --- | --- |
-| access\_token | String | 是 | bE74xxxx | 调用该API的应用凭证。   - 企业内部应用，通过[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)接口获取。 - 第三方企业应用，通过[获取第三方企业的access\_token](1422-obtain-isvapp-token.md)接口获取。 |
+| access\_token | String | 是 | bE74xxxx | 调用该API的应用凭证。   - 企业内部应用，通过[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)接口获取。 - 第三方企业应用，通过[获取第三方企业的access\_token](1445-obtain-isvapp-token.md)接口获取。 |
 
 ### **请求体**
 

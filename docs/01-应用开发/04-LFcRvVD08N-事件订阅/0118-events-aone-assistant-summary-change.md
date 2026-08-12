@@ -5,13 +5,13 @@ namespace: "development"
 slug: "events-aone-assistant-summary-change"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "DingTalk A1 > DingTalkA1小助理总结完成事件"
+breadcrumb: "智能硬件 > DingTalk A1 > DingTalkA1小助理总结完成事件"
 doc_id: "Neg0hWN3QK"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/events-aone-assistant-summary-change
-> Path: 应用开发 / 事件订阅 / DingTalk A1 > DingTalkA1小助理总结完成事件
+> Path: 应用开发 / 事件订阅 / 智能硬件 > DingTalk A1 > DingTalkA1小助理总结完成事件
 > Updated: 2022-01-19 19:29:22
 
 # DingTalkA1小助理总结完成事件

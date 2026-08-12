@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "通讯录管理 > 获取用户通讯录个人信息"
 doc_id: "GGQJ9psxRr"
-updated_at: "2026-05-26 08:59:14"
+updated_at: "2026-07-30 10:02:44"
 ---
 
 > Source: https://open.dingtalk.com/document/development/dingtalk-retrieve-user-information
 > Path: 应用开发 / 服务端API / 通讯录管理 > 获取用户通讯录个人信息
-> Updated: 2026-05-26 08:59:14
+> Updated: 2026-07-30 10:02:44
 
 # 获取用户通讯录个人信息
 
@@ -37,7 +37,7 @@ updated_at: "2026-05-26 08:59:14"
 | --- | --- | --- | --- |
 | x-acs-dingtalk-access-token | String | 是 | 调用服务端接口的授权凭证。使用个人用户的accessToken，请参考[获取登录用户的访问凭证](0029-obtain-identity-credentials.md)。 |
 
-### **Path参数**
+### **路径参数**
 
 | 名称 | 类型 | 是否必填 | 描述 |
 | --- | --- | --- | --- |

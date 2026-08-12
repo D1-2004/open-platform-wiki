@@ -31,7 +31,7 @@ updated_at: "2026-05-27 13:09:03"
 
 | 名称 | 类型 | 是否必填 | 示例值 | 描述 |
 | --- | --- | --- | --- | --- |
-| access\_token | String | 是 | BE3xxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)接口获取。 |
+| access\_token | String | 是 | BE3xxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)接口获取。 |
 
 ### **请求体**
 
@@ -64,7 +64,7 @@ updated_at: "2026-05-27 13:09:03"
 | hired\_date | Number | 否 | 1597573616828 | 入职时间，Unix时间戳，单位毫秒。 |
 | manager\_userid | String | 否 | 001 | 直属主管的userId。 |
 | exclusive\_mobile | String | 否 | +86-13412341234 | 企业账号手机号。  **[!NOTE]**  仅适用于企业账号。 |
-| avatarMediaId | String | 否 | @lALPDfmVUw19YdrNA-jNA-g | 创建本组织企业账号时可指定头像MediaId，只支持jpg/png。  可调用[上传媒体文件](0644-upload-media-files.md)接口获取。  **[!NOTE]**  仅适用于企业账号。 |
+| avatarMediaId | String | 否 | @lALPDfmVUw19YdrNA-jNA-g | 创建本组织企业账号时可指定头像MediaId，只支持jpg/png。  可调用[上传媒体文件](0646-upload-media-files.md)接口获取。  **[!NOTE]**  仅适用于企业账号。 |
 | nickname | String | 否 | 昵称 | 创建本组织企业账号时可指定昵称。  **[!NOTE]**  仅适用于企业账号。 |
 
 ### **请求示例**

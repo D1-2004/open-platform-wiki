@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "客户端JSAPI"
 breadcrumb: "版本对比与迁移"
 doc_id: "iqQUVizgyp"
-updated_at: "2026-05-22 17:53:58"
+updated_at: "2026-07-22 16:25:06"
 ---
 
 > Source: https://open.dingtalk.com/document/development/comparison--client-apis
 > Path: 应用开发 / 客户端JSAPI / 版本对比与迁移
-> Updated: 2026-05-22 17:53:58
+> Updated: 2026-07-22 16:25:06
 
 # 版本对比与迁移
 
@@ -136,33 +136,33 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **类目** | **新版客户端API** | **旧版客户端API** |
 | --- | --- | --- |
-| **地图** | [chooseDistrict](https://open.dingtalk.com/document/orgapp/jsapi-choose-district) | biz.util.chooseRegion |
-| **导航栏** | [setNavigationTitle](https://open.dingtalk.com/document/orgapp/jsapi-set-navigation-title) | biz.navigation.setTitle |
-| [setNavigationIcon](https://open.dingtalk.com/document/orgapp/jsapi-set-navigation-icon) | biz.navigation.setIcon |
-| [setNavigationLeft](https://open.dingtalk.com/document/orgapp/jsapi-set-navigation-left) | biz.navigation.setLeft |
-| [goBackPage](https://open.dingtalk.com/document/orgapp/jsapi-go-back-page) | biz.navigation.goBack |
-| [replacePage](https://open.dingtalk.com/document/orgapp/jsapi-replace-page) | biz.navigation.replace |
-| [closePage](https://open.dingtalk.com/document/orgapp/jsapi-close-page) | biz.navigation.close |
-| [quitPage](https://open.dingtalk.com/document/orgapp/jsapi-quit-page) | biz.navigation.quit |
-| **交互反馈** | [alert](https://open.dingtalk.com/document/orgapp/jsapi-alert) | device.notification.alert |
-| [confirm](https://open.dingtalk.com/document/orgapp/jsapi-confirm) | device.notification.confirm |
-| [showToast](https://open.dingtalk.com/document/orgapp/jsapi-show-toast) | device.notification.toast |
-| [hideLoading](https://open.dingtalk.com/document/orgapp/jsapi-hide-loading) | device.notification.hidePreloader |
-| [hideToast](https://open.dingtalk.com/document/orgapp/jsapi-hide-toast) | device.notification.hideToast |
-| [showLoading](https://open.dingtalk.com/document/orgapp/jsapi-show-loading) | device.notification.showPreloader |
-| [showActionSheet](https://open.dingtalk.com/document/orgapp/jsapi-show-action-sheet) | device.notification.actionSheet |
-| [showModal](https://open.dingtalk.com/document/orgapp/jsapi-show-modal) | device.notification.extendModal |
-| [prompt](https://open.dingtalk.com/document/orgapp/jsapi-prompt) | device.notification.prompt |
-| **选择日期** | [datePicker](https://open.dingtalk.com/document/orgapp/jsapi-date-picker) | biz.util.datetimepicker |
-| [dateRangePicker](https://open.dingtalk.com/document/orgapp/jsapi-date-range-picker) | biz.calendar.chooseInterval |
-| [timePicker](https://open.dingtalk.com/document/orgapp/jsapi-time-picker) | biz.util.timepicker |
-| [chooseDateTime](https://open.dingtalk.com/document/orgapp/jsapi-choose-date-time) | biz.calendar.chooseDateTime |
-| [chooseOneDayInCalendar](https://open.dingtalk.com/document/orgapp/jsapi-choose-one-day-in-calendar) | biz.calendar.chooseOneDay |
-| [chooseHalfDayInCalendar](https://open.dingtalk.com/document/orgapp/jsapi-choose-half-day-in-calendar) | biz.calendar.chooseHalfDay |
-| **下拉刷新** | [enablePullDownRefresh](https://open.dingtalk.com/document/orgapp/jsapi-enable-pull-down-refresh) | ui.pullToRefresh.enable |
-| [disablePullDownRefresh](https://open.dingtalk.com/document/orgapp/jsapi-disable-pull-down-refresh) | ui.pullToRefresh.disable |
-| **选项选择器** | [singleSelect](https://open.dingtalk.com/document/orgapp/jsapi-single-select) | biz.util.chosen |
-| [multiSelect](https://open.dingtalk.com/document/orgapp/jsapi-multi-select) | biz.util.multiSelect |
+| **地图** | [chooseDistrict](0131-jsapi-choose-district.md) | biz.util.chooseRegion |
+| **导航栏** | [setNavigationTitle](0047-jsapi-set-navigation-title.md) | biz.navigation.setTitle |
+| [setNavigationIcon](0046-jsapi-set-navigation-icon.md) | biz.navigation.setIcon |
+| [setNavigationLeft](0048-jsapi-set-navigation-left.md) | biz.navigation.setLeft |
+| [goBackPage](0042-jsapi-go-back-page.md) | biz.navigation.goBack |
+| [replacePage](0044-jsapi-replace-page.md) | biz.navigation.replace |
+| [closePage](0041-jsapi-close-page.md) | biz.navigation.close |
+| [quitPage](0043-jsapi-quit-page.md) | biz.navigation.quit |
+| **交互反馈** | [alert](0149-jsapi-alert.md) | device.notification.alert |
+| [confirm](0151-jsapi-confirm.md) | device.notification.confirm |
+| [showToast](0155-jsapi-show-toast.md) | device.notification.toast |
+| [hideLoading](0152-jsapi-hide-loading.md) | device.notification.hidePreloader |
+| [hideToast](0150-jsapi-hide-toast.md) | device.notification.hideToast |
+| [showLoading](0156-jsapi-show-loading.md) | device.notification.showPreloader |
+| [showActionSheet](0157-jsapi-show-action-sheet.md) | device.notification.actionSheet |
+| [showModal](0154-jsapi-show-modal.md) | device.notification.extendModal |
+| [prompt](0153-jsapi-prompt.md) | device.notification.prompt |
+| **选择日期** | [datePicker](0181-jsapi-date-picker.md) | biz.util.datetimepicker |
+| [dateRangePicker](0182-jsapi-date-range-picker.md) | biz.calendar.chooseInterval |
+| [timePicker](0183-jsapi-time-picker.md) | biz.util.timepicker |
+| [chooseDateTime](0178-jsapi-choose-date-time.md) | biz.calendar.chooseDateTime |
+| [chooseOneDayInCalendar](0179-jsapi-choose-one-day-in-calendar.md) | biz.calendar.chooseOneDay |
+| [chooseHalfDayInCalendar](0180-jsapi-choose-half-day-in-calendar.md) | biz.calendar.chooseHalfDay |
+| **下拉刷新** | [enablePullDownRefresh](0159-jsapi-enable-pull-down-refresh.md) | ui.pullToRefresh.enable |
+| [disablePullDownRefresh](0158-jsapi-disable-pull-down-refresh.md) | ui.pullToRefresh.disable |
+| **选项选择器** | [singleSelect](0185-jsapi-single-select.md) | biz.util.chosen |
+| [multiSelect](0184-jsapi-multi-select.md) | biz.util.multiSelect |
 
 #### **设备**
 
@@ -170,29 +170,29 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **类目** | **新版客户端API** | **旧版客户端API** |
 | --- | --- | --- |
-| **UUID** | [getDeviceUUID](https://open.dingtalk.com/document/orgapp/jsapi-get-device-uuid) | device.base.getUUID |
-| **NFC** | [writeNFC](https://open.dingtalk.com/document/orgapp/jsapi-write-nfc) | device.nfc.nfcWrite |
-| [readNFC](https://open.dingtalk.com/document/orgapp/jsapi-read-nfc) | device.nfc.nfcRead |
-| **振动** | [vibrate](https://open.dingtalk.com/document/orgapp/jsapi-vibrate) | device.notification.vibrate |
-| **扫码** | [scanCard](https://open.dingtalk.com/document/orgapp/jsapi-scan-card) | biz.util.scanCard |
-| **摇一摇** | [clearShake](https://open.dingtalk.com/document/orgapp/jsapi-clear-shake) | device.accelerometer.clearShake |
-| [watchShake](https://open.dingtalk.com/document/orgapp/jsapi-watch-shake) | device.accelerometer.watchShake |
-| **剪贴板** | [setClipboard](https://open.dingtalk.com/document/orgapp/jsapi-set-clipboard) | biz.clipboardData.setData |
-| **Wi-Fi** | [getWifiStatus](https://open.dingtalk.com/document/orgapp/jsapi-get-wifi-status) | device.base.getWifiStatus |
-| **屏幕亮度** | [setKeepScreenOn](https://open.dingtalk.com/document/orgapp/jsapi-set-keep-screen-on) | biz.util.setScreenKeepOn |
-| [setScreenBrightness](https://open.dingtalk.com/document/orgapp/jsapi-set-screen-brightness) | device.screen.setScreenBrightness |
-| **拨打电话** | [addPhoneContact](https://open.dingtalk.com/document/orgapp/jsapi-add-phone-contact) | biz.phoneContact.add |
-| **设备电量** | [getBatteryInfo](https://open.dingtalk.com/document/orgapp/jsapi-get-battery-info) | device.base.getBatteryInfo |
-| **网络状态** | [getNetworkType](https://open.dingtalk.com/document/orgapp/jsapi-get-network-type) | device.connection.getNetworkType |
-| [getWifiHotspotStatus](https://open.dingtalk.com/document/orgapp/jsapi-get-wifi-hotspot-status) | device.base.getInterface |
-| **系统信息** | [getSystemInfo](https://open.dingtalk.com/document/orgapp/jsapi-get-system-info) | device.base.getPhoneInfo |
-| [rsa](https://open.dingtalk.com/document/orgapp/jsapi-rsa) | biz.data.rsa |
-| [showAuthGuide](https://open.dingtalk.com/document/orgapp/jsapi-show-auth-guide) | biz.util.showAuthGuide |
-| [checkAuth](https://open.dingtalk.com/document/orgapp/jsapi-check-auth) | biz.util.checkAuth |
-| [isScreenReaderEnabled](https://open.dingtalk.com/document/orgapp/jsapi-is-screen-reader-enabled) | device.screen.isScreenReaderEnabled |
-| [getSystemSettings](https://open.dingtalk.com/document/orgapp/jsapi-get-system-settings) | device.base.openSystemSetting |
-| **设备方向** | [resetScreenView](https://open.dingtalk.com/document/orgapp/jsapi-reset-screen-view) | device.screen.resetView |
-| [rotateScreenView](https://open.dingtalk.com/document/orgapp/jsapi-rotate-screen-view) | device.screen.rotateView |
+| **UUID** | [getDeviceUUID](0356-jsapi-get-device-uuid.md) | device.base.getUUID |
+| **NFC** | [writeNFC](0409-jsapi-write-nfc.md) | device.nfc.nfcWrite |
+| [readNFC](0408-jsapi-read-nfc.md#undefined) | device.nfc.nfcRead |
+| **振动** | [vibrate](0381-jsapi-vibrate.md) | device.notification.vibrate |
+| **扫码** | [scanCard](0407-jsapi-scan-card.md) | biz.util.scanCard |
+| **摇一摇** | [clearShake](0410-jsapi-clear-shake.md) | device.accelerometer.clearShake |
+| [watchShake](0411-jsapi-watch-shake.md) | device.accelerometer.watchShake |
+| **剪贴板** | [setClipboard](0380-jsapi-set-clipboard.md) | biz.clipboardData.setData |
+| **Wi-Fi** | [getWifiStatus](0368-jsapi-get-wifi-status.md) | device.base.getWifiStatus |
+| **屏幕亮度** | [setKeepScreenOn](0414-jsapi-set-keep-screen-on.md) | biz.util.setScreenKeepOn |
+| [setScreenBrightness](0413-jsapi-set-screen-brightness.md) | device.screen.setScreenBrightness |
+| **拨打电话** | [addPhoneContact](0416-jsapi-add-phone-contact.md) | biz.phoneContact.add |
+| **设备电量** | [getBatteryInfo](0415-jsapi-get-battery-info.md) | device.base.getBatteryInfo |
+| **网络状态** | [getNetworkType](0364-jsapi-get-network-type.md) | device.connection.getNetworkType |
+| [getWifiHotspotStatus](0365-jsapi-get-wifi-hotspot-status.md) | device.base.getInterface |
+| **系统信息** | [getSystemInfo](0358-jsapi-get-system-info.md) | device.base.getPhoneInfo |
+| [rsa](0362-jsapi-rsa.md) | biz.data.rsa |
+| [showAuthGuide](0363-jsapi-show-auth-guide.md) | biz.util.showAuthGuide |
+| [checkAuth](0357-jsapi-check-auth.md) | biz.util.checkAuth |
+| [isScreenReaderEnabled](0361-jsapi-is-screen-reader-enabled.md) | device.screen.isScreenReaderEnabled |
+| [getSystemSettings](0359-jsapi-get-system-settings.md) | device.base.openSystemSetting |
+| **设备方向** | [resetScreenView](0417-jsapi-reset-screen-view.md) | device.screen.resetView |
+| [rotateScreenView](0418-jsapi-rotate-screen-view.md) | device.screen.rotateView |
 
 #### **跳转**
 
@@ -200,16 +200,16 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [openLink](https://open.dingtalk.com/document/orgapp/jsapi-open-link) | biz.util.openLink |
-| [isInTabWindow](https://open.dingtalk.com/document/orgapp/jsapi-is-in-tab-window) | biz.tabwindow.isTab |
-| [getStorage](https://open.dingtalk.com/document/orgapp/jsapi-get-storage) | util.domainStorage.getItem |
-| [removeStorage](https://open.dingtalk.com/document/orgapp/jsapi-remove-storage) | util.domainStorage.removeItem |
-| [navigateBackPage](https://open.dingtalk.com/document/orgapp/jsapi-navigate-back-page) | biz.navigation.navigateBackPage |
-| [navigateToPage](https://open.dingtalk.com/document/orgapp/jsapi-navigate-to-page) | biz.navigation.navigateToPage |
-| [openMicroApp](https://open.dingtalk.com/document/orgapp/jsapi-open-micro-app) | biz.microApp.openApp |
-| [openPageInMicroApp](https://open.dingtalk.com/document/orgapp/jsapi-open-page-in-micro-app) | biz.util.open |
-| [openPageInWorkBenchForPC](https://open.dingtalk.com/document/orgapp/jsapi-open-page-in-work-bench-for-pc) | biz.util.invokeWorkbench |
-| [openPageInSlidePanelForPC](https://open.dingtalk.com/document/orgapp/jsapi-open-page-in-slide-panel-for-pc) | biz.util.openSlidePanel |
+| [openLink](0191-jsapi-open-link.md) | biz.util.openLink |
+| [isInTabWindow](0186-jsapi-is-in-tab-window.md) | biz.tabwindow.isTab |
+| [getStorage](0033-jsapi-get-storage.md) | util.domainStorage.getItem |
+| [removeStorage](0037-jsapi-remove-storage.md) | util.domainStorage.removeItem |
+| [navigateBackPage](0188-jsapi-navigate-back-page.md) | biz.navigation.navigateBackPage |
+| [navigateToPage](0187-jsapi-navigate-to-page.md) | biz.navigation.navigateToPage |
+| [openMicroApp](0192-jsapi-open-micro-app.md) | biz.microApp.openApp |
+| [openPageInMicroApp](0193-jsapi-open-page-in-micro-app.md) | biz.util.open |
+| [openPageInWorkBenchForPC](0196-jsapi-open-page-in-work-bench-for-pc.md) | biz.util.invokeWorkbench |
+| [openPageInSlidePanelForPC](0195-jsapi-open-page-in-slide-panel-for-pc.md) | biz.util.openSlidePanel |
 
 #### **多媒体**
 
@@ -217,18 +217,18 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **类目** | **新版客户端API** | **旧版客户端API** |
 | --- | --- | --- |
-| **图片** | [chooseImage](https://open.dingtalk.com/document/orgapp/jsapi-choose-image) | biz.util.chooseImage |
-| [previewImage](https://open.dingtalk.com/document/orgapp/jsapi-preview-image) | biz.util.previewImage |
-| **录音** | [translateVoice](https://open.dingtalk.com/document/orgapp/jsapi-translate-voice) | device.audio.translateVoice |
-| [onPlayAudioEnd](https://open.dingtalk.com/document/orgapp/jsapi-on-play-audio-end) | device.audio.onPlayEnd |
-| [onRecordEnd](https://open.dingtalk.com/document/orgapp/jsapi-on-record-end) | device.audio.onRecordEnd |
-| [downloadAudio](https://open.dingtalk.com/document/orgapp/jsapi-download-audio) | device.audio.download |
-| [resumeAudio](https://open.dingtalk.com/document/orgapp/jsapi-resume-audio) | device.audio.resume |
-| [pauseAudio](https://open.dingtalk.com/document/orgapp/jsapi-pause-audio) | device.audio.pause |
-| [stopAudio](https://open.dingtalk.com/document/orgapp/jsapi-stop-audio) | device.audio.stop |
-| [playAudio](https://open.dingtalk.com/document/orgapp/jsapi-play-audio) | device.audio.play |
-| [stopRecord](https://open.dingtalk.com/document/orgapp/jsapi-stop-record) | device.audio.stopRecord |
-| [startRecord](https://open.dingtalk.com/document/orgapp/jsapi-start-record) | device.audio.startRecord |
+| **图片** | [chooseImage](0205-jsapi-choose-image.md) | biz.util.chooseImage |
+| [previewImage](0209-jsapi-preview-image.md) | biz.util.previewImage |
+| **录音** | [translateVoice](0222-jsapi-translate-voice.md) | device.audio.translateVoice |
+| [onPlayAudioEnd](0215-jsapi-on-play-audio-end.md) | device.audio.onPlayEnd |
+| [onRecordEnd](0214-jsapi-on-record-end.md) | device.audio.onRecordEnd |
+| [downloadAudio](0213-jsapi-download-audio.md) | device.audio.download |
+| [resumeAudio](0218-jsapi-resume-audio.md) | device.audio.resume |
+| [pauseAudio](0217-jsapi-pause-audio.md) | device.audio.pause |
+| [stopAudio](0221-jsapi-stop-audio.md) | device.audio.stop |
+| [playAudio](0216-jsapi-play-audio.md) | device.audio.play |
+| [stopRecord](0219-jsapi-stop-record.md) | device.audio.stopRecord |
+| [startRecord](0220-jsapi-start-record.md) | device.audio.startRecord |
 
 #### **缓存**
 
@@ -236,9 +236,9 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [setStorage](https://open.dingtalk.com/document/orgapp/jsapi-set-storage) | util.domainStorage.setItem |
-| [getStorage](https://open.dingtalk.com/document/orgapp/jsapi-get-storage) | util.domainStorage.getItem |
-| [removeStorage](https://open.dingtalk.com/document/orgapp/jsapi-remove-storage) | util.domainStorage.removeItem |
+| [setStorage](0039-jsapi-set-storage.md) | util.domainStorage.setItem |
+| [getStorage](0033-jsapi-get-storage.md) | util.domainStorage.getItem |
+| [removeStorage](0037-jsapi-remove-storage.md) | util.domainStorage.removeItem |
 
 #### **位置**
 
@@ -246,13 +246,13 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [getLocation](https://open.dingtalk.com/document/orgapp/jsapi-get-location) | device.geolocation.get |
-| [openLocation](https://open.dingtalk.com/document/orgapp/jsapi-open-location) | biz.map.view |
-| [searchMap](https://open.dingtalk.com/document/orgapp/jsapi-search-map) | biz.map.search |
-| [locateInMap](https://open.dingtalk.com/document/orgapp/jsapi-locate-in-map) | biz.map.locate |
-| [getLocatingStatus](https://open.dingtalk.com/document/orgapp/jsapi-get-locating-status) | device.geolocation.status |
-| [stopLocating](https://open.dingtalk.com/document/orgapp/jsapi-stop-locating) | device.geolocation.stop |
-| [startLocating](https://open.dingtalk.com/document/orgapp/jsapi-start-locating) | device.geolocation.start |
+| [getLocation](0322-jsapi-get-location.md) | device.geolocation.get |
+| [openLocation](0325-jsapi-open-location.md) | biz.map.view |
+| [searchMap](0326-jsapi-search-map.md) | biz.map.search |
+| [locateInMap](0324-jsapi-locate-in-map.md) | biz.map.locate |
+| [getLocatingStatus](0323-jsapi-get-locating-status.md) | device.geolocation.status |
+| [stopLocating](0327-jsapi-stop-locating.md) | device.geolocation.stop |
+| [startLocating](0328-jsapi-start-locating.md) | device.geolocation.start |
 
 #### **网络**
 
@@ -260,7 +260,7 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **类目** | **新版客户端API** | **旧版客户端API** |
 | --- | --- | --- |
-| **上传下载** | [downloadFile](https://open.dingtalk.com/document/orgapp/jsapi-download-file) | biz.file.downloadFile |
+| **上传下载** | [downloadFile](0010-jsapi-download-file.md) | biz.file.downloadFile |
 
 #### **分享**
 
@@ -268,8 +268,8 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [share](https://open.dingtalk.com/document/orgapp/jsapi-share) | biz.util.share |
-| [showSharePanel](https://open.dingtalk.com/document/orgapp/jsapi-show-share-panel) | biz.util.showSharePanel |
+| [share](0198-jsapi-share.md) | biz.util.share |
+| [showSharePanel](0199-jsapi-show-share-panel.md) | biz.util.showSharePanel |
 
 #### **获取凭证**
 
@@ -277,8 +277,8 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [getAuthCode](https://open.dingtalk.com/document/orgapp/jsapi-get-auth-code) | runtime.permission.requestAuthCode |
-| [getOperateAuthCode](https://open.dingtalk.com/document/orgapp/jsapi-get-operate-auth-code) | runtime.permission.requestOperateAuthCode |
+| [getAuthCode](0005-jsapi-get-auth-code.md) | runtime.permission.requestAuthCode |
+| [getOperateAuthCode](0007-jsapi-get-operate-auth-code.md) | runtime.permission.requestOperateAuthCode |
 
 #### **会话管理**
 
@@ -286,10 +286,10 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [chooseChat](https://open.dingtalk.com/document/orgapp/jsapi-choose-chat) | biz.chat.chooseConversationByCorpId |
-| [openChatByChatId](https://open.dingtalk.com/document/orgapp/jsapi-open-chat-by-chat-id) | biz.chat.toConversation |
-| [openChatByUserId](https://open.dingtalk.com/document/orgapp/jsapi-open-chat-by-user-id) | biz.chat.openSingleChat |
-| [openChatByConversationId](https://open.dingtalk.com/document/orgapp/jsapi-open-chat-by-conversation-id) | biz.chat.toConversationByOpenConversationId |
+| [chooseChat](0318-jsapi-choose-chat.md) | biz.chat.chooseConversationByCorpId |
+| [openChatByChatId](0319-jsapi-open-chat-by-chat-id.md) | biz.chat.toConversation |
+| [openChatByUserId](0320-jsapi-open-chat-by-user-id.md) | biz.chat.openSingleChat |
+| [openChatByConversationId](0321-jsapi-open-chat-by-conversation-id.md) | biz.chat.toConversationByOpenConversationId |
 
 #### **通讯录**
 
@@ -297,13 +297,13 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [choosePhonebook](https://open.dingtalk.com/document/orgapp/jsapi-choose-phonebook) | biz.contact.chooseMobileContacts |
-| [complexChoose](https://open.dingtalk.com/document/orgapp/jsapi-complex-choose) | biz.contact.complexPicker |
-| [chooseDepartments](https://open.dingtalk.com/document/orgapp/jsapi-choose-departments) | biz.contact.departmentsPicker |
-| [chooseExternalUsers](https://open.dingtalk.com/document/orgapp/jsapi-choose-external-users) | biz.contact.externalComplexPicker |
-| [editExternalUser](https://open.dingtalk.com/document/orgapp/jsapi-edit-external-user) | biz.contact.externalEditForm |
-| [chooseUserFromList](https://open.dingtalk.com/document/orgapp/jsapi-choose-user-from-list) | chooseUserFromList |
-| [chooseStaffForPC](https://open.dingtalk.com/document/orgapp/jsapi-choose-staff-for-pc) | biz.contact.choose |
+| [choosePhonebook](0268-jsapi-choose-phonebook.md) | biz.contact.chooseMobileContacts |
+| [complexChoose](0266-jsapi-complex-choose.md) | biz.contact.complexPicker |
+| [chooseDepartments](0269-jsapi-choose-departments.md) | biz.contact.departmentsPicker |
+| [chooseExternalUsers](0271-jsapi-choose-external-users.md) | biz.contact.externalComplexPicker |
+| [editExternalUser](0272-jsapi-edit-external-user.md) | biz.contact.externalEditForm |
+| [chooseUserFromList](0270-jsapi-choose-user-from-list.md) | chooseUserFromList |
+| [chooseStaffForPC](0267-jsapi-choose-staff-for-pc.md) | biz.contact.choose |
 
 #### **DING**
 
@@ -311,8 +311,8 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [createDing](https://open.dingtalk.com/document/orgapp/jsapi-create-ding) | biz.ding.create |
-| [createDingForPC](https://open.dingtalk.com/document/orgapp/jsapi-create-ding-for-pc) | biz.ding.post |
+| [createDing](0264-jsapi-create-ding.md) | biz.ding.create |
+| [createDingForPC](0265-jsapi-create-ding-for-pc.md) | biz.ding.post |
 
 #### **办公电话**
 
@@ -320,12 +320,12 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [callUsers](https://open.dingtalk.com/document/orgapp/jsapi-call-users) | biz.telephone.call |
-| [checkBizCall](https://open.dingtalk.com/document/orgapp/jsapi-check-biz-call) | biz.telephone.checkBizCall |
-| [getCloudCallList](https://open.dingtalk.com/document/orgapp/jsapi-get-cloud-call-list) | biz.conference.getCloudCallList |
-| [makeCloudCall](https://open.dingtalk.com/document/orgapp/jsapi-make-cloud-call) | biz.conference.createCloudCall |
-| [getCloudCallInfo](https://open.dingtalk.com/document/orgapp/jsapi-get-cloud-call-info) | biz.conference.getCloudCallInfo |
-| [quickCallList](https://open.dingtalk.com/document/orgapp/jsapi-quick-call-list) | biz.telephone.quickCallList |
+| [callUsers](0311-jsapi-call-users.md) | biz.telephone.call |
+| [checkBizCall](0312-jsapi-check-biz-call.md) | biz.telephone.checkBizCall |
+| [getCloudCallList](0314-jsapi-get-cloud-call-list.md) | biz.conference.getCloudCallList |
+| [makeCloudCall](0315-jsapi-make-cloud-call.md) | biz.conference.createCloudCall |
+| [getCloudCallInfo](0313-jsapi-get-cloud-call-info.md) | biz.conference.getCloudCallInfo |
+| [quickCallList](0316-jsapi-quick-call-list.md) | biz.telephone.quickCallList |
 
 #### **钉盘**
 
@@ -333,11 +333,11 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [saveFileToDingTalk](https://open.dingtalk.com/document/orgapp/jsapi-save-file-to-ding-talk) | biz.cspace.saveFile |
-| [previewFileInDingTalk](https://open.dingtalk.com/document/orgapp/jsapi-preview-file-in-ding-talk) | biz.cspace.preview |
-| [uploadAttachmentToDingTalk](https://open.dingtalk.com/document/orgapp/jsapi-upload-attachment-to-ding-talk) | biz.util.uploadAttachment |
-| [chooseDingTalkDir](https://open.dingtalk.com/document/orgapp/jsapi-choose-ding-talk-dir) | biz.cspace.chooseSpaceDir |
-| [previewImagesInDingTalkBatch](https://open.dingtalk.com/document/orgapp/jsapi-preview-images-in-ding-talk-batch) | biz.cspace.previewDentryImages |
+| [saveFileToDingTalk](0332-jsapi-save-file-to-ding-talk.md) | biz.cspace.saveFile |
+| [previewFileInDingTalk](0330-jsapi-preview-file-in-ding-talk.md) | biz.cspace.preview |
+| [uploadAttachmentToDingTalk](0333-jsapi-upload-attachment-to-ding-talk.md) | biz.util.uploadAttachment |
+| [chooseDingTalkDir](0329-jsapi-choose-ding-talk-dir.md) | biz.cspace.chooseSpaceDir |
+| [previewImagesInDingTalkBatch](0331-jsapi-preview-images-in-ding-talk-batch.md) | biz.cspace.previewDentryImages |
 
 #### **文件**
 
@@ -345,8 +345,8 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [openLocalFile](https://open.dingtalk.com/document/orgapp/jsapi-open-local-file) | biz.util.openLocalFile |
-| [isLocalFileExist](https://open.dingtalk.com/document/orgapp/jsapi-is-local-file-exist) | biz.util.isLocalFileExist |
+| [openLocalFile](0335-jsapi-open-local-file.md) | biz.util.openLocalFile |
+| [isLocalFileExist](0334-jsapi-is-local-file-exist.md) | biz.util.isLocalFileExist |
 
 #### **视频**
 
@@ -354,7 +354,7 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [makeVideoConfCall](https://open.dingtalk.com/document/orgapp/jsapi-make-video-conf-call) | biz.conference.videoConfCall |
+| [makeVideoConfCall](0308-jsapi-make-video-conf-call.md) | biz.conference.videoConfCall |
 
 #### **专属开放**
 
@@ -362,13 +362,13 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 
 | **新版客户端API** | **旧版客户端API** |
 | --- | --- |
-| [getUserExclusiveInfo](https://open.dingtalk.com/document/orgapp/jsapi-get-user-exclusive-info) | biz.realm.getUserExclusiveInfo |
+| [getUserExclusiveInfo](0424-jsapi-get-user-exclusive-info.md) | biz.realm.getUserExclusiveInfo |
 
 ## 迁移操作指南
 
 ### 迁移策略
 
-#### 1. 新项目（直接使用）
+#### 新项目（直接使用）
 
 直接使用新版API（一段式）：
 
@@ -376,7 +376,7 @@ import * as dd from 'dingtalk-jsapi'; // 此方式为整体加载，也可按需
 - 优先使用一段式调用方式
 - 参考官方文档中的最新示例代码
 
-#### 1. 已有项目（渐进式迁移）
+#### 已有项目（渐进式迁移）
 
 **阶段一：评估现状**
 

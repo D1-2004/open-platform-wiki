@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "事件订阅"
 breadcrumb: "开发指南 > 配置事件推送方式"
 doc_id: "VSoTXnLPgh"
-updated_at: "2026-06-08 09:20:33"
+updated_at: "2026-07-22 16:25:24"
 ---
 
 > Source: https://open.dingtalk.com/document/development/configure-stream-push
 > Path: 应用开发 / 事件订阅 / 开发指南 > 配置事件推送方式
-> Updated: 2026-06-08 09:20:33
+> Updated: 2026-07-22 16:25:24
 
 # 配置事件推送方式
 
@@ -31,7 +31,7 @@ updated_at: "2026-06-08 09:20:33"
 2. 单击**开发配置** > **事件订阅，**选择 **Stream 模式推送**。
 
    ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3361880871/p1077947.png)
-3. 参照[开发 Stream 模式推送服务端（推荐）](0004-develop-stream-mode-push-server.md#7c157d52c89et)文档，完成服务端开发。
+3. 参照[开发 Stream 模式（推荐）](0004-develop-stream-mode-push-server.md#7c157d52c89et)文档，完成服务端开发。
 4. 服务端开发完成后，单击**已完成接入，验证连接通道**。
 5. 单击**保存**。保存完成后，事件订阅列表才会展示。
 
@@ -56,7 +56,7 @@ updated_at: "2026-06-08 09:20:33"
    | **加密 aes\_key** | 回调消息内容的加解密参数，是AES密钥的Base64编码。 |
    | **签名 token** | 钉钉每次向你的地址推送事件数据时都会携带`token`，用于生成签名、校验回调请求的合法性。必须为英文或数字，长度为3~32个字符 |
    | **请求网址** | 用于接收事件订阅请求的URL。当应用订阅的事件触发时，钉钉会向该网址发送相应的 HTTP POST 请求。 |
-4. 配置完成后，你需要开发事件订阅服务端。详情参考[开发 HTTP 推送服务端](0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj)。
+4. 配置完成后，你需要开发事件订阅服务端。详情参考[开发 HTTP 模式](0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj)。
 5. 服务端开发完成后，需要 HTTP 推送服务端启动，你需要单击**保存**。保存完成后，事件订阅列表才会展示。
 
    ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9545080071/p737446.png)
@@ -73,7 +73,7 @@ updated_at: "2026-06-08 09:20:33"
 
   > **[!NOTE]**
   >
-  > 需校验[开发 HTTP 推送服务端](0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj) 内容是否正确。
+  > 需校验[开发 HTTP 模式](0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj) 内容是否正确。
 
   构造main方法，使用回调地址返回的四个字段值，调用加密接口，验证得到的值是否为success字符串，例如：
 
@@ -117,7 +117,7 @@ updated_at: "2026-06-08 09:20:33"
    | 加密 Aes\_key | 回调消息内容的加解密参数，是AES密钥的Base64编码。 |
    | 签名 Token | 钉钉每次向你的地址推送事件数据时都会携带`token`，用于生成签名、校验回调请求的合法性。必须为英文或数字，长度为3~32个字符 |
    | 回调请求地址 | 用于接收事件订阅请求的URL。当应用订阅的事件触发时，钉钉会向该网址发送相应的 HTTP POST 请求，接收事件回调的 URL，必须是公网可以访问的 url 地址。 |
-4. 配置完成后，你需要开发事件订阅服务端。详情参考[开发 SyncHTTP 推送服务端](https://open.dingtalk.com/document/isvapp/develop-synchttp-push-server)。
+4. 配置完成后，你需要开发事件订阅服务端。详情参考[开发 SyncHTTP 模式](0004-develop-stream-mode-push-server.md#01228da9b2aoo)。
 5. 服务端开发完成后，需要 SyncHTTP 推送服务端启动，你需要单击**保存**。保存完成后，就可以添加订阅了。
 
    ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2964682071/p745892.png)

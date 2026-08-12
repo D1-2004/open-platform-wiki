@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发群聊酷应用 > 开发参考 > 互动卡片"
 doc_id: "3v3i5MFZu4"
-updated_at: "2026-06-30 09:00:35"
+updated_at: "2026-07-22 16:55:21"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/group-chat-coolapp-interactive-card
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发群聊酷应用 > 开发参考 > 互动卡片
-> Updated: 2026-06-30 09:00:35
+> Updated: 2026-07-22 16:55:21
 
 # 互动卡片
 
@@ -100,9 +100,9 @@ updated_at: "2026-06-30 09:00:35"
 
 | API | 说明 |
 | --- | --- |
-| [注册互动卡片回调地址](https://open.dingtalk.com/document/orgapp/registration-card-interaction-callback-address-1) | 酷应用机器人注册卡片回调地址。一个`callbackRouteKey`仅可映射一个`callback_url`。 |
-| [发送钉钉互动卡片（高级版）](https://open.dingtalk.com/document/orgapp/send-interactive-dynamic-cards-1) | 酷应用机器人在企业内部群发送互动卡片消息。 |
-| [更新钉钉互动卡片](https://open.dingtalk.com/document/orgapp/update-dingtalk-interactive-cards) | 酷应用机器人在企业内部群更新互动卡片消息。 |
+| [注册卡片回调地址](../02-4a8AMF6u2A-服务端API/0786-register-card-callback-address.md) | 酷应用机器人注册卡片回调地址。一个`callbackRouteKey`仅可映射一个`callback_url`。 |
+| [发送钉钉互动卡片（高级版）](../02-4a8AMF6u2A-服务端API/0783-create-and-deliver-cards.md) | 酷应用机器人在企业内部群发送互动卡片消息。 |
+| [更新钉钉互动卡片](../02-4a8AMF6u2A-服务端API/0783-create-and-deliver-cards.md) | 酷应用机器人在企业内部群更新互动卡片消息。 |
 
 ## **新建互动卡片开发流程**
 

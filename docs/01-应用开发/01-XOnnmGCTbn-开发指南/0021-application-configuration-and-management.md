@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发指南 > 常见问题"
 doc_id: "upqtJLeKX6"
-updated_at: "2026-06-16 11:37:28"
+updated_at: "2026-07-22 16:31:51"
 ---
 
 > Source: https://open.dingtalk.com/document/development/application-configuration-and-management
 > Path: 应用开发 / 开发指南 / 开发指南 > 常见问题
-> Updated: 2026-06-16 11:37:28
+> Updated: 2026-07-22 16:31:51
 
 # 常见问题
 
@@ -58,10 +58,10 @@ updated_at: "2026-06-16 11:37:28"
   答：支持移动端即可，移动端需可正常打开第三方企业应用。
 - **如果未通过应用服务商申请可以开发第三方企业应用吗？**
 
-  答：钉钉应用市场为用户精选优质应用，如果没有通过申请，不建议投入开发，可能会导致无法上架，详情参见[入驻应用服务商标准条件](https://open.dingtalk.com/document/isvapp/investment-category-requirement)。
+  答：钉钉应用市场为用户精选优质应用，如果没有通过申请，不建议投入开发，可能会导致无法上架，详情参见[合作全流程指引](../07-TjCzIgfQs3-平台服务/0027-isv-cooperation-guide.md)。
 - **处于上架审核中的第三方企业应用可以撤回吗？**
 
-  答：应用发起审核后不支持撤回，如需要驳回审核的话，需[联系运营](https://open.dingtalk.com/document/contactus/mr22h2)操作。
+  答：应用发起审核后不支持撤回，如需要驳回审核的话，需[联系运营](../07-TjCzIgfQs3-平台服务/0045-mr22h2.md)操作。
 
 ## 应用市场
 

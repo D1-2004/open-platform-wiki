@@ -20,7 +20,7 @@ updated_at: "2026-05-27 17:06:17"
 
 ## **接口调用说明**
 
-更多数据开放及消费能力请移至[数据资产平台](../../08-数据资产/01-fIz0pQ6X4y-平台介绍/0001-dataopen-overview.md)。数据资产平台（dPaaS）是为企业提供的统一数据管理平台，基于钉钉构建安全、可扩展、易维护和管理的数据服务，助力业务决策！
+更多数据开放及消费能力请移至[数据资产平台](../../07-数据资产/01-fIz0pQ6X4y-平台介绍/0001-dataopen-overview.md)。数据资产平台（dPaaS）是为企业提供的统一数据管理平台，基于钉钉构建安全、可扩展、易维护和管理的数据服务，助力业务决策！
 
 ## **请求**
 
@@ -35,7 +35,7 @@ updated_at: "2026-05-27 17:06:17"
 
 | 名称 | 类型 | 是否必填 | 示例值 | 描述 |
 | --- | --- | --- | --- | --- |
-| access\_token | String | 是 | 6d1bxxxx | 调用该API的应用凭证。   - 企业内部应用，通过[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)接口获取。 - 第三方企业应用，通过[获取第三方企业的access\_token](1422-obtain-isvapp-token.md)接口获取。 |
+| access\_token | String | 是 | 6d1bxxxx | 调用该API的应用凭证。   - 企业内部应用，通过[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)接口获取。 - 第三方企业应用，通过[获取第三方企业的access\_token](1445-obtain-isvapp-token.md)接口获取。 |
 
 ### **请求体**
 

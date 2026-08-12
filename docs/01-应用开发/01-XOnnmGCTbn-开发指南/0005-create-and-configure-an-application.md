@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发指南 > 第三方个人应用学习指南"
 doc_id: "kGas2HJ38X"
-updated_at: "2026-07-02 10:31:42"
+updated_at: "2026-07-22 16:55:13"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/create-and-configure-an-application
 > Path: 应用开发 / 开发指南 / 开发指南 > 第三方个人应用学习指南
-> Updated: 2026-07-02 10:31:42
+> Updated: 2026-07-22 16:55:13
 
 # 第三方个人应用学习指南
 
@@ -96,13 +96,13 @@ updated_at: "2026-07-02 10:31:42"
 
 #### **前端发起授权并获取 authCode**
 
-用户进入E 小程序后，前端通过钉钉客户端提供的 JSAPI 发起授权请求，获取[免登临时授权码](https://open.dingtalk.com/document/personalapp/mini-program-free-login)（authCode），随后将该code传递给应用后端。该操作通常使用`dd.getAuthCode` 接口完成。
+用户进入E 小程序后，前端通过钉钉客户端提供的 JSAPI 发起授权请求，获取[getAuthCode](../03-Ogu5SlPY4t-客户端JSAPI/0005-jsapi-get-auth-code.md)（authCode），随后将该code传递给应用后端。该操作通常使用`dd.getAuthCode` 接口完成。
 
 > **关键术语说明**：`authCode` 是通过钉钉客户端 JSAPI（如 `dd.getAuthCode`）获取的临时授权码，有效期短暂且仅能使用一次，用于后端换取用户基本信息。
 
 #### **服务端调用接口获取用户信息**
 
-应用后端接收到`authCode`后，调用钉钉服务端接口 `sns/getuserinfo_bycode`[获取用户基本信息](https://open.dingtalk.com/document/personalapp/queries-basic-user-information)，完成登录流程。
+应用后端接收到`authCode`后，调用钉钉服务端接口 `sns/getuserinfo_bycode`[获取用户基本信息](../02-4a8AMF6u2A-服务端API/0052-queries-basic-user-information.md)，完成登录流程。
 
 > **[!NOTE]**
 >
@@ -115,13 +115,12 @@ updated_at: "2026-07-02 10:31:42"
 
 ```
 dd.getAuthCode({
-    success: function(res) {
-        const authCode = res.authCode;
-        // 将 authCode 发送到应用后端
-    },
-    fail: function(err) {
-        console.error('获取 authCode 失败', err);
-    }
+  corpId: 'ding12345xxx',
+  success: (res) => {
+    const { authCode } = res;
+  },
+  fail: () => {},
+  complete: () => {},
 });
 ```
 
@@ -231,27 +230,27 @@ public class IndexController {
 
    ```
    formSubmit(e){
-       // 通过e.detail.formId可以获取到推送消息的临时授权码code
-       dd.httpRequest({
-                           url: 'http://表单提交的服务端地址?code='+e.detail.formId,
-                           method: 'POST',
-                           headers:{"Content-Type":"application/json"},
-                           data: { 
-                           },
-                           dataType: 'json',
-                           success: function(res) {
-                               if(res.data.success){
-                                   dd.alert({content:'form表单提交处理成功'});
-                               }else{
-                                   dd.alert({title:"form表单提交处理失败",
-                                           content:JSON.stringify(res)});
-                               }                            
-                           },
-                           fail: function(res) {
-                                dd.alert({content: 'form表单提交处理'});
-                           }
-                       });
+     // 通过e.detail.formId可以获取到推送消息的临时授权码code
+     dd.httpRequest({
+       url: 'http://表单提交的服务端地址?code='+e.detail.formId,
+       method: 'POST',
+       headers:{"Content-Type":"application/json"},
+       data: { 
+       },
+       dataType: 'json',
+       success: function(res) {
+         if(res.data.success){
+           dd.alert({content:'form表单提交处理成功'});
+         }else{
+           dd.alert({title:"form表单提交处理失败",
+                     content:JSON.stringify(res)});
+         }                            
+       },
+       fail: function(res) {
+         dd.alert({content: 'form表单提交处理'});
        }
+     });
+   }
    ```
 3. 当业务需要向用户推送消息时，服务端调用钉钉提供的消息推送接口，使用之前获取的 code 向用户发送消息。
 
@@ -262,7 +261,7 @@ public class IndexController {
            OapiSnsSendMsgRequest req = new OapiSnsSendMsgRequest();
            req.setCode(code);
            OapiSnsSendMsgRequest.Eapp eapp = new OapiSnsSendMsgRequest.Eapp();
-           eapp.setImg("@lALPBY0V5EuR4oDNAcrNAs4");
+           eapp.setImg("@lALPBxxxxAs4");
            eapp.setContent("非常感谢您的反馈，非常感谢您的反馈。 \n\n"+System.currentTimeMillis());
            eapp.setTitle("工单已回复");
            eapp.setLink("eapp://page/index?param=aaa");
@@ -297,7 +296,7 @@ public class IndexController {
 
 在产品正式上线前，需提交产品审核。应用首次发布上线，钉钉团队将会对产品进行审核。审核通过后，钉钉用户将可以在钉钉内打开并使用该应用。
 
-提交审核前，建议先阅读[第三方个人应用发布规范](https://open.dingtalk.com/document/personalapp/personalapp-commercial-release)，将会大大提升通过审核的概率。
+提交审核前，建议先阅读[第三方个人应用发布规范](../07-TjCzIgfQs3-平台服务/0014-personalapp-commercial-release.md)，将会大大提升通过审核的概率。
 
 ![p190704 ](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2059592871/p256782.png)
 
@@ -323,9 +322,9 @@ public class IndexController {
 
    > **[!NOTE]**
    >
-   > 如果没有进行钉钉组织认证和服务商认证，会提示先进行认证。您可以按照开发者后台提示流程进行认证，也可以参考[合作全流程指引](https://open.dingtalk.com/document/isvapp/isv-cooperation-guide)。
+   > 如果没有进行钉钉组织认证和服务商认证，会提示先进行认证。您可以按照开发者后台提示流程进行认证，也可以参考[合作全流程指引](../07-TjCzIgfQs3-平台服务/0027-isv-cooperation-guide.md)。
 3. 在产品审核页面，依次进行安全扫描、产品审核等。![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8842462061/p165987.png "image.png")
 
    1. 单击安全扫描下的**点击进入**，对提交应用进行安全扫描，并将展示安全扫描报告。![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8842462061/p165988.png "image.png")
-   2. 查看产品审核标准，可以查看第三方个人应用的产品设计规范，见[产品设计规范](https://open.dingtalk.com/document/personalapp/product-design-specification)。
+   2. 查看产品审核标准，可以查看第三方个人应用的产品设计规范，见[产品设计规范](../07-TjCzIgfQs3-平台服务/0015-product-design-specification.md)。
    3. 单击提交审核下的**点此进入**，提交审核。![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8842462061/p165989.png "image.png")

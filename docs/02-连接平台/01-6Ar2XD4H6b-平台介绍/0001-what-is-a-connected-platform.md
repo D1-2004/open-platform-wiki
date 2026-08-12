@@ -1,20 +1,20 @@
 ---
-title: "什么是连接平台"
+title: "平台简介"
 source_url: "https://open.dingtalk.com/document/connection/what-is-a-connected-platform"
 namespace: "connection"
 slug: "what-is-a-connected-platform"
 group: "连接平台"
 tab: "平台介绍"
-breadcrumb: "什么是连接平台"
+breadcrumb: "平台简介"
 doc_id: "OkdE5ke9lP"
-updated_at: "2026-01-22 21:00:51"
+updated_at: "2026-07-24 09:20:28"
 ---
 
 > Source: https://open.dingtalk.com/document/connection/what-is-a-connected-platform
-> Path: 连接平台 / 平台介绍 / 什么是连接平台
-> Updated: 2026-01-22 21:00:51
+> Path: 连接平台 / 平台介绍 / 平台简介
+> Updated: 2026-07-24 09:20:28
 
-# 什么是连接平台
+# 平台简介
 
 本文档旨在全面介绍钉钉连接平台的核心概念、适用对象、使用路径及典型应用场景，帮助开发者和管理员正确理解并高效使用该平台。
 
@@ -49,7 +49,7 @@ updated_at: "2026-01-22 21:00:51"
 
 ### **支持的应用类型**
 
-根据钉钉开放平台[应用类型介绍](https://open.dingtalk.com/document/development/introduction-to-application-types)，连接平台支持以下应用形态：
+根据钉钉开放平台[应用类型与能力说明](../../01-应用开发/01-XOnnmGCTbn-开发指南/0002-application-type-introduction.md)，连接平台支持以下应用形态：
 
 - 企业内部自建应用
 - 第三方企业服务应用（ISV）
@@ -59,7 +59,7 @@ updated_at: "2026-01-22 21:00:51"
 
 钉钉连接平台适用于需要跨系统协同的企业场景，尤其适合希望实现业务流程自动化的组织。
 
-### **图1：连接平台入口界面示意图**
+### **平台入口示意图**
 
 ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0084786071/p766394.png)
 
@@ -82,14 +82,14 @@ updated_at: "2026-01-22 21:00:51"
 
   能力支撑来自OA审批、宜搭、AI魔法棒、TB等原生应用。
 
-### **图2：官方应用自动化配置页面示意**
+### **官方应用自动化配置**
 
 ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0084786071/p759726.png)
 
 *如图所示，普通用户可在群聊或多维表中直接启用预设自动化规则。*
 
 - 适用于**业务人员、普通用户** 完成轻量级的集成。
-- 自动化：[群聊](../04-PnMXTPmQSS-连接平台自动化/0003-introduction.md)、[考勤](../04-PnMXTPmQSS-连接平台自动化/0010-attendance-introduction.md)、[多维表](https://open.dingtalk.com/document/connection/multidimensional-table-automation-1)、工作台等。
+- 自动化：[群聊](../06-PnMXTPmQSS-连接平台自动化/0005-introduction.md)、[考勤](../06-PnMXTPmQSS-连接平台自动化/0011-attendance-introduction.md)、[介绍](../06-PnMXTPmQSS-连接平台自动化/0013-multidimensional-introduction.md)、工作台等。
 - 能力支撑：OA审批、宜搭、AI魔法棒、TB 等。
 
 ## **基本概念**
@@ -123,6 +123,6 @@ updated_at: "2026-01-22 21:00:51"
 
 ## **相关文档**
 
-- [开发连接流](../02-iO2mVD3wB2-开发指南/0002-create-a-connection-flow-1.md)
-- [开发连接器](../02-iO2mVD3wB2-开发指南/0013-create-connector.md)
-- [连接平台自动化](../04-PnMXTPmQSS-连接平台自动化/0001-connected-platform-field-integration-1.md)
+- [开发连接流](../02-XdgyZifJkr-我的连接/0001-create-a-connection-flow-1.md)
+- [开发连接器](../02-XdgyZifJkr-我的连接/0010-create-connector.md)
+- [连接平台自动化](../06-PnMXTPmQSS-连接平台自动化/0001-connected-platform-field-integration-1.md)

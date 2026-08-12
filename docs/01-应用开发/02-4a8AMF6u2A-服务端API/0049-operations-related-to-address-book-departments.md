@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "通讯录管理 > 使用教程 > 创建、获取、更新和删除企业部门"
 doc_id: "Rqv5HvWlb3"
-updated_at: "2026-05-15 09:04:34"
+updated_at: "2026-07-30 10:03:06"
 ---
 
 > Source: https://open.dingtalk.com/document/development/operations-related-to-address-book-departments
 > Path: 应用开发 / 服务端API / 通讯录管理 > 使用教程 > 创建、获取、更新和删除企业部门
-> Updated: 2026-05-15 09:04:34
+> Updated: 2026-07-30 10:03:06
 
 # 创建、获取、更新和删除企业部门
 
@@ -28,7 +28,7 @@ updated_at: "2026-05-15 09:04:34"
 
 1. 获取应用凭证信息，获取应用 Client ID 和 Client Secret。
 2. 申请接口权限，申请通讯录管理相关接口权限。
-3. 获取应用访问凭证[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)。调用接口时，通过accessToken鉴权调用者身份。
+3. 获取应用访问凭证[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)。调用接口时，通过accessToken鉴权调用者身份。
 4. 调用通讯录相关API：
 
    1. 调用服务端API-[创建部门](0077-address-book-creation-department-established-department.md)接口，实现创建部门，获取部门`dept_id`**。**
@@ -56,10 +56,10 @@ updated_at: "2026-05-15 09:04:34"
 
 > **[!IMPORTANT]**
 >
-> - 服务端API差异详情参见[旧版API VS 新版API](https://open.dingtalk.com/document/development/how-to-call-apis#section-8lr-id4-rbz)。
+> - 服务端API差异详情参见[新版API VS 旧版API](0002-download-the-server-side-sdk.md#section-8lr-id4-rbz)。
 > - 服务端API接口SDK下载，详情参见[服务端SDK下载](0002-download-the-server-side-sdk.md)。
 
-根据步骤一中的 Client ID 和 Client Secret，获取应用访问凭证[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)。
+根据步骤一中的 Client ID 和 Client Secret，获取应用访问凭证[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)。
 
 ```
 public void getAccessToken() throws ApiException {

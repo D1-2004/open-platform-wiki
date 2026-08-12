@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷应用发布"
 doc_id: "nyONZESFyP"
-updated_at: "2026-06-30 09:00:55"
+updated_at: "2026-07-21 13:58:20"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/yida-cool-application-release
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷应用发布
-> Updated: 2026-06-30 09:00:55
+> Updated: 2026-07-21 13:58:20
 
 # 酷应用发布
 
@@ -28,14 +28,14 @@ updated_at: "2026-06-30 09:00:55"
 
 1. 在群内使用宜搭酷应用（卡片、机器人等相关功能），需要先上架酷应用至钉群酷应用市场。
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8425931661/p481024.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0053164871/p481024.png)
 2. 酷应用搭建完毕后，点击“应用发布>发布到企业自建酷应用中心”，点击发布按钮，填写相关酷应用发布信息。
 
    - 酷应用基础信息：酷应用名称、简介。
    - 群快捷入口信息：入口名称、访问首页、入口图标、页面打开方式。
    - 机器人信息：名称、图标。
 
-     ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2837231661/p480538.png)
+     ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0053164871/p480538.png)
 
 ## **发布教程**
 

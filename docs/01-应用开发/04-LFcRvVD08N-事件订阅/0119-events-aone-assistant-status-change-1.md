@@ -5,13 +5,13 @@ namespace: "development"
 slug: "events-aone-assistant-status-change-1"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "DingTalk A1 > DingTalkA1小助理状态变更"
+breadcrumb: "智能硬件 > DingTalk A1 > DingTalkA1小助理状态变更"
 doc_id: "Pd3qUJcsGA"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/events-aone-assistant-status-change-1
-> Path: 应用开发 / 事件订阅 / DingTalk A1 > DingTalkA1小助理状态变更
+> Path: 应用开发 / 事件订阅 / 智能硬件 > DingTalk A1 > DingTalkA1小助理状态变更
 > Updated: 2022-01-19 19:29:22
 
 # DingTalkA1小助理状态变更

@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "公告 > 创建公告"
 doc_id: "YMjdIGq85L"
-updated_at: "2026-05-27 17:06:31"
+updated_at: "2026-07-14 09:21:48"
 ---
 
 > Source: https://open.dingtalk.com/document/development/create-an-enterprise-announcement
 > Path: 应用开发 / 服务端API / 公告 > 创建公告
-> Updated: 2026-05-27 17:06:31
+> Updated: 2026-07-14 09:21:48
 
 # 创建公告
 
@@ -31,7 +31,7 @@ updated_at: "2026-05-27 17:06:31"
 
 | 名称 | 类型 | 是否必填 | 示例值 | 描述 |
 | --- | --- | --- | --- | --- |
-| access\_token | String | 是 | 6d1bxxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)接口获取。 |
+| access\_token | String | 是 | 6d1bxxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)接口获取。 |
 
 ### **请求体**
 
@@ -43,13 +43,13 @@ updated_at: "2026-05-27 17:06:31"
 | private\_level | Number | 否 | 0 | 保密等级：   - **0**：普通公告 - **20**：保密公告 |
 | ding | Boolean | 否 | false | 是否发送应用内钉提醒：   - **true**：发送 - **false**：不发送 |
 | blackboard\_receiver | BlackboardReceiverOpenVo | 是 |  | 公告接收人。 |
-| deptid\_list | Number[] | 否 | [1] | 接收部门ID列表，最大的列表长度为20。 |
+| deptid\_list | Number[] | 否 | [1] | 接收部门ID列表，最大的列表长度为20。  **[!NOTE]**  如果传-1，代表根部门，会给组织全员发送公告。 |
 | userid\_list | String[] | 否 | ["manager02"] | 接收人userId列表，最大的列表长度为1000。 |
 | title | String | 是 | 入职须知 | 公告标题。 |
 | push\_top | Boolean | 否 | true | 公告是否置顶。   - **true**：置顶 - **false**：不置顶 |
 | content | String | 是 | 欢迎加入我们的大家庭 | 公告内容。 |
 | category\_id | String | 否 | 987uy66t5rt54er | 公告分类ID。 |
-| coverpic\_mediaid | String | 否 | @lAxxxxeRzMqM0BLA | 封面图，格式为`@mediaId`。  可以通过[上传媒体文件](0644-upload-media-files.md)接口上传图片，获取media\_id参数值。 |
+| coverpic\_mediaid | String | 否 | @lAxxxxeRzMqM0BLA | 封面图，格式为`@mediaId`。  可以通过[上传媒体文件](0646-upload-media-files.md)接口上传图片，获取media\_id参数值。 |
 
 ### **请求示例**
 

@@ -45,7 +45,7 @@ updated_at: "2026-04-22 20:38:53"
 | appType | String | 是 | 宜搭应用编码，该参数从宜搭应用中获取。 |
 | systemToken | String | 是 | 宜搭应用密钥，该参数从宜搭应用中获取。 |
 | ignoreEmpty | Boolean | 否 | 是否忽略空值：   - **true**：忽略 - **false**：不忽略 |
-| updateFormDataJsonMap | Map | 是 | 用于更新表单实例的数据，格式为json字符串，能解析成Map结构，解析得到的Map的键为表单实例id，值为表单实例更新值，详情参考[创建或更新表单数据格式说明](0363-instructions-for-creating-or-updating-form-data-format.md)。 |
+| updateFormDataJsonMap | Map | 是 | 用于更新表单实例的数据，格式为json字符串，能解析成Map结构，解析得到的Map的键为表单实例id，值为表单实例更新值，详情参考[创建或更新表单数据格式说明](0367-instructions-for-creating-or-updating-form-data-format.md)。 |
 | useLatestFormSchemaVersion | Boolean | 否 | 是否使用最新的表单schema版本。   - **true**：是 - **false**（默认值）：否 |
 | userId | String | 是 | 用户userid，可通过[查询用户详情](0056-query-user-details.md)或[获取部门用户userid列表](0065-query-the-list-of-department-userids.md)接口获取。 |
 

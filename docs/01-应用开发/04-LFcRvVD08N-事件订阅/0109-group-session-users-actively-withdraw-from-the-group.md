@@ -5,13 +5,13 @@ namespace: "development"
 slug: "group-session-users-actively-withdraw-from-the-group"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "即时通讯 IM > 会话管理 > 群会话用户主动退群"
+breadcrumb: "即时通讯 > 会话管理 > 群会话用户主动退群"
 doc_id: "lUqMzdAzxo"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/group-session-users-actively-withdraw-from-the-group
-> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 会话管理 > 群会话用户主动退群
+> Path: 应用开发 / 事件订阅 / 即时通讯 > 会话管理 > 群会话用户主动退群
 > Updated: 2022-01-19 19:29:22
 
 # 群会话用户主动退群

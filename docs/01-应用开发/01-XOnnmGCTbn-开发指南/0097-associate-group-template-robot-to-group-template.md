@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 群模板机器人 > 关联群模板机器人到群模板"
 doc_id: "aKBOgv2Iaj"
-updated_at: "2025-09-03 15:56:50"
+updated_at: "2026-07-22 16:55:33"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/associate-group-template-robot-to-group-template
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 群模板机器人 > 关联群模板机器人到群模板
-> Updated: 2025-09-03 15:56:50
+> Updated: 2026-07-22 16:55:33
 
 # 关联群模板机器人到群模板
 
@@ -34,7 +34,7 @@ updated_at: "2025-09-03 15:56:50"
      3. 单击**选择已创建的机器人，**选择已有机器人，并单击**保存编辑**。
      4. 单击左侧导航栏**模板信息**，然后再单击**提交审核**。
 
-        ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4834868071/p768472.png)
+        ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3350174871/p768472.png)
      5. 审核成功后，单击发布。
    - 如果无群模板，则需创建群模板：
 
@@ -68,4 +68,4 @@ updated_at: "2025-09-03 15:56:50"
 
 如果你需要使用群模板机器人发送消息，详情参考文档：
 
-- [群模板机器人发送群聊消息](https://open.dingtalk.com/document/dingstart/group-template-robot-sends-group-chat-message)
+- [群模板机器人发送群聊消息](../02-4a8AMF6u2A-服务端API/0703-group-template-robot-sends-group-chat-message.md)

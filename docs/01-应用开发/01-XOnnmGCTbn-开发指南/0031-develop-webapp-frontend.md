@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发网页应用 > 开发网页应用前端"
 doc_id: "kyXiSlVr23"
-updated_at: "2026-06-30 09:00:35"
+updated_at: "2026-07-22 16:55:18"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/develop-webapp-frontend
 > Path: 应用开发 / 开发指南 / 开发网页应用 > 开发网页应用前端
-> Updated: 2026-06-30 09:00:35
+> Updated: 2026-07-22 16:55:18
 
 # 开发网页应用前端
 
@@ -22,7 +22,7 @@ updated_at: "2026-06-30 09:00:35"
 
 ### **前提条件**
 
-1. 成为[钉钉开发者](https://open.dingtalk.com/document/orgapp/obtain-developer-permissions)。
+1. 成为[钉钉开发者](0006-get-developer-permissions.md)。
 2. 创建[应用创建与配置](0007-create-application.md)，获取应用凭证信息 Client ID、Client Secret和应用 Agent ID。
 
 ### **钉钉客户端 JSAPI 鉴权**
@@ -268,7 +268,7 @@ updated_at: "2026-06-30 09:00:35"
    | 后端服务 | 在解压后的 web-app-jsapi-auth 的目录下：  1. `cd backend/`  2. `./mvnw spring-boot:run -Dspring-boot.run.arguments="--dingtalk.clientId=your app clientId --dingtalk.clientSecret=your app clientSecret --dingtalk.agentId=your app agentId"`  **[!NOTE]**  你需要替换 clientId 和 clientSecret：  - Client ID，详情参考[Client ID](0001-basic-concepts-beta.md#section-pje-9wf-l7c)。 - Client Secret，详情参考 [Client Secret](0001-basic-concepts-beta.md#section-pje-9wf-l7c)。 - Agent ID，详情参考[基础概念](0001-basic-concepts-beta.md#884d363067bnq)。 |
 4. 项目启动后，即可在钉钉工作台打开应用。本示例分别鉴权：
 
-   - [biz.contact.choose](https://open.dingtalk.com/document/orgapp/on-the-pc-select-the-person-in-the-enterprise)：PC 端选择企业内部的人
+   - [biz.contact.choose](../03-Ogu5SlPY4t-客户端JSAPI/0776-on-the-pc-select-the-person-in-the-enterprise.md)：PC 端选择企业内部的人
    - [chooseChat](../03-Ogu5SlPY4t-客户端JSAPI/0318-jsapi-choose-chat.md)：PC 端选择会话
 
      > 钉钉客户端使用一段式，例如：chooseChat， dingtalk-jsapi SDK 版本至少为3.0.27。

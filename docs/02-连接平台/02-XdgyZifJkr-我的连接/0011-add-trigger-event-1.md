@@ -1,0 +1,64 @@
+---
+title: "添加触发事件"
+source_url: "https://open.dingtalk.com/document/connection/add-trigger-event-1"
+namespace: "connection"
+slug: "add-trigger-event-1"
+group: "连接平台"
+tab: "我的连接"
+breadcrumb: "开发连接器 > 添加触发事件"
+doc_id: "gd4SJBTO8H"
+updated_at: "2026-07-24 09:20:41"
+---
+
+> Source: https://open.dingtalk.com/document/connection/add-trigger-event-1
+> Path: 连接平台 / 我的连接 / 开发连接器 > 添加触发事件
+> Updated: 2026-07-24 09:20:41
+
+# 添加触发事件
+
+触发事件是连接器的重要功能之一，可作为连接流的起始节点，在特定业务事件发生时自动触发流程执行。该机制广泛应用于企业内部系统集成场景中，例如当钉钉审批完成、日程创建或群消息发送后，通过事件订阅机制实时驱动后续自动化处理流程。
+
+## **背景信息**
+
+触发事件用于监听来自钉钉平台的实时业务事件（如用户加入、审批提交等），并在事件发生时自动启动预定义的连接流。其核心作用是实现跨系统间的自动化联动，提升业务响应效率。
+
+该功能适用于需要基于外部事件驱动流程的集成场景，例如：当员工入职时自动开通邮箱与协作权限；当客户签约完成后触发合同归档与财务流程等。
+
+## **前提条件**
+
+使用触发事件前，请确认已完成以下准备工作：
+
+- 已完成[创建连接器](0010-create-connector.md)流程。
+
+## **操作步骤**
+
+1. 选择创建的连接器进入详情页面，然后依次选择**触发事件 > 创建触发事件**。
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1406584871/p1089517.png)
+2. 填写触发事件的基础信息，然后单击**下一步**。
+
+   | **配置项** | **说明** |
+   | --- | --- |
+   | 触发事件名称（必填） | 请填写触发事件的名称。 |
+   | 描述 | 请填写触发事件的描述。 |
+   | 分组 | 触发事件在连接器中的分组。 |
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1406584871/p1089538.png)
+3. 在模型配置界面下，选择**触发器订阅类型**，配置**触发事件入参**参数，然后单击**下一步**。
+
+   > **[!NOTE]**
+   >
+   > 定义触发事件被触发时，触发请求所携带的入参可在流程中被后置节点使用。
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1406584871/p766139.png)
+4. 在调试界面下，填写**触发事件入参**字段值，然后单击**立即调试**，验证触发事件是否配置成功。
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1406584871/p766141.png)
+5. 调试完成之后，单击**发布**。
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1406584871/p1089608.png)
+
+## **后续步骤**
+
+- 触发事件配置完成后，你可以[使用连接器](0013-using-connectors-1.md)。
+- 如果你需要配置执行动作，可以参考[添加执行动作](0012-add-execution-action-1.md)。
