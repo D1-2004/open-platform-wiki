@@ -12,6 +12,7 @@ import collections
 import json
 import os
 import re
+import sys
 from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -152,10 +153,19 @@ def main() -> int:
                     "source_url": d["source_url"],
                 })
 
+    check_mode = "--check" in sys.argv
+    drift = []
+
     def dump(name, rows):
-        with open(os.path.join(OUT, name), "w", encoding="utf-8") as f:
-            for r in rows:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        content = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)
+        path = os.path.join(OUT, name)
+        if check_mode:
+            have = open(path, encoding="utf-8").read() if os.path.exists(path) else ""
+            if have != content:
+                drift.append(name)
+        else:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(content)
         return len(rows)
 
     n_api = dump("api.jsonl", apis)
@@ -183,6 +193,11 @@ def main() -> int:
           f" (另有 {stats['event_no_type']} 篇无标识)")
     print(f"jsapi.jsonl      {n_js:5d} 篇客户端JSAPI文档带调用名"
           f" (另有 {stats['jsapi_no_name']} 篇无 dd.* 标识)")
+    if check_mode:
+        if drift:
+            print(f"[build_qa_index --check] 漂移: {drift}，需重跑 build_qa_index.py")
+            return 1
+        print("[build_qa_index --check] OK：graph 五表与 docs/meta 一致")
     return 0
 
 

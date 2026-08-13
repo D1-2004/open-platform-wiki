@@ -94,6 +94,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--materialize", action="store_true", help="把正文拷贝到 compiled/")
     ap.add_argument("--tiers", nargs="*", default=["T0", "T1", "T2"], help="要物化的层")
+    ap.add_argument("--check", action="store_true", help="只比对 kb_manifest 不落盘，漂移退出码 1")
     args = ap.parse_args()
 
     if not os.path.exists(JSONL):
@@ -165,6 +166,16 @@ def main() -> int:
             "headings": d.get("headings", []),
         }
         records.append(rec)
+
+    if args.check:
+        want = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records)
+        p = os.path.join(OUT, "kb_manifest.jsonl")
+        have = open(p, encoding="utf-8").read() if os.path.exists(p) else ""
+        if want != have:
+            print("[compile_qa_kb --check] kb_manifest.jsonl 与 docs/meta 漂移，需重跑 compile_qa_kb.py")
+            return 1
+        print(f"[compile_qa_kb --check] OK：kb_manifest {len(records)} 条与 docs/meta 一致")
+        return 0
 
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, "kb_manifest.jsonl"), "w", encoding="utf-8") as f:

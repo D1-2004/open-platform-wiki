@@ -8,7 +8,9 @@
   4. graph/links.jsonl、hubs.md 与 docs/ 无漂移（build_links --check）
   5. 根入口文件与 index/TOPICS.md 的相对链接可达
   6. tombstone 过的 doc_id 不应再出现在 documents.jsonl
-  7. graph/ 三张表引用的 doc_path 存在（WARN）
+  7. graph/ 表引用的 doc_path 存在（WARN）
+  8. meta/kb_manifest.jsonl 与 graph 五表（api/errcode/event/jsapi/permission）与 docs/meta 无漂移
+  9. evals/questions.jsonl 的 ref_docs 全部可达（快照重编号的哨兵）
 
 用法: python3 ops/scripts/lint.py    # 退出码 0=通过（WARN 不算失败）
 """
@@ -59,13 +61,30 @@ def check_docs_meta():
 
 
 def check_generated():
-    for name, script in (("[3] index", "build_index.py"), ("[4] graph/links", "build_links.py")):
+    for name, script in (("[3] index", "build_index.py"), ("[4] graph/links", "build_links.py"),
+                         ("[8] kb_manifest", "compile_qa_kb.py"), ("[8] graph五表", "build_qa_index.py")):
         r = subprocess.run(["python3", os.path.join(SCRIPTS, script), "--check"],
                            capture_output=True, text=True, cwd=ROOT)
         if r.returncode != 0:
-            fails.append(f"{name} 漂移：{r.stdout.strip().splitlines()[0] if r.stdout else script}")
+            fails.append(f"{name} 漂移：{r.stdout.strip().splitlines()[-1] if r.stdout else script}")
         else:
             print("  " + name + " OK  " + (r.stdout.strip().splitlines()[-1] if r.stdout else ""))
+
+
+def check_evals_refs():
+    p = os.path.join(ROOT, "evals", "questions.jsonl")
+    if not os.path.exists(p):
+        return
+    missing = []
+    for line in open(p, encoding="utf-8"):
+        q = json.loads(line)
+        for ref in q.get("ref_docs", []):
+            if not os.path.exists(os.path.join(ROOT, ref)):
+                missing.append(f"{q['id']}:{os.path.basename(ref)}")
+    if missing:
+        fails.append(f"[9] evals ref_docs 失效 {len(missing)} 条（快照重编号后未按 slug 重映射）：{missing[:5]}")
+    else:
+        print("  [9] OK  evals ref_docs 全部可达")
 
 
 def check_entry_links():
@@ -129,6 +148,7 @@ def main():
     check_entry_links()
     check_tombstones(docs_meta)
     check_graph_tables()
+    check_evals_refs()
     print()
     for w in warns:
         print("WARN " + w)

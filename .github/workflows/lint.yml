@@ -1,0 +1,20 @@
+name: lint
+
+# 知识库一致性门禁：原始层(docs/meta)与全部派生层(index/graph/kb_manifest)必须同步变更。
+# 典型拦截对象：ingest 换了快照却没重跑生成器、手改了生成物、快照重编号打断 evals 引用。
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run knowledge-base lint (9 checks, stdlib only)
+        run: python3 ops/scripts/lint.py
