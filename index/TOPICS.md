@@ -31,7 +31,7 @@
 - [添加接口调用权限](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0003-add-api-permission.md) · [敏感权限使用](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0004-use-sensitive-permissions.md)
 - 找某个接口 / 权限点 → 别翻目录，直接查 [graph/api.jsonl 与 permission.jsonl](../graph/GRAPH.md)
 - 新旧双轨：`api.dingtalk.com`（新版）与 `oapi.dingtalk.com`（旧版）并存，`graph/api.jsonl` 的 `version` 字段可判别
-- 限流/QPS/调用频率：[调用频率限制](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0012-call-frequency-limit.md)（规避实践/指数退避）+ [调用频次与限流](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/1432-how-to-process-api-throttling-on-the-dingtalk-server.md)（应用/IP/组织/全局四维度阈值与错误码），两篇一并给；按 appKey 维度为主，不按操作人；库内无"带宽"维度条目
+- 限流/QPS/调用频率：[调用频率限制](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0012-call-frequency-limit.md)（规避实践/指数退避）+ [调用频次与限流](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/1432-how-to-process-api-throttling-on-the-dingtalk-server.md)（应用/IP/组织/全局四维度阈值与 90018 等限流错误码；检索注意该文标题用「频次」不用「频率」），两篇一并给；按 appKey 维度为主，不按操作人；库内无"带宽"维度条目
 
 ## 错误码排查
 
@@ -43,6 +43,22 @@
 - [机器人应用概述](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0075-robot-application-overview.md) · [配置企业机器人](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0076-configure-the-robot-application.md)
 - [机器人接收消息](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0078-robot-receive-message.md) · [机器人回复/发送消息](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0079-robot-reply-and-send-messages.md)
 - 群自定义机器人（Webhook 推送）：[创建](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0081-custom-bot-creation-and-installation.md) · [获取 Webhook 地址](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0083-obtain-the-webhook-address-of-a-custom-robot.md) · [安全设置](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0082-customize-robot-security-settings.md)
+
+## 群文件与媒体
+
+- 机器人收到的消息文件/图片：回调里拿 `downloadCode` → [下载机器人接收消息的文件内容](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0719-download-the-file-content-of-the-robot-receiving-message.md)
+- **负面清单**：开放平台没有"拉取群历史消息/历史聊天图片"的服务端接口——只能经机器人回调实时接收（downloadCode 线），别给用户编造 `im/conversations/*/messages/query` 类接口
+- 群文件下载三步链：[查询群存储空间](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0640-obtain-group-storage-space-information.md) → 获取文件列表(dentries) → [获取文件下载信息](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0678-obtains-the-download-information-about-a-file.md)
+- media_id 时效：见[媒体文件概述](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0644-apsara-file-storage-for-hdfs-overview.md)——存储有效期无限制、可一直使用（旧版"3 天过期"说法已过时）
+
+## 待办（Todo）
+
+- [概述](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0792-dingtalk-todo-task-overview.md)（工作待办/个人待办与客户端 tab 展示机制）· [FAQ](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0802-todo-faq.md) · [创建待办](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0793-add-dingtalk-to-do-task.md)（注意 detailUrl 等必填口径以该文参数表为准；bizTag 是响应字段不是入参）
+
+## OA 审批高频
+
+- 顶部"审批编号"反查 instanceId：**无直接反查 API**——[获取审批实例ID列表](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0501-obtain-an-approval-list-of-instance-ids.md)按时间窗遍历 → [获取单个审批实例详情](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0498-obtains-the-details-of-a-single-approval-instance-pop.md)比对 `businessId`，或订阅 `bpms_instance_change` 事件落库建映射；文档未定义顶部编号对应哪个字段，回答给验证路径而不是断言
+- 实例详情的 `operationRecords`（操作记录：转交 REDIRECT_TASK/加签/评论等）与任务列表都在 0498，被转交人等追溯问题从这里入手
 
 ## 事件订阅
 
