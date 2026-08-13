@@ -37,7 +37,9 @@ python3 ops/scripts/diff_snapshot.py <新快照目录>
 # 3) 应用：换入原始层 + 写 tombstone + 全量重建派生层 + lint
 python3 ops/scripts/diff_snapshot.py <新快照目录> --apply
 
-# 4) 认知层复核（唯一需要 LLM/人的步骤）：
+# 4) 认知层复核（唯一需要 LLM/人的步骤）——两件事：
+#    a. 更新入口文件里的快照日期与篇数：README.md 事实表与边界节、AGENTS.md 首段、
+#       TOPICS.md 头部「最后复核」（教训：08-12 ingest 漏了这步，答疑一直报旧日期）；
 #    对照对账报告，反查每条变更是否命中 TOPICS.md 或高入度枢纽：
 #      rg -F "<变更文档路径>" index/TOPICS.md
 #      jq -c 'select(.to=="<变更文档路径>")' graph/links.jsonl
