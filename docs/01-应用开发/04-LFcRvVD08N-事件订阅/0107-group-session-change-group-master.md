@@ -5,13 +5,13 @@ namespace: "development"
 slug: "group-session-change-group-master"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "即时通讯 IM > 会话管理 > 群会话更换群主"
+breadcrumb: "即时通讯 > 会话管理 > 群会话更换群主"
 doc_id: "q0jks6TMlU"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/group-session-change-group-master
-> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 会话管理 > 群会话更换群主
+> Path: 应用开发 / 事件订阅 / 即时通讯 > 会话管理 > 群会话更换群主
 > Updated: 2022-01-19 19:29:22
 
 # 群会话更换群主

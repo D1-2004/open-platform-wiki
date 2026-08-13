@@ -39,14 +39,14 @@ updated_at: "2026-06-15 11:27:05"
 | --- | --- | --- | --- |
 | pageNumber | Integer | 否 | 当前的页码数，从1开始。 |
 | formUuid | String | 是 | 表单的页面编码，该参数从宜搭应用中获取。 |
-| searchCondition | String | 否 | 用于检索表单实例数据的检索条件，格式参考[表单筛选组件格式](0363-instructions-for-creating-or-updating-form-data-format.md#d902d581d1k3s)。 |
+| searchCondition | String | 否 | 用于检索表单实例数据的检索条件，格式参考[表单筛选组件格式](0367-instructions-for-creating-or-updating-form-data-format.md#d902d581d1k3s)。 |
 | modifiedToTimeGMT | String | 否 | 修改的截止时间，格式yyyy-MM-dd HH:mm:ss。 |
 | systemToken | String | 是 | 宜搭应用密钥，该参数从宜搭应用中获取。 |
 | modifiedFromTimeGMT | String | 否 | 修改开始时间，格式yyyy-MM-dd HH:mm:ss。 |
 | pageSize | Integer | 否 | 每页最大条目数，最大值100。 |
 | userId | String | 是 | 用户userid，可通过[查询用户详情](0056-query-user-details.md)或[获取部门用户userid列表](0065-query-the-list-of-department-userids.md)接口获取。 |
 | appType | String | 是 | 宜搭应用编码，该参数从宜搭应用中获取。 |
-| orderConfigJson | String | 否 | 排序规则，详情参考[搜索结果排序](0363-instructions-for-creating-or-updating-form-data-format.md#7be08f6f76tk0)。 |
+| orderConfigJson | String | 否 | 排序规则，详情参考[搜索结果排序](0367-instructions-for-creating-or-updating-form-data-format.md#7be08f6f76tk0)。 |
 | originatorId | String | 否 | 表单提交人的userId。 |
 | createToTimeGMT | String | 否 | 创建的开始时间，格式yyyy-MM-dd HH:mm:ss。 |
 | createFromTimeGMT | String | 否 | 创建的开始时间，格式yyyy-MM-dd HH:mm:ss。 |
@@ -575,7 +575,7 @@ namespace AlibabaCloud.SDK.Sample
 | serialNumber | String | 流水号。 |
 | modifiedTimeGMT | String | 修改时间，格式yyyy-MM-dd HH:mm:ss。 |
 | modifier | String | 修改者的userId。 |
-| formData | Map | 表单实例数据以Map结构展示，参考[表单实例FormData结构](0363-instructions-for-creating-or-updating-form-data-format.md#fd1baaed40ddo)。 |
+| formData | Map | 表单实例数据以Map结构展示，参考[表单实例FormData结构](0367-instructions-for-creating-or-updating-form-data-format.md#fd1baaed40ddo)。 |
 | originator | Object | 发起人信息。 |
 | name | Object | 发起人姓名信息。 |
 | nameInChinese | String | 发起人的中文名字。 |

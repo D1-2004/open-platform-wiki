@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "接入移动客户端 > 接入钉钉分享 > 介绍"
 doc_id: "PwqwfjBkrD"
-updated_at: "2026-05-13 08:58:44"
+updated_at: "2026-07-22 16:55:34"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/introduction-to-dingtalk-sharing
 > Path: 应用开发 / 开发指南 / 接入移动客户端 > 接入钉钉分享 > 介绍
-> Updated: 2026-05-13 08:58:44
+> Updated: 2026-07-22 16:55:34
 
 # 介绍
 
@@ -22,7 +22,7 @@ updated_at: "2026-05-13 08:58:44"
 
 下图是支付宝“生活号”中的一篇文章，分享给钉钉好友场景，钉钉好友可以在钉钉内打开被分享的内容。其中从支付宝分享到钉钉的过程中就使用到分享的SDK。
 
-![iShot2022-09-20 10](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4939363661/p492516.png)
+![iShot2022-09-20 10](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4350174871/p492516.png)
 
 ## 版本要求
 
@@ -39,4 +39,4 @@ updated_at: "2026-05-13 08:58:44"
 >
 > 钉钉分享只支持企业内部应用接入，不支持第三方企业应用接入。
 
-当您的应用需要使用钉钉分享时，需要先在[开发者后台](https://open-dev.dingtalk.com/#/shareMan)创建应用，配置相关内容才可以使用钉钉分享，具体使用流程请参考[Android分享SDK接入流程](https://open.dingtalk.com/document/dingstart/mini-app-android-sharing-sdk-access-process)。
+当您的应用需要使用钉钉分享时，需要先在[开发者后台](https://open-dev.dingtalk.com/#/shareMan)创建应用，配置相关内容才可以使用钉钉分享，具体使用流程请参考[分享接入流程](0100-mini-app-access.md)。

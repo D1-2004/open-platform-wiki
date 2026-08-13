@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 自定义机器人 > 第三方机器人工具接入 > 阿里云Codeup机器人"
 doc_id: "QsZ5Zcovix"
-updated_at: "2025-09-25 21:05:03"
+updated_at: "2026-07-21 15:55:24"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/alibaba-cloud-codeup-robot
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 自定义机器人 > 第三方机器人工具接入 > 阿里云Codeup机器人
-> Updated: 2025-09-25 21:05:03
+> Updated: 2026-07-21 15:55:24
 
 # 阿里云Codeup机器人
 
@@ -41,6 +41,6 @@ updated_at: "2025-09-25 21:05:03"
 
 ## 步骤二：在阿里云Codeup中设置项目的Webhook
 
-1. 登录[阿里云Codeup](https://codeup.aliyun.com/)，进入你的项目。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2094439661/p523365.png)
-2. 单击左下角**设置**。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2094439661/p523369.png)
-3. 然后单击**Webhooks**，单击**新建Webhook**，填写第一步获取的Webhook地址，并勾选需要订阅的事件，单击**确定**即可。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2094439661/p523371.png)
+1. 登录[阿里云Codeup](https://codeup.aliyun.com/)，进入你的项目。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5250264871/p523365.png)
+2. 单击左下角**设置**。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5250264871/p523369.png)
+3. 然后单击**Webhooks**，单击**新建Webhook**，填写第一步获取的Webhook地址，并勾选需要订阅的事件，单击**确定**即可。![iShot2022-11-23 11](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5250264871/p523371.png)

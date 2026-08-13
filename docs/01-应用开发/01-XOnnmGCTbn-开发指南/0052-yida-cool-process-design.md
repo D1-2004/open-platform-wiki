@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷流程设计"
 doc_id: "7OvoRGIGiB"
-updated_at: "2026-06-30 09:00:55"
+updated_at: "2026-07-22 16:55:20"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/yida-cool-process-design
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷流程设计
-> Updated: 2026-06-30 09:00:55
+> Updated: 2026-07-22 16:55:20
 
 # 酷流程设计
 
@@ -48,11 +48,17 @@ updated_at: "2026-06-30 09:00:55"
 
      如：提交“团建意见”表单后，发送卡片到群中 —— 这个场景中，提交表单是“事件”，发送卡片到群中是“业务流程”。
 
-     关于集成&自动化，更多详情参见[集成自动化](https://www.yuque.com/yida/support/zevvr1)，本文档重点讲如何在集成&自动化中发送&更新卡片。![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4737231661/p480484.png)
+     关于集成&自动化，更多详情参见[集成自动化](https://www.yuque.com/yida/support/zevvr1)，本文档重点讲如何在集成&自动化中发送&更新卡片。
+
+     ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4737231661/p480484.png)
 2. **集成&自动化入口**
 
-   单击**集成&自动化，**再单击**新建集成&自动化**或者查看已创建的集成自动化。![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6193471661/p482136.png)
-3. **发送卡片的业务流程**![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5521872871/p480490.png)
+   单击**集成&自动化，**再单击**新建集成&自动化**或者查看已创建的集成自动化。
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6193471661/p482136.png)
+3. **发送卡片的业务流程**
+
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5521872871/p480490.png)
 
 ### **步骤二：表单事件触发**
 

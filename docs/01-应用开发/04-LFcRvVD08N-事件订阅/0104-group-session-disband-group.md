@@ -5,13 +5,13 @@ namespace: "development"
 slug: "group-session-disband-group"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "即时通讯 IM > 会话管理 > 群会话解散群"
+breadcrumb: "即时通讯 > 会话管理 > 群会话解散群"
 doc_id: "IVOrV9xkC7"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/group-session-disband-group
-> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 会话管理 > 群会话解散群
+> Path: 应用开发 / 事件订阅 / 即时通讯 > 会话管理 > 群会话解散群
 > Updated: 2022-01-19 19:29:22
 
 # 群会话解散群

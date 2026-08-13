@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "日志 > 概述"
 doc_id: "usxyGH9sdA"
-updated_at: "2026-05-15 09:02:16"
+updated_at: "2026-07-08 14:38:18"
 ---
 
 > Source: https://open.dingtalk.com/document/development/report-log-overview
 > Path: 应用开发 / 服务端API / 日志 > 概述
-> Updated: 2026-05-15 09:02:16
+> Updated: 2026-07-08 14:38:18
 
 # 概述
 
@@ -28,9 +28,13 @@ updated_at: "2026-05-15 09:02:16"
 
 开发者可以通过钉钉移动端或钉钉PC端使用日志。
 
-手机端：钉钉移动端-工作台![iShot2022-01-12 15](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7531791461/p384033.png)
+手机端：钉钉移动端-工作台
 
-电脑端：钉钉PC端-工作台![iShot2022-01-12 15](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8531791461/p384038.png)
+![iShot2022-01-12 15](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7531791461/p384033.png)
+
+电脑端：钉钉PC端-工作台
+
+![iShot2022-01-12 15](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8531791461/p384038.png)
 
 ## 开放概览
 

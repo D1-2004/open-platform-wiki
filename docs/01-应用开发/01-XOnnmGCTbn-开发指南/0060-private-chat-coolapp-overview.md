@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发单聊酷应用 > 概述"
 doc_id: "ilA6zUpsDf"
-updated_at: "2026-06-30 09:00:59"
+updated_at: "2026-07-21 14:29:38"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/private-chat-coolapp-overview
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发单聊酷应用 > 概述
-> Updated: 2026-06-30 09:00:59
+> Updated: 2026-07-21 14:29:38
 
 # 概述
 
@@ -76,9 +76,9 @@ updated_at: "2026-06-30 09:00:59"
 
 会话容器包括：**会话标题栏**、**置顶区**、**会话框、消息菜单**、**半屏**、**全屏**、**单聊应用栏**、**工具栏**、**输入框**、**侧边栏**等区域。
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4099635661/p501622.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8735164871/p501622.png)
 
-![单聊会话框详细介绍ALL](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5099635661/p498990.png)
+![单聊会话框详细介绍ALL](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8735164871/p498990.png)
 
 ### 会话机器人
 

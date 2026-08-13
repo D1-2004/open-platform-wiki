@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "客户端JSAPI"
 breadcrumb: "JSAPI调用教程"
 doc_id: "b4cxQmjy3N"
-updated_at: "2026-05-22 17:54:46"
+updated_at: "2026-07-22 16:25:05"
 ---
 
 > Source: https://open.dingtalk.com/document/development/client-jsapi-call-tutorial
 > Path: 应用开发 / 客户端JSAPI / JSAPI调用教程
-> Updated: 2026-05-22 17:54:46
+> Updated: 2026-07-22 16:25:05
 
 # JSAPI调用教程
 
@@ -48,7 +48,7 @@ updated_at: "2026-05-22 17:54:46"
 
    > **[!NOTE]**
    >
-   > **Client ID**和**Client Secret**获取可参考[基础概念](https://open.dingtalk.com/document/development/development-basic-concepts)中说明，获取后请妥善保管，避免泄露。
+   > **Client ID**和**Client Secret**获取可参考[基础概念](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md)中说明，获取后请妥善保管，避免泄露。
 
 ## **步骤二：引入客户端SDK**
 

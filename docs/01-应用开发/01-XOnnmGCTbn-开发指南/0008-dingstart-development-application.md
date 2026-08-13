@@ -20,7 +20,7 @@ updated_at: "2026-05-12 08:53:46"
 
 平台目前提供了多种应用开发方式，其中包括小程序应用和微应用、酷应用等，你可根据实际开放环境，选择合适的开发场景进行开发：
 
-- [开发AI应用](../../04-AI-PaaS/01-pm4vgiS9Br-平台介绍/0001-introduction-to-dingtalk-ai-paas-1.md)
+- [开发AI应用](../../03-AI-PaaS/01-pm4vgiS9Br-平台介绍/0001-introduction-to-dingtalk-ai-paas-1.md)
 - [开发小程序应用](0024-optional-develop-a-small-program-server.md)
 - [配置网页应用](0030-configure-web-application.md)
 

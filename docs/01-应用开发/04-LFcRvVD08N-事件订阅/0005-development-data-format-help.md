@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "事件订阅"
 breadcrumb: "开发指南 > 数据格式"
 doc_id: "ET4SfWpICW"
-updated_at: "2026-01-23 10:46:00"
+updated_at: "2026-07-22 16:25:26"
 ---
 
 > Source: https://open.dingtalk.com/document/development/development-data-format-help
 > Path: 应用开发 / 事件订阅 / 开发指南 > 数据格式
-> Updated: 2026-01-23 10:46:00
+> Updated: 2026-07-22 16:25:26
 
 # 数据格式
 
@@ -23,7 +23,7 @@ updated_at: "2026-01-23 10:46:00"
 本文档面向**第三方 ISV 应用开发者**，用于接收企业级数据变更推送（如用户、部门、审批等事件）。请确保已完成以下配置：
 
 - 已在钉钉开放平台创建 **第三方企业应用**
-- 已完成 [事件订阅](../02-4a8AMF6u2A-服务端API/0014-event-subscription-overview.md) 配置
+- 已完成 [事件订阅](0003-configure-stream-push.md) 配置
 
 ### 安全要求
 
@@ -172,9 +172,9 @@ biz\_data数据如下：
   > **[!NOTE]**
   >
   > **org\_suite\_auth**，**org\_suite\_change**两个事件都表示企业对于第三方企业应用的授权信息，需要等同处理，在很短时间内发生的两个事件，有可能会覆盖，保证只给出最新的授权信息
-- auth\_corp\_info, auth\_info和auth\_user\_info 三段结构信息请参考[获取企业授权信息](https://open.dingtalk.com/document/isvapp-server/obtains-the-basic-information-of-an-enterprise#topic-1936797)。
-- auth\_scope结构信息请参考[获取通讯录权限范围](https://open.dingtalk.com/document/isvapp-server/obtain-corpsecret-authorization-scope#topic-1936761)。
-- permanent\_code已废弃。兼容老接口[获取第三方应用授权企业的accessToken](https://open.dingtalk.com/document/isvapp-server/obtain-the-access_token-of-the-authorized-enterprise#doc-api-dingtalk-GetCorpAccessToken)。
+- auth\_corp\_info, auth\_info和auth\_user\_info 三段结构信息请参考[获取企业授权信息](../02-4a8AMF6u2A-服务端API/0042-obtains-the-basic-information-of-an-enterprise.md)。
+- auth\_scope结构信息请参考[获取通讯录权限范围](../02-4a8AMF6u2A-服务端API/0053-obtain-corpsecret-authorization-scope.md)。
+- permanent\_code已废弃。兼容老接口[获取第三方应用授权企业的accessToken](../02-4a8AMF6u2A-服务端API/0034-obtain-the-access-token-of-the-authorized-enterprise-1.md)。
 - ch\_permanent\_code已废弃。兼容老接口service/get\_channel\_corp\_token。
 
 ## biz\_type=7
@@ -240,7 +240,7 @@ biz\_data数据如下：
 | biz\_id | 员工的userid。 |
 | biz\_data | 数据为Json格式。 |
 
-biz\_data数据为如下两种Json格式，企业增加或修改员工，字段值来自于[根据userId获取用户详情](https://open.dingtalk.com/document/isvapp-server/query-user-details#topic-1960047)接口 。
+biz\_data数据为如下两种Json格式，企业增加或修改员工，字段值来自于[查询用户详情](../02-4a8AMF6u2A-服务端API/0056-query-user-details.md)接口 。
 
 - 增加企业员工：
 
@@ -306,7 +306,7 @@ biz\_data数据为如下两种Json格式，企业增加或修改员工，字段�
 | biz\_id | 部门ID。 |
 | biz\_data | 数据为Json格式。 |
 
-biz\_data数据为如下两种Json格式，企业增加或修改部门，字段值来自于[获取部门详情](https://open.dingtalk.com/document/isvapp-server/query-department-details0-v2#topic-1936778)接口 。
+biz\_data数据为如下两种Json格式，企业增加或修改部门，字段值来自于[获取部门详情](../02-4a8AMF6u2A-服务端API/0081-query-department-details0-v2.md)接口 。
 
 - 企业增加部门：
 
@@ -583,7 +583,7 @@ biz\_data数据为如下两种 Json格式：
 
 > **[!NOTE]**
 >
-> 当表单内容大于64KB时，为防止推送失败，推送数据中会省略掉formValueVOS字段，并同时添加formValuesOmitted为true的标识字段。若需要获取表单完整数据，可调用服务端API-[获取审批实例详情](https://open.dingtalk.com/document/isvapp-server/obtains-the-details-of-a-single-approval-instance)接口。
+> 当表单内容大于64KB时，为防止推送失败，推送数据中会省略掉formValueVOS字段，并同时添加formValuesOmitted为true的标识字段。若需要获取表单完整数据，可调用服务端API-[获取单个审批实例详情](../02-4a8AMF6u2A-服务端API/0498-obtains-the-details-of-a-single-approval-instance-pop.md)接口。
 
 | **字段** | **说明** |
 | --- | --- |
@@ -638,7 +638,7 @@ biz\_data数据如下。
 }
 ```
 
-字段说明，请参考[获取审批实例详情](https://open.dingtalk.com/document/isvapp-server/obtains-the-details-of-a-single-approval-instance#topic-1936897)。
+字段说明，请参考[获取单个审批实例详情](../02-4a8AMF6u2A-服务端API/0498-obtains-the-details-of-a-single-approval-instance-pop.md)。
 
 ## biz\_type=32
 
@@ -710,7 +710,9 @@ biz\_data数据如下。
 | biz\_id | 订单orderId。 |
 | biz\_data | 数据为Json格式。 |
 
-#### **服务关闭的biz\_data数据如下（目前仅退款导致服务关闭时推送）：**
+#### **服务关闭**
+
+服务关闭的biz\_data数据如下（目前仅退款导致服务关闭时推送）：
 
 ```
 {
@@ -750,7 +752,9 @@ biz\_data数据如下。
 | refundId | 退款id，退款唯一标识。 |
 | closeType | 服务关闭类型：   - **3**：退款导致的服务关闭 |
 
-#### 服务开通的biz\_data数据如下（目前仅续费变配服务开通时推送）：
+#### 服务开通
+
+服务开通的biz\_data数据如下（目前仅续费变配服务开通时推送）：
 
 ```
 {

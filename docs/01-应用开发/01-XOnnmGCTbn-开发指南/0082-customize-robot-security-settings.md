@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 自定义机器人 > 自定义机器人安全设置"
 doc_id: "QAg84yOrSu"
-updated_at: "2025-09-03 15:56:48"
+updated_at: "2026-07-22 16:55:24"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/customize-robot-security-settings
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 自定义机器人 > 自定义机器人安全设置
-> Updated: 2025-09-03 15:56:48
+> Updated: 2026-07-22 16:55:24
 
 # 自定义机器人安全设置
 
@@ -22,7 +22,7 @@ updated_at: "2025-09-03 15:56:48"
 
 为了确保自定义机器人使用过程的安全性，我们提供三种保护措施来保障你的自定义机器人安全运行。这些措施包括：设置**自定义关键词**、**加签**（使用签名加密）和 IP 地址（段）。通过这些方法，可以有效保护你的机器人不受恶意攻击
 
-![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1834868071/p768492.png)
+![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4250174871/p768492.png)
 
 ## **前提条件**
 
@@ -99,7 +99,7 @@ updated_at: "2025-09-03 15:56:48"
    | timestamp | 开发者计算 sign 签名值时使用到的时间戳。 |
    | sign | 步骤一获取的签名值。 |
 
-   详情可参考[自定义机器人发送群聊消息](https://open.dingtalk.com/document/dingstart/custom-bot-to-send-group-chat-messages)。
+   详情可参考[自定义机器人发送群聊消息](../02-4a8AMF6u2A-服务端API/0702-custom-bot-to-send-group-chat-messages.md)。
 
 ## IP地址（段）
 
@@ -114,5 +114,5 @@ updated_at: "2025-09-03 15:56:48"
 
 ## **相关文档**
 
-- [自定义机器人发送群聊消息](https://open.dingtalk.com/document/dingstart/custom-bot-to-send-group-chat-messages)
-- [自定义机器人发送群消息 OpenAPI](../02-4a8AMF6u2A-服务端API/0715-custom-robots-send-group-messages.md)
+- [自定义机器人发送群聊消息](../02-4a8AMF6u2A-服务端API/0702-custom-bot-to-send-group-chat-messages.md)
+- [自定义机器人发送群消息 OpenAPI](../02-4a8AMF6u2A-服务端API/0717-custom-robots-send-group-messages.md)

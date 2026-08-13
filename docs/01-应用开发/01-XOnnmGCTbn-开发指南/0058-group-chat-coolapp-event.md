@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发群聊酷应用 > 开发参考 > 感知群变化（事件订阅）"
 doc_id: "IAmirVeF59"
-updated_at: "2025-09-03 15:56:27"
+updated_at: "2026-07-21 14:13:30"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/group-chat-coolapp-event
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发群聊酷应用 > 开发参考 > 感知群变化（事件订阅）
-> Updated: 2025-09-03 15:56:27
+> Updated: 2026-07-21 14:13:30
 
 # 感知群变化（事件订阅）
 
@@ -32,4 +32,4 @@ updated_at: "2025-09-03 15:56:27"
 
 ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5956817661/p508752.png)
 
-事件订阅内容，详情参考 [开发 HTTP 推送服务端](../04-LFcRvVD08N-事件订阅/0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj)和 [开发 Stream 模式推送服务端（推荐）](../04-LFcRvVD08N-事件订阅/0004-develop-stream-mode-push-server.md#7c157d52c89et)。
+事件订阅内容，详情参考 [开发 HTTP 模式](../04-LFcRvVD08N-事件订阅/0004-develop-stream-mode-push-server.md#6d7a5d60ddwgj)和 [开发 Stream 模式（推荐）](../04-LFcRvVD08N-事件订阅/0004-develop-stream-mode-push-server.md#7c157d52c89et)。

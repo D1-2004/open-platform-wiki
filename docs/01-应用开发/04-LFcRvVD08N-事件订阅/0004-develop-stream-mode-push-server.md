@@ -7,108 +7,208 @@ group: "应用开发"
 tab: "事件订阅"
 breadcrumb: "开发指南 > 开发事件推送服务"
 doc_id: "AmJSGSHW1a"
-updated_at: "2025-11-20 16:14:51"
+updated_at: "2026-07-22 16:25:25"
 ---
 
 > Source: https://open.dingtalk.com/document/development/develop-stream-mode-push-server
 > Path: 应用开发 / 事件订阅 / 开发指南 > 开发事件推送服务
-> Updated: 2025-11-20 16:14:51
+> Updated: 2026-07-22 16:25:25
 
 # 开发事件推送服务
 
 如果你需要开发事件订阅的推送服务，可以选择Stream模式推送、HTTP模式推送或SyncHTTP等三种推送模式中的一种，你可以参考本文档操作步骤完成开发操作。
 
-## **开发 Stream 模式推送服务端（推荐）**
+## **开发 Stream 模式（推荐）**
 
-### **前提条件**
+### **Java**
 
-拥有访问公网的运行环境。
+#### **前提条件**
 
-### **开发服务端-Java语言**
+- 拥有访问公网的运行环境。
+- JDK1.8及以上。
 
-1. 添加依赖项到工程的pom.xml文件或下载对应的jar包，最新的 SDK 版本可以在[这里](https://central.sonatype.com/artifact/com.dingtalk.open/app-stream-client)查看和下载。
+#### **安装 SDK**
 
-   ```
-   <dependency>
-     <groupId>com.dingtalk.open</groupId>
-     <artifactId>app-stream-client</artifactId>
-     <version>{sdk-version}</version>
-   </dependency>
-   ```
-2. 服务端接入：
+添加依赖项到工程的pom.xml文件或下载对应的jar包，最新的 SDK 版本可以在[这里](https://central.sonatype.com/artifact/com.dingtalk.open/app-stream-client)查看和下载。
 
-   | **配置项** | **描述** |
-   | --- | --- |
-   | ${clientId} | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](https://open.dingtalk.com/document/orgapp/basic-concepts-beta#title-g14-h6j-ff5)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
-   | ${clientSecret} | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见 [Client ID/Client Secret](https://open.dingtalk.com/document/orgapp/basic-concepts-beta#title-g14-h6j-ff5)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
+```
+<dependency>
+  <groupId>com.dingtalk.open</groupId>
+  <artifactId>app-stream-client</artifactId>
+  <version>{sdk-version}</version>
+</dependency>
+```
 
-   ```
-   public static void main(String[] args) {
-     OpenDingTalkStreamClientBuilder
-       .custom()
-       .credential(new AuthClientCredential("${clientId}", "${clientSecret}"))
-       //注册事件监听
-       .registerAllEventListener(new GenericEventListener() {
-         public EventAckStatus onEvent(GenericOpenDingTalkEvent event) {
-           try {
-             //事件唯一Id
-             String eventId = event.getEventId();
-             //事件类型
-             String eventType = event.getEventType();
-             //事件产生时间
-             Long bornTime = event.getEventBornTime();
-             //获取事件体
-             JSONObject bizData = event.getData();
-             //处理事件
-             process(bizData);
-             //消费成功
-             return EventAckStatus.SUCCESS;
-           } catch (Exception e) {
-             //消费失败
-             return EventAckStatus.LATER;
-           }
-         }
-       })
-       .build().start();
-   }
-   ```
+#### **服务端接入**
 
-### **开发服务端-****Golang语言**
+| **配置项** | **描述** |
+| --- | --- |
+| ${clientId} | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
+| ${clientSecret} | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
 
-1. 安装 SDK：
+```
+public static void main(String[] args) {
+  OpenDingTalkStreamClientBuilder
+    .custom()
+    .credential(new AuthClientCredential("${clientId}", "${clientSecret}"))
+    //注册事件监听
+    .registerAllEventListener(new GenericEventListener() {
+      public EventAckStatus onEvent(GenericOpenDingTalkEvent event) {
+        try {
+          //事件唯一Id
+          String eventId = event.getEventId();
+          //事件类型
+          String eventType = event.getEventType();
+          //事件产生时间
+          Long bornTime = event.getEventBornTime();
+          //获取事件体
+          JSONObject bizData = event.getData();
+          //处理事件
+          process(bizData);
+          //消费成功
+          return EventAckStatus.SUCCESS;
+        } catch (Exception e) {
+          //消费失败
+          return EventAckStatus.LATER;
+        }
+      }
+    })
+    .build().start();
+}
+```
 
-   ```
-   go get github.com/open-dingtalk/dingtalk-stream-sdk-go/v0.0.5
-   ```
-2. 服务端接入：
+#### **示例代码**
 
-   | **配置项** | **描述** |
-   | --- | --- |
-   | ${clientId} | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](https://open.dingtalk.com/document/orgapp/basic-concepts-beta#title-g14-h6j-ff5)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
-   | ${clientSecret} | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见 [Client ID/Client Secret](https://open.dingtalk.com/document/orgapp/basic-concepts-beta#title-g14-h6j-ff5)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
+我们以机器人回调和互动卡片回调举例，开发者可参考下方示例代码：
 
-   ```
-   func main() {
-   	e := clientV2.
-   		NewBuilder().
-   		Credential(&clientV2.AuthClientCredential{ClientId: "${clientId}", ClientSecret: "${clientSecret}"}).
-   		//监听开放平台事件
-   		RegisterAllEventHandler(func(event *clientV2.GenericOpenDingTalkEvent) clientV2.EventStatus {
-   			println("receive event ", event.Data)
-   			//成功返回 clientV2.EventStatusSuccess,失败返回clientV2.EventStatusLater
-   			return clientV2.EventStatusSuccess
-   		}).
-   		Build().
-   		Start(context.Background())
-   	
-   	if e != nil {
-   		println("failed to start stream client", e.Error())
-   		return
-   	}
+- **机器人回调**
 
-   	select {}
-   }
-   ```
+  ```
+  public static void main(String[] args) throws Exception {
+    OpenDingTalkStreamClientBuilder
+      .custom()
+      .credential(new AuthClientCredential("${clientId}", "${clientSecret}"))
+      //注册机器人监听器
+      .registerCallbackListener("${topic}", robotMessage -> {
+        log.info("receive robotMessage, {}", robotMessage);
+        //开发者根据自身业务需求，处理机器人回调
+        return new JSONObject();
+
+      })
+      .build().start();
+  }
+  ```
+
+  | **参数名** | **说明** |
+  | --- | --- |
+  | clientId | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
+  | clientSecret | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
+  | topic | 机器人回调名称，固定值：`/v1.0/im/bot/messages/get`。 |
+- **卡片回调**
+
+  详情参见[互动卡片-事件回调](../../05-互动卡片/01-N4KJ5HbqnQ-开发指南/0007-event-callback-card.md)。
+
+  ```
+  public static void main(String[] args) throws Exception {
+          OpenDingTalkStreamClientBuilder
+                  .custom()
+                  .credential(new AuthClientCredential("${clientId}", "${clientSecret}"))
+                  //注册卡片回传监听器
+                  .registerCallbackListener("/v1.0/card/instances/callback", callbackData -> {
+                      log.info("receive call back request, {}", callbackData);
+                      //your code is here
+
+                      //开发者根据自身业务需求，变更卡片内容，返回response
+                      CardCallbackResponse resp = new CardCallbackResponse();
+                      return resp;
+
+                  })
+                  .build().start();
+  }
+  ```
+
+  | **参数名** | **说明** |
+  | --- | --- |
+  | clientId | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
+  | clientSecret | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见[Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
+  | topic | 注册的卡片回调名称，固定值：`/v1.0/card/instances/callback`。 |
+
+### **Golang**
+
+#### **前提条件**
+
+- 拥有访问公网的运行环境。
+- 运行环境1.16及以上。
+
+#### **安装 SDK**
+
+```
+go get github.com/open-dingtalk/dingtalk-stream-sdk-go/v0.0.5
+```
+
+#### **服务端接入**
+
+| **配置项** | **描述** |
+| --- | --- |
+| ${clientId} | 钉钉企业内部应用和钉钉第三方企业应用的唯一身份标识。详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client ID 对应旧版应用的AppKey/SuiteKey。 |
+| ${clientSecret} | 钉钉企业内部应用和钉钉第三方企业应用的调用密钥，详情参见 [Client ID/Client Secret](../01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md#7d9825efaadw7)。  Client Secret 对应旧版应用的AppSecret/SuiteSecret。 |
+
+```
+func main() {
+  e := clientV2.
+    NewBuilder().
+    Credential(&clientV2.AuthClientCredential{ClientId: "${clientId}", ClientSecret: "${clientSecret}"}).
+    //监听开放平台事件
+    RegisterAllEventHandler(func(event *clientV2.GenericOpenDingTalkEvent) clientV2.EventStatus {
+      println("receive event ", event.Data)
+      //成功返回 clientV2.EventStatusSuccess,失败返回clientV2.EventStatusLater
+      return clientV2.EventStatusSuccess
+    }).
+    Build().
+    Start(context.Background())
+	
+  if e != nil {
+    println("failed to start stream client", e.Error())
+    return
+  }
+
+  select {}
+}
+```
+
+#### **示例代码**
+
+我们以机器人回调举例，开发者可参考下方示例代码：
+
+```
+func OnChatReceive(ctx context.Context, data *chatbot.BotCallbackDataModel) error {
+  return nil
+}
+
+func StartRobot() {
+  logger.SetLogger(logger.NewStdTestLogger())
+  cli := client.NewStreamClient(
+    client.WithAppCredential(client.NewAppCredentialConfig(${clientId}, ${clientSecret})),
+    client.WithUserAgent(client.NewDingtalkGoSDKUserAgent()),
+    client.WithSubscription(utils.SubscriptionTypeKCallback, ${topic}, chatbot.NewDefaultChatBotFrameHandler(OnChatReceive).OnEventReceived),
+  )
+
+  err := cli.Start(context.Background())
+  if err != nil {
+    panic(err)
+  }
+
+  defer cli.Close()
+
+  select {}
+}
+```
+
+| **参数名** | **说明** |
+| --- | --- |
+| clientId | 企业内部开发 AppKey/第三方企业应用 SuiteKey。 |
+| clientSecret | 企业内部开发 AppSecret/第三方企业应用 SuiteSecret。 |
+| topic | 机器人回调名称，固定值：`/v1.0/im/bot/messages/get`。 |
 
 ### **其他语言支持**
 
@@ -117,7 +217,7 @@ updated_at: "2025-11-20 16:14:51"
 - [Python SDK及示例代码](https://github.com/open-dingtalk/dingtalk-stream-sdk-python)
 - [Node.js SDK及示例代码](https://github.com/open-dingtalk/dingtalk-stream-sdk-nodejs)
 
-过程中有问题也可以通过[技术支持](https://open-dingtalk.github.io/developerpedia/docs/explore/support)提交反馈和问题交流。
+过程中有问题也可以通过[技术支持](../07-TjCzIgfQs3-平台服务/0044-ngliko.md)提交反馈和问题交流。
 
 ### **错误码**
 
@@ -125,19 +225,19 @@ updated_at: "2025-11-20 16:14:51"
 
 | 错误码（errCode） | 错误信息（errMsg） | **说明** | 解决方案 |
 | --- | --- | --- | --- |
-| 20001 | 受调用量超量影响，当前我的消息服务已经暂停。请联系你所在的组织管理员并予以处理  接收消息中，新增 **errMsg** 字段，用于展示错误信息。 | - 接收消息中无消息内容   无 text 和 content 字段内容   - 登录[开发者后台](https://open-dev.dingtalk.com/)即可查看调用量。  image | 需要升级钉钉专业版或购买增购包，详情参看[企业增购包购买说明](https://open.dingtalk.com/document/orgapp/purchase-instructions-for-enterprise-additional-purchase-package)。 |
+| 20001 | 受调用量超量影响，当前我的消息服务已经暂停。请联系你所在的组织管理员并予以处理  接收消息中，新增 **errMsg** 字段，用于展示错误信息。 | - 接收消息中无消息内容   无 text 和 content 字段内容   - 登录[开发者后台](https://open-dev.dingtalk.com/)即可查看调用量。  image | 需要升级钉钉专业版或购买增购包。 |
 
 ### **常见问题**
 
-#### **一个应用程序中，是否可以启动多个事件监听？**
+- **一个应用程序中，是否可以启动多个事件监听？**
 
-答：可以启动多个事件监听服务，你可以根据需要启动多个Stream客户端配置。
+  答：可以启动多个事件监听服务，你可以根据需要启动多个Stream客户端配置。
 
-> 1. 企业内部应用：一个企业仅需配置一个Stream客户端即可。
+  > 1. 企业内部应用：一个企业仅需配置一个Stream客户端即可。
 
-> 2. 第三方企业应用：仅需监听该第三方企业应用，即可获取当前授权企业的事件订阅内容。
+  > 2. 第三方企业应用：仅需监听该第三方企业应用，即可获取当前授权企业的事件订阅内容。
 
-## **开发 HTTP 推送服务端**
+## **开发 HTTP 模式**
 
 ### **前提条件**
 
@@ -647,11 +747,11 @@ updated_at: "2025-11-20 16:14:51"
 
       此时，你的 HTTP 推送服务端就已经开发完成了。你可以按照[配置 HTTP 推送（不推荐）](0003-configure-stream-push.md#58bfd87c4fupu)流程校验是否接入正确。
 
-## **开发 SyncHTTP  模式推送服务端**
+## **开发 SyncHTTP  模式**
 
 ### **前提条件**
 
-1. 了解[配置 SyncHTTP 推送（不推荐）](https://open.dingtalk.com/document/isvapp/configure-synchttp-event-push)流程。
+1. 了解[配置 SyncHTTP 推送（不推荐）](0003-configure-stream-push.md#421584309ds03)流程。
 2. 开发环境：
 
    - Maven 3

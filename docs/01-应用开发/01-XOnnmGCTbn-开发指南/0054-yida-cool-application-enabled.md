@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷应用启用"
 doc_id: "Ac8W3Ouqdh"
-updated_at: "2026-06-30 09:00:56"
+updated_at: "2026-07-21 14:07:49"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/yida-cool-application-enabled
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发群聊酷应用 > 宜搭群聊酷应用（ISV应用） > 酷应用启用
-> Updated: 2026-06-30 09:00:56
+> Updated: 2026-07-21 14:07:49
 
 # 酷应用启用
 
@@ -39,11 +39,11 @@ updated_at: "2026-06-30 09:00:56"
 >
 > 宜搭企业自建应用可见范围默认全员可见。
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8415931661/p481000.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9604164871/p481000.png)
 
 用户点击启用，可将会在群快捷栏内出现酷应用入口，可直接使用。
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9415931661/p480997.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9604164871/p480997.png)
 
 ## **酷应用模板启用使用**
 
@@ -51,17 +51,17 @@ updated_at: "2026-06-30 09:00:56"
 >
 > 根据《[宜搭模板应用快速酷化&上架到钉钉酷应用市场SOP](https://xmtrf1.aliwork.com/o/cool_template_sop)》将酷应用模板上架到钉群酷应用市场后，可在不同的分类下查看酷应用品，点击“启用”可开箱即用，点击酷应用图标，可查看酷应用详情信息。
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9415931661/p481019.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9604164871/p481019.png)
 
 ## **酷应用卸载**
 
 点击群会话栏“更多”，打开酷应用栏，点击设置按钮，点击设置，进入启用应用管理页
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8415931661/p481012.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9604164871/p481012.png)
 
 选择某个已经启用的应用，进入弹窗，点击“卸载应用”，卸载后，群快捷入口和机器人都会卸载。
 
-![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8415931661/p481014.png)
+![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9604164871/p481014.png)
 
 ## **启用视频**
 

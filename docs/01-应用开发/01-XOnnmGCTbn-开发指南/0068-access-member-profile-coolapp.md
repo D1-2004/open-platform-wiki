@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发酷应用 > 开发成员资料页酷应用 > 接入成员资料页"
 doc_id: "MfD3uL8Mph"
-updated_at: "2026-06-30 09:01:02"
+updated_at: "2026-07-21 14:49:33"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/access-member-profile-coolapp
 > Path: 应用开发 / 开发指南 / 开发酷应用 > 开发成员资料页酷应用 > 接入成员资料页
-> Updated: 2026-06-30 09:01:02
+> Updated: 2026-07-21 14:49:33
 
 # 接入成员资料页
 
@@ -56,7 +56,7 @@ updated_at: "2026-06-30 09:01:02"
    >
    > 新建模板卡片，参见更多信息**创建通讯录卡片**。
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2621872871/p516971.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3756164871/p516971.png)
 
    | **配置项** | **说明** |
    | --- | --- |
@@ -143,20 +143,20 @@ updated_at: "2026-06-30 09:01:02"
    >
    > 登录钉钉管理后台，需要**企业子管理员权限。**
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5774378661/p517107.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3756164871/p517107.png)
 
    通讯录成员资料页可见性配置规则需要设置：展示范围和可见范围，支持按照部门、人、角色维度设置。
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5774378661/p517131.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3756164871/p517131.png)
 
    > **[!NOTE]**
    >
    > 自己看自己需要勾选 **展示此信息的成员自己也可见**
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0340938661/p516593.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3756164871/p516593.png)
 7. 扫码查看成员资料页扩展，使用移动端扫码快速体验。
 
-   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5774378661/p517220.png)
+   ![image](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3756164871/p517220.png)
 
    扫码预览，展示信息。
 

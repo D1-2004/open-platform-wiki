@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "平台简介 > 基础概念"
 doc_id: "sCL2QMwMeu"
-updated_at: "2026-05-06 10:56:50"
+updated_at: "2026-07-22 16:55:12"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/basic-concepts-beta
 > Path: 应用开发 / 开发指南 / 平台简介 > 基础概念
-> Updated: 2026-05-06 10:56:50
+> Updated: 2026-07-22 16:55:12
 
 # 基础概念
 
@@ -156,7 +156,7 @@ updated_at: "2026-05-06 10:56:50"
 
 ## **快速上手**
 
-以下伪代码展示如何使用 `CorpId` 和 `access_token` 发起一次最简单的 API 调用，验证环境配置是否正确：
+以下伪代码展示如何使用 `userid` 和 `access_token` 发起一次最简单的 API 调用，验证环境配置是否正确：
 
 ```
 GET https://oapi.dingtalk.com/topapi/v2/user/get?access_token=ACCESS_TOKEN&userid=USERID
@@ -165,7 +165,7 @@ GET https://oapi.dingtalk.com/topapi/v2/user/get?access_token=ACCESS_TOKEN&useri
 **步骤说明**：
 
 1. **获取凭证**：使用 `Client ID` 和 `Client Secret` 调用接口获取 `access_token`。
-2. **准备参数**：在管理后台找到任意成员的 `UserId`。
+2. **准备参数**：在管理后台找到任意成员的 `userid`。
 3. **替换参数**：构造上述请求，替换 `ACCESS_TOKEN` 和 `USERID`。
 4. **发起测试**：若返回 `"errcode": 0, "errmsg": "ok"`，则表示配置成功，可继续后续开发。
 

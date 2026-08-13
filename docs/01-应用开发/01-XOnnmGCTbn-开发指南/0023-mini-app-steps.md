@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发小程序应用 > 小程序使用网页应用客户端 API"
 doc_id: "Biiu81d9hq"
-updated_at: "2026-06-30 09:00:28"
+updated_at: "2026-07-22 16:55:16"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/mini-app-steps
 > Path: 应用开发 / 开发指南 / 开发小程序应用 > 小程序使用网页应用客户端 API
-> Updated: 2026-06-30 09:00:28
+> Updated: 2026-07-22 16:55:16
 
 # 小程序使用网页应用客户端 API
 
@@ -43,7 +43,7 @@ import 'dingtalk-jsapi/entry/mobile';
 
 ## **步骤三：在钉钉小程序内调用**
 
-以在钉钉小程序index页面，调用网页应用的[选择部门和人](https://open.dingtalk.com/document/orgapp/select-department-and-person)接口为例。
+以在钉钉小程序index页面，调用网页应用的[选择部门和人](../03-Ogu5SlPY4t-客户端JSAPI/0772-select-department-and-person.md)接口为例。
 
 1. 小程序index.js文件头部，添加以下代码：
 

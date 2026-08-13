@@ -82,4 +82,4 @@ HTTP推送方式适用于本地部署的情况，以HTTP POST请求方式以加�
 | **审批实例开始/结束/终止** | 针对某个业务分类下特定审批模板的实例开始/结束/终止事件。 | `/v1.0/event/bpms_instance_change/bizCategoryId/{bizCategoryId}/processCode/{processCode}/type/{type}` | `/v1.0/event/bpms_instance_change/bizCategoryId/{bizCategoryId}/processCode/PROC-EA*****F-885E-47AA-AEB9-8F59CB10E309/type/start` |
 | 某个审批模板下的实例开始、结束或终止事件，直接使用审批模板代码`processCode`进行事件匹配。 | `/v1.0/event/bpms_instance_change/processCode/{processCode}/type/{type}` | `/v1.0/event/bpms_instance_change/processCode/PROC-EA*****F-885E-47AA-AEB9-8F59CB10E309/type/start` |
 
-相关参数信息，请参考[审批实例开始、结束、终止、删除](0033-event-bpms-instance-change.md)。
+相关参数信息，请参考[审批实例开始、结束、终止、删除](0039-event-bpms-instance-change.md)。

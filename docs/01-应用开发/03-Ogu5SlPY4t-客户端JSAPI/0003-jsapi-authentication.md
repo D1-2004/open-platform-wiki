@@ -7,18 +7,18 @@ group: "应用开发"
 tab: "客户端JSAPI"
 breadcrumb: "JSAPI鉴权"
 doc_id: "ViV3AiVTvR"
-updated_at: "2025-09-17 20:57:40"
+updated_at: "2026-07-22 16:25:11"
 ---
 
 > Source: https://open.dingtalk.com/document/development/jsapi-authentication
 > Path: 应用开发 / 客户端JSAPI / JSAPI鉴权
-> Updated: 2025-09-17 20:57:40
+> Updated: 2026-07-22 16:25:11
 
 # JSAPI鉴权
 
 钉钉提供的JSAPI有很多是手机的基础能力，对这些JSAPI的调用不需要进行鉴权（**不需要进行dd.config**），只需要在**dd.ready**里调用。对于一些钉钉业务、安全相关的JSAPI的调用，需要先鉴权，然后再调用。
 
-了解JSAPI是否需要鉴权，请查看[H5微应用JSAPI总览](https://open.dingtalk.com/document/isvapp/jsapi-overview)。
+了解JSAPI是否需要鉴权，请查看[H5微应用JSAPI总览](0749-jsapi-overview-1.md)。
 
 ## 接入必读
 
@@ -35,8 +35,8 @@ updated_at: "2025-09-17 20:57:40"
 
 ## 步骤一：获取access\_token
 
-- 企业内部应用可通过[获取企业内部应用的access\_token](https://open.dingtalk.com/document/orgapp/obtain-orgapp-token)接口获取。
-- 第三方企业应用可通过[服务商获取第三方应用授权企业的access\_token](https://open.dingtalk.com/document/isvapp/obtains-the-enterprise-authorized-credential)接口获取。
+- 企业内部应用可通过[获取企业内部应用的accessToken](../02-4a8AMF6u2A-服务端API/0033-obtain-the-access-token-of-an-internal-app.md)接口获取。
+- 第三方企业应用可通过[获取第三方应用授权企业的accessToken](../02-4a8AMF6u2A-服务端API/0034-obtain-the-access-token-of-the-authorized-enterprise-1.md)接口获取。
 
 > **[!IMPORTANT]**
 >
@@ -44,9 +44,9 @@ updated_at: "2025-09-17 20:57:40"
 
 ## 步骤二：获取jsapi\_ticket
 
-通过[获取jsapi\_ticket](https://open.dingtalk.com/document/isvapp/obtain-jsapi_ticket)接口获取jsapi\_ticket时，请注意：
+通过[获取jsapiTicket](../02-4a8AMF6u2A-服务端API/0039-create-a-jsapi-ticket.md)接口获取jsapi\_ticket时，请注意：
 
-- 企业内部应用和第三方企业应用获取 jsapiTicket 后，如果 jsapiTicket 尚未过期，再次调用[获取jsapiTicket](https://open.dingtalk.com/document/orgapp/create-a-jsapi-ticket)接口时，返回的 jsapiTicket 值与之前的相同，只是续期了 2 小时。需要注意的是，从 jsapiTicket 生成起，最大过期时间为 24 小时，即使续期后，最大过期时间仍从 jsapiTicket 生成起计算。
+- 企业内部应用和第三方企业应用获取 jsapiTicket 后，如果 jsapiTicket 尚未过期，再次调用[获取jsapiTicket](../02-4a8AMF6u2A-服务端API/0039-create-a-jsapi-ticket.md)接口时，返回的 jsapiTicket 值与之前的相同，只是续期了 2 小时。需要注意的是，从 jsapiTicket 生成起，最大过期时间为 24 小时，即使续期后，最大过期时间仍从 jsapiTicket 生成起计算。
 
   > 例如：当你早上 9 点，生成一个 jsapiTicket 时，即使一直续期，第二天早上 9 点，jsapiTicket 也会过期，需要重新生成一个新的 jsapiTicket。
 - 企业内部应用获取jsapi\_ticket，一个appKey对应一个jsapi\_ticket，所以在使用的时候需要将jsapi\_ticket以appKey为维度进行缓存下来（设置缓存过期时间2小时），**并不需要每次都通过接口拉取**。

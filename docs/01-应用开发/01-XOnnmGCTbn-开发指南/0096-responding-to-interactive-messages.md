@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 群模板机器人 > 使用群模板机器人 > 响应互动卡片消息"
 doc_id: "W9RDcWLvrp"
-updated_at: "2025-10-09 17:52:39"
+updated_at: "2026-07-22 16:55:32"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/responding-to-interactive-messages
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 群模板机器人 > 使用群模板机器人 > 响应互动卡片消息
-> Updated: 2025-10-09 17:52:39
+> Updated: 2026-07-22 16:55:32
 
 # 响应互动卡片消息
 
@@ -28,7 +28,7 @@ updated_at: "2025-10-09 17:52:39"
 
 ## 注册回调地址
 
-开发者后台系统要感知到用户对卡片的操作，需要调用[注册互动卡片回调地址](../02-4a8AMF6u2A-服务端API/1455-registration-card-interaction-callback-address-1.md)接口先向钉钉注册回调地址。
+开发者后台系统要感知到用户对卡片的操作，需要调用[注册卡片回调地址](../02-4a8AMF6u2A-服务端API/0786-register-card-callback-address.md)接口先向钉钉注册回调地址。
 
 ## 响应回调
 
@@ -51,7 +51,7 @@ updated_at: "2025-10-09 17:52:39"
 
 > **[!NOTE]**
 >
-> 涉及到其他用户更新的需主动调用[更新钉钉互动卡片](../02-4a8AMF6u2A-服务端API/1454-update-dingtalk-interactive-cards.md)接口来异步更新，其他用户更新建议一次请求最大50个用户，大于50个用户更新的分多次调用。
+> 涉及到其他用户更新的需主动调用[创建并投放卡片](../02-4a8AMF6u2A-服务端API/0783-create-and-deliver-cards.md)接口来异步更新，其他用户更新建议一次请求最大50个用户，大于50个用户更新的分多次调用。
 
 ```
 {

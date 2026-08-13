@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 群模板机器人 > 创建群模板机器人"
 doc_id: "GuO4gWpHqT"
-updated_at: "2025-10-21 14:11:44"
+updated_at: "2026-07-22 16:55:30"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/creation-and-installation-of-swarm-template-robots
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 群模板机器人 > 创建群模板机器人
-> Updated: 2025-10-21 14:11:44
+> Updated: 2026-07-22 16:55:30
 
 # 创建群模板机器人
 
@@ -39,14 +39,14 @@ updated_at: "2025-10-21 14:11:44"
    | 简介 | 简要说明机器人能力，限制 10 字以内。 |
    | 消息预览图 | 上传消息预览图片，仅支持 JPG/PNG 文件。 |
    | 详细描述 | 详细说明机器人的使用场景和详细能力，限制 256 字以内。 |
-   | 消息回调地址 | 当群内用户 @ 群机器人并发送消息时，该消息可以通过消息回调地址发送到开发者的服务器，必须是公网可访问地址。  例如：  https://example.com/callback  机器人接收消息类型和数据格式，详情参考[机器人接收消息](https://open.dingtalk.com/document/dingstart/dingstart-robot-receive-message)。 |
+   | 消息回调地址 | 当群内用户 @ 群机器人并发送消息时，该消息可以通过消息回调地址发送到开发者的服务器，必须是公网可访问地址。  例如：  https://example.com/callback  机器人接收消息类型和数据格式，详情参考[消息发送与接收类型](../02-4a8AMF6u2A-服务端API/0699-robot-message-type.md)。 |
    | 回调消息token | 当开发者在收到回调地址对应的服务器上收到请求时，需要根据此 token 数据验证是否为合法请求。 |
    | 信息来源网站 | 用户单击群机器人个人信息页展示的对应开发者网站信息。 |
 
    配置完成后，单击**创建**。
 4. 单击创建后，需等待审批，审批会在 1 ～ 2 个工作日通过。
 
-   ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3834868071/p768463.png)
+   ![image.png](https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0350174871/p768463.png)
 
 ## **后续步骤**
 

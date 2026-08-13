@@ -120,7 +120,7 @@ updated_at: "2026-07-02 10:36:17"
 
 ### 回调事件列表
 
-日程支持用户发生[日程变更](../04-LFcRvVD08N-事件订阅/0025-event-calendar-event-change.md)的回调事件。
+日程支持用户发生[日程变更](../04-LFcRvVD08N-事件订阅/0018-event-calendar-event-change.md)的回调事件。
 
 ## 使用教程
 

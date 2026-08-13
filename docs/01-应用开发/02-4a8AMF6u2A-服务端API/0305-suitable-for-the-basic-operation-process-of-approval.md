@@ -40,16 +40,16 @@ updated_at: "2026-05-15 09:04:55"
 
 步骤四：调用服务端宜搭相关API。
 
-1. 调用服务端API-[发起宜搭审批流程](0306-api-startinstance-v2.md)接口，创建宜搭审批单流程，获取宜搭审批单的流程实例formInstanceId。
+1. 调用服务端API-[发起宜搭审批流程](0311-api-startinstance-v2.md)接口，创建宜搭审批单流程，获取宜搭审批单的流程实例formInstanceId。
 2. 根据审批单流程实例formInstanceId，实现审批单实例操作流程：
 
    1. 根据审批单流程实例formInstanceId，调用服务端API-[终止流程实例](0308-terminate-a-process-instance.md)接口，实现宜搭审批单撤销操作。
-   2. 如需删除流程实例数据，调用服务端API-[删除流程实例](0307-delete-the-process-instance.md)接口，实现删除宜搭审批单数据信息。
+   2. 如需删除流程实例数据，调用服务端API-[删除流程实例](0309-delete-the-process-instance.md)接口，实现删除宜搭审批单数据信息。
    3. 实现宜搭审批单同意或拒绝流程：
 
-      1. 根据审批单流程实例formInstanceId，调用服务端API-[根据流程实例ID获取流程实例](0314-api-getinstancebyid-v2.md)接口，获取宜搭审批单的详情信息。
-      2. 根据审批单流程实例formInstanceId，调用服务端API-[查询流程运行任务（VPC）](0345-query-process-running-tasks-vpc.md)接口，获取宜搭审批单的节点信息taskId。
-      3. 根据审批单流程实例formInstanceId和任务节点taskId，调用服务端API-[同意或拒绝宜搭审批任务](0341-execute-approval-tasks.md)接口，执行同意或者拒绝宜搭审批单。
+      1. 根据审批单流程实例formInstanceId，调用服务端API-[根据流程实例ID获取流程实例](0315-api-getinstancebyid-v2.md)接口，获取宜搭审批单的详情信息。
+      2. 根据审批单流程实例formInstanceId，调用服务端API-[查询流程运行任务（VPC）](0346-query-process-running-tasks-vpc.md)接口，获取宜搭审批单的节点信息taskId。
+      3. 根据审批单流程实例formInstanceId和任务节点taskId，调用服务端API-[同意或拒绝宜搭审批任务](0345-execute-approval-tasks.md)接口，执行同意或者拒绝宜搭审批单。
 
 ## 步骤一：创建企业内部应用
 
@@ -94,7 +94,7 @@ updated_at: "2026-05-15 09:04:55"
 
 ## 步骤五：调用服务端宜搭相关API
 
-1. 调用服务端API-[发起宜搭审批流程](0306-api-startinstance-v2.md)接口，创建宜搭审批单流程，获取宜搭审批单的流程实例formInstanceId。
+1. 调用服务端API-[发起宜搭审批流程](0311-api-startinstance-v2.md)接口，创建宜搭审批单流程，获取宜搭审批单的流程实例formInstanceId。
 
    ```
    public void processesInstancesStart() throws Exception {
@@ -168,7 +168,7 @@ updated_at: "2026-05-15 09:04:55"
               }
           }
       ```
-   2. 如需删除流程实例数据，调用服务端API-[删除流程实例](0307-delete-the-process-instance.md)接口，实现删除宜搭审批单数据信息。
+   2. 如需删除流程实例数据，调用服务端API-[删除流程实例](0309-delete-the-process-instance.md)接口，实现删除宜搭审批单数据信息。
 
       ```
       public void instancesDelete() throws Exception {
@@ -204,7 +204,7 @@ updated_at: "2026-05-15 09:04:55"
       ```
    3. 实现宜搭审批单同意或拒绝流程：
 
-      1. 根据审批单流程实例formInstanceId，调用服务端API-[根据流程实例ID获取流程实例](0314-api-getinstancebyid-v2.md)接口，获取宜搭审批单的详情信息。
+      1. 根据审批单流程实例formInstanceId，调用服务端API-[根据流程实例ID获取流程实例](0315-api-getinstancebyid-v2.md)接口，获取宜搭审批单的详情信息。
 
          ```
           public void instancesInfos() throws Exception {
@@ -238,7 +238,7 @@ updated_at: "2026-05-15 09:04:55"
                  }
              }
          ```
-      2. 根据审批单流程实例formInstanceId，调用服务端API-[查询流程运行任务（VPC）](0345-query-process-running-tasks-vpc.md)接口，获取宜搭审批单的节点信息taskId。
+      2. 根据审批单流程实例formInstanceId，调用服务端API-[查询流程运行任务（VPC）](0346-query-process-running-tasks-vpc.md)接口，获取宜搭审批单的节点信息taskId。
 
          ```
          public void RunningTasks() throws Exception {
@@ -273,7 +273,7 @@ updated_at: "2026-05-15 09:04:55"
                  }
              }
          ```
-      3. 根据审批单流程实例formInstanceId和任务节点taskId，调用服务端API-[同意或拒绝宜搭审批任务](0341-execute-approval-tasks.md)接口，执行同意或者拒绝宜搭审批单。
+      3. 根据审批单流程实例formInstanceId和任务节点taskId，调用服务端API-[同意或拒绝宜搭审批任务](0345-execute-approval-tasks.md)接口，执行同意或者拒绝宜搭审批单。
 
          ```
          public void tasksExecute() throws Exception {
@@ -313,4 +313,4 @@ updated_at: "2026-05-15 09:04:55"
 
 > **[!NOTE]**
 >
-> 如果宜搭审批单调用过[转交任务](0344-transfer-tasks.md)接口，taskId值是会发生变化，调用[同意或拒绝宜搭审批任务](0341-execute-approval-tasks.md)接口时，需要再次调用[查询流程运行任务（VPC）](0345-query-process-running-tasks-vpc.md)接口，获取最新的taskId值。
+> 如果宜搭审批单调用过[转交任务](0341-transfer-tasks.md)接口，taskId值是会发生变化，调用[同意或拒绝宜搭审批任务](0345-execute-approval-tasks.md)接口时，需要再次调用[查询流程运行任务（VPC）](0346-query-process-running-tasks-vpc.md)接口，获取最新的taskId值。

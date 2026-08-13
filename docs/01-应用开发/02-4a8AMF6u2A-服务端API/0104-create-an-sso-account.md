@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "服务端API"
 breadcrumb: "通讯录管理 > 企业账号 > 创建SSO企业账号"
 doc_id: "dsdrv6toZ1"
-updated_at: "2026-05-27 13:09:02"
+updated_at: "2026-07-08 14:13:45"
 ---
 
 > Source: https://open.dingtalk.com/document/development/create-an-sso-account
 > Path: 应用开发 / 服务端API / 通讯录管理 > 企业账号 > 创建SSO企业账号
-> Updated: 2026-05-27 13:09:02
+> Updated: 2026-07-08 14:13:45
 
 # 创建SSO企业账号
 
@@ -31,7 +31,7 @@ updated_at: "2026-05-27 13:09:02"
 
 | 名称 | 类型 | 是否必填 | 示例值 | 描述 |
 | --- | --- | --- | --- | --- |
-| access\_token | String | 是 | BE3xxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1420-obtain-orgapp-token.md)接口获取。 |
+| access\_token | String | 是 | BE3xxxx | 调用该接口的应用凭证，通过[获取企业内部应用的access\_token](1443-obtain-orgapp-token.md)接口获取。 |
 
 ### **请求体**
 
@@ -56,12 +56,12 @@ updated_at: "2026-05-27 13:09:02"
 | dept\_title\_list | Object[] | 否 |  | 员工在对应的部门中的职位。 |
 | dept\_id | Number | 否 | 2 | 部门ID。 |
 | title | String | 否 | 资深产品经理 | 员工在部门中的职位。 |
-| extension | String | 否 | {"爱好":"旅游","年龄":"24"} | 扩展属性，可以设置多种属性，最大长度2000个字符。  **[!NOTE]**   - 手机上最多只能显示10个扩展属性。 - 在使用该参数前，需要先在[钉钉管理后台](https://oa.dingtalk.com/index_new.htm#/setting/contactInfo)增加该属性，然后再调用接口进行赋值，例如，在**通讯录** > **内部通讯录设置** > **通讯录信息**页面，单击**添加自定义字段**按钮。如下图所示，新增字段名称为“爱好”，字段类型为“文本”的自定义字段。爱好 - 该字段的值支持链接类型填写，同时链接支持变量通配符自动替换，目前支持通配符有：userid，corpid。例如：  ```  { "爱好":"[爱好](http://www.dingtalk.com?userid=#userid#&corpid=#corpid#)"  } ``` |
+| extension | Object | 否 | {"爱好":"旅游","年龄":"24"} | 扩展属性，可以设置多种属性，最大长度2000个字符。  **[!NOTE]**   - 手机上最多只能显示10个扩展属性。 - 在使用该参数前，需要先在[钉钉管理后台](https://oa.dingtalk.com/index_new.htm#/setting/contactInfo)增加该属性，然后再调用接口进行赋值，例如，在**通讯录** > **内部通讯录设置** > **通讯录信息**页面，单击**添加自定义字段**按钮。如下图所示，新增字段名称为“爱好”，字段类型为“文本”的自定义字段。爱好 - 该字段的值支持链接类型填写，同时链接支持变量通配符自动替换，目前支持通配符有：userid，corpid。例如：  ```  { "爱好":"[爱好](http://www.dingtalk.com?userid=#userid#&corpid=#corpid#)"  } ``` |
 | senior\_mode | Boolean | 否 | false | 是否开启高管模式，默认值false。   - **true**：开启。  **[!NOTE]**      - 开启后，手机号码对所有员工隐藏。   - 普通员工无法对其发DING、发起钉钉商务电话。   - 高管之间可以发DING、发起钉钉商务电话。 - **false**：不开启。 |
 | hired\_date | Number | 否 | 1597573616828 | 入职时间，Unix时间戳，单位毫秒。 |
 | manager\_userid | String | 否 | 001 | 直属主管的userId。 |
 | exclusive\_mobile | String | 否 | +86-13412341234 | 企业账号手机号。  **[!NOTE]**  仅适用于企业账号。 |
-| avatarMediaId | String | 否 | @lALPDfmVUw19YdrNA-jNA-g | 创建本组织企业账号时可指定头像MediaId，只支持jpg/png。  可调用[上传媒体文件](0644-upload-media-files.md)接口获取。  **[!NOTE]**  仅适用于企业账号。 |
+| avatarMediaId | String | 否 | @lALPDfmVUw19YdrNA-jNA-g | 创建本组织企业账号时可指定头像MediaId，只支持jpg/png。  可调用[上传媒体文件](0646-upload-media-files.md)接口获取。  **[!NOTE]**  仅适用于企业账号。 |
 | nickname | String | 否 | 昵称 | 创建本组织企业账号时可指定昵称。  **[!NOTE]**  仅适用于企业账号。 |
 
 ### **请求示例**

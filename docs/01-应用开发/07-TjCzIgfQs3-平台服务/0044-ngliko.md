@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "平台服务"
 breadcrumb: "服务支持 > 技术支持"
 doc_id: "aybLtjzeIy"
-updated_at: "2026-06-10 18:31:00"
+updated_at: "2026-08-05 11:35:16"
 ---
 
 > Source: https://open.dingtalk.com/document/services/ngliko
 > Path: 应用开发 / 平台服务 / 服务支持 > 技术支持
-> Updated: 2026-06-10 18:31:00
+> Updated: 2026-08-05 11:35:16
 
 # 技术支持
 

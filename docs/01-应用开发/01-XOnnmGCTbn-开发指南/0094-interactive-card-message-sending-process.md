@@ -7,12 +7,12 @@ group: "应用开发"
 tab: "开发指南"
 breadcrumb: "开发机器人应用 > 群模板机器人 > 使用群模板机器人 > 互动卡片消息发送流程"
 doc_id: "MGdy3Jan48"
-updated_at: "2025-10-09 17:52:25"
+updated_at: "2026-07-22 16:55:31"
 ---
 
 > Source: https://open.dingtalk.com/document/dingstart/interactive-card-message-sending-process
 > Path: 应用开发 / 开发指南 / 开发机器人应用 > 群模板机器人 > 使用群模板机器人 > 互动卡片消息发送流程
-> Updated: 2025-10-09 17:52:25
+> Updated: 2026-07-22 16:55:31
 
 # 互动卡片消息发送流程
 
@@ -41,7 +41,7 @@ updated_at: "2025-10-09 17:52:25"
     
    https://oss.sonatype.org/?spm=openapi-amp.sdkpublish.0.0.6ce52AE02AE0YH#nexus-search;gav~~dingtalk~~~
    ```
-2. 调用[发送钉钉互动卡片（高级版）](../02-4a8AMF6u2A-服务端API/1453-send-interactive-dynamic-cards-1.md)接口发送动态卡片消息。
+2. 调用[创建并投放卡片](../02-4a8AMF6u2A-服务端API/0783-create-and-deliver-cards.md)接口发送动态卡片消息。
 
    > **[!IMPORTANT]**
    >
@@ -54,4 +54,4 @@ updated_at: "2025-10-09 17:52:25"
 其他接口：
 
 - [响应互动卡片消息](0096-responding-to-interactive-messages.md)
-- [更新钉钉互动卡片](../02-4a8AMF6u2A-服务端API/1454-update-dingtalk-interactive-cards.md)
+- [创建并投放卡片](../02-4a8AMF6u2A-服务端API/0783-create-and-deliver-cards.md)

@@ -5,13 +5,13 @@ namespace: "development"
 slug: "bot-message-withdrawal-event"
 group: "应用开发"
 tab: "事件订阅"
-breadcrumb: "即时通讯 IM > 机器人 > 机器人消息撤回事件"
+breadcrumb: "即时通讯 > 机器人 > 机器人消息撤回事件"
 doc_id: "Y2JWtjqvSY"
 updated_at: "2022-01-19 19:29:22"
 ---
 
 > Source: https://open.dingtalk.com/document/development/bot-message-withdrawal-event
-> Path: 应用开发 / 事件订阅 / 即时通讯 IM > 机器人 > 机器人消息撤回事件
+> Path: 应用开发 / 事件订阅 / 即时通讯 > 机器人 > 机器人消息撤回事件
 > Updated: 2022-01-19 19:29:22
 
 # 机器人消息撤回事件

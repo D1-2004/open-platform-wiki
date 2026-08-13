@@ -49,7 +49,7 @@ updated_at: "2026-07-02 10:36:24"
 
 ### **回调事件列表**
 
-公告支持[公告发送](../04-LFcRvVD08N-事件订阅/0026-events-blackboard-sent.md)回调事件。
+公告支持[公告发送](../04-LFcRvVD08N-事件订阅/0019-events-blackboard-sent.md)回调事件。
 
 ## **使用教程**
 

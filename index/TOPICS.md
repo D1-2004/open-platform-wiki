@@ -3,13 +3,13 @@
 > 答疑最常命中的主题 → 权威文档直达。**这是本库唯一一个由人/LLM 维护的索引页**：快照更新后按 `ops/INGEST.md` 的「后续动作」复核本页。
 > 纪律：只收会饱和的高频主题，不做全量目录（那是 [INDEX.md](INDEX.md) 的事）；条目只指路不复述内容；每条链接必须可达（lint 会查）。
 >
-> 最后复核：2026-08-11（对应 2026-07-07 快照）
+> 最后复核：2026-08-12（对应 2026-08-12 快照）
 
 ## ID 体系与互转
 
 - 用户标识对照：**userId**（企业内唯一、不可改）/ **unionId**（跨企业唯一）/ **工号 job_number**（企业自维护、可不唯一、非必填，不能作唯一标识）——[基础概念](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0001-basic-concepts-beta.md) · [通讯录概述·名词解释](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0047-contacts-overview.md)
 - 注意：旧版（归档）JSAPI 文档里的"工号/emplId"多为 userid 的历史命名混用，勿按字面理解
-- 会话标识 openConversationId：获取 = [创建群返回](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0736-create-common-group-new-version-v2.md) / [chatId 转换接口](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0743-obtain-group-openconversationid.md) / [JSAPI 选择会话 chooseChat](../docs/01-应用开发/03-Ogu5SlPY4t-客户端JSAPI/0318-jsapi-choose-chat.md) / [机器人接收消息回调](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0078-robot-receive-message.md)；`openChatByConversationId` 是**消费**该 ID 的跳转 JSAPI，不是获取途径
+- 会话标识 openConversationId：获取 = [创建群返回](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0738-create-common-group-new-version-v2.md) / [chatId 转换接口](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0745-obtain-group-openconversationid.md) / [JSAPI 选择会话 chooseChat](../docs/01-应用开发/03-Ogu5SlPY4t-客户端JSAPI/0318-jsapi-choose-chat.md) / [机器人接收消息回调](../docs/01-应用开发/01-XOnnmGCTbn-开发指南/0078-robot-receive-message.md)；`openChatByConversationId` 是**消费**该 ID 的跳转 JSAPI，不是获取途径
 
 ## 凭证与鉴权
 
@@ -31,7 +31,7 @@
 - [添加接口调用权限](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0003-add-api-permission.md) · [敏感权限使用](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0004-use-sensitive-permissions.md)
 - 找某个接口 / 权限点 → 别翻目录，直接查 [graph/api.jsonl 与 permission.jsonl](../graph/GRAPH.md)
 - 新旧双轨：`api.dingtalk.com`（新版）与 `oapi.dingtalk.com`（旧版）并存，`graph/api.jsonl` 的 `version` 字段可判别
-- 限流/QPS/调用频率：[调用频率限制](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0012-call-frequency-limit.md)（规避实践/指数退避）+ [调用频次与限流](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/1409-how-to-process-api-throttling-on-the-dingtalk-server.md)（应用/IP/组织/全局四维度阈值与错误码），两篇一并给；按 appKey 维度为主，不按操作人；库内无"带宽"维度条目
+- 限流/QPS/调用频率：[调用频率限制](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0012-call-frequency-limit.md)（规避实践/指数退避）+ [调用频次与限流](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/1432-how-to-process-api-throttling-on-the-dingtalk-server.md)（应用/IP/组织/全局四维度阈值与错误码），两篇一并给；按 appKey 维度为主，不按操作人；库内无"带宽"维度条目
 
 ## 错误码排查
 
@@ -61,16 +61,16 @@
 
 - [通讯录概述](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0047-contacts-overview.md) · [查询用户详情](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0056-query-user-details.md) · [获取部门用户 userid 列表](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0065-query-the-list-of-department-userids.md)
 - 全量接口清单见 [服务端API/通讯录管理](01-应用开发/02-服务端API/05-通讯录管理.md)（115 篇）
-- "主部门"无独立读写接口：文档承载字段是[智能人事员工调岗](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0946-intelligent-personnel-staff-transfer.md)的 `mainDeptIdAfterTransfer`（职位管理升级后修改主部门的文档支持途径）；[用户详情](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0056-query-user-details.md)的 `dept_id_list` 只是"所属部门id列表"，**文档未定义"第一个是主部门"之类语义**
+- "主部门"无独立读写接口：文档承载字段是[智能人事员工调岗](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0954-intelligent-personnel-staff-transfer.md)的 `mainDeptIdAfterTransfer`（职位管理升级后修改主部门的文档支持途径）；[用户详情](../docs/01-应用开发/02-4a8AMF6u2A-服务端API/0056-query-user-details.md)的 `dept_id_list` 只是"所属部门id列表"，**文档未定义"第一个是主部门"之类语义**
 
 ## 互动卡片
 
-- [普通卡片模板](../docs/06-互动卡片/01-N4KJ5HbqnQ-开发指南/0001-card-template-building-and-publishing.md) · [AI 卡片模板（流式）](../docs/06-互动卡片/01-N4KJ5HbqnQ-开发指南/0002-ai-card-template.md)
-- [开放接口创建卡片实例](../docs/06-互动卡片/01-N4KJ5HbqnQ-开发指南/0004-open-the-interface-to-create-a-card-instance.md) · 其余见 [互动卡片索引](06-互动卡片/01-开发指南.md)
+- [普通卡片模板](../docs/05-互动卡片/01-N4KJ5HbqnQ-开发指南/0001-card-template-building-and-publishing.md) · [AI 卡片模板（流式）](../docs/05-互动卡片/01-N4KJ5HbqnQ-开发指南/0002-ai-card-template.md)
+- [开放接口创建卡片实例](../docs/05-互动卡片/01-N4KJ5HbqnQ-开发指南/0004-open-the-interface-to-create-a-card-instance.md) · 其余见 [互动卡片索引](05-互动卡片/01-开发指南.md)
 
 ## AI 助理（AI PaaS）
 
-- [AI 助理概述](../docs/04-AI-PaaS/03-9d1vBG1t78-AI-助理创建平台/0001-ai-assistant-overview.md)，全目录见 [AI 助理创建平台索引](04-AI-PaaS/03-AI助理创建平台.md)（97 篇：角色设定/能力/工作流/知识/AI 卡片/RPA）
+- [AI 助理概述](../docs/03-AI-PaaS/03-9d1vBG1t78-DEAP·企业AI平台/0001-ai-assistant-overview.md)，全目录见 [DEAP·企业AI平台索引](03-AI-PaaS/03-DEAP·企业AI平台.md)（15 篇：智能体/工作流/MCP/知识/模型管理）。原「AI 助理创建平台」tab（97 篇）已随 2026-08-12 快照下线并入 DEAP，旧文档下线记录见 meta/tombstones.jsonl
 
 ## 连接平台 / 工作台 / 其它产品线
 
