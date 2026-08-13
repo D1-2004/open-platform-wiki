@@ -26,6 +26,8 @@ RE_APPTYPE = re.compile(r"\|\s*支持的应用类型\s*\|\s*([^|]+)\|")
 RE_BARE = re.compile(r"https?://(?:oapi|api)\.dingtalk\.com/[A-Za-z0-9_/.{}\-]+")
 RE_PERM_CODE = re.compile(r"permission[:\-]([A-Za-z0-9_.]+)")
 RE_EVENT = re.compile(r'"?EventType"?\s*[:=]\s*"([a-z0-9_]{4,60})"')
+# 客户端 JSAPI 调用名，如 dd.setNavigationBar / dd.biz.util.uploadAttachment
+RE_JSAPI = re.compile(r"\bdd(?:\.[A-Za-z_$][A-Za-z0-9_$]*)+")
 
 
 def unescape_md(s: str) -> str:
@@ -50,7 +52,7 @@ def main() -> int:
     os.makedirs(OUT, exist_ok=True)
     docs = load_docs()
 
-    apis, perms, events = [], collections.defaultdict(list), []
+    apis, perms, events, jsapis = [], collections.defaultdict(list), [], []
     stats = collections.Counter()
 
     for d in docs:
@@ -68,6 +70,15 @@ def main() -> int:
             "archived": archived,
             "updated_at": d["updated_at"],
         }
+
+        # ---- 客户端 JSAPI 调用名 ----
+        if d["tab"] == "客户端JSAPI":
+            names = sorted({n for n in RE_JSAPI.findall(text) if "." in n and len(n) <= 80})
+            if names:
+                jsapis.append({**base, "jsapi_names": names})
+                stats["jsapi_with_name"] += 1
+            else:
+                stats["jsapi_no_name"] += 1
 
         # ---- 事件类型 ----
         if d["tab"] == "事件订阅":
@@ -150,6 +161,7 @@ def main() -> int:
     n_api = dump("api.jsonl", apis)
     n_err = dump("errcode.jsonl", errs)
     n_evt = dump("event.jsonl", events)
+    n_js = dump("jsapi.jsonl", jsapis)
     n_perm = dump("permission.jsonl", [
         {"permission_scope": k, "api_count": len(v),
          "current_apis": [x for x in v if not x["archived"]],
@@ -169,6 +181,8 @@ def main() -> int:
     print(f"errcode.jsonl    {n_err:5d} 条错误码")
     print(f"event.jsonl      {n_evt:5d} 篇事件文档带类型标识"
           f" (另有 {stats['event_no_type']} 篇无标识)")
+    print(f"jsapi.jsonl      {n_js:5d} 篇客户端JSAPI文档带调用名"
+          f" (另有 {stats['jsapi_no_name']} 篇无 dd.* 标识)")
     return 0
 
 

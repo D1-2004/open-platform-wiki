@@ -6,6 +6,7 @@
   api   <词|url片段>   查接口表（名称/endpoint/method/权限点/新旧版本）
   err   <错误码|词>    查错误码表（新版字符串码；旧版数字码会提示走 grep 兜底）
   event <事件名|词>    查事件表（按 EventType 标识或标题）
+  jsapi <调用名|词>    查客户端 JSAPI（如 dd.setNavigationBar；专页优先，归档标注）
   perm  <权限点|词>    查权限点覆盖的接口
   links <路径|slug>    一篇文档的正链（它引用谁）与反链（谁引用它）
   cat   <路径|slug>    打印文档正文（含 source_url 头）
@@ -149,6 +150,29 @@ def cmd_event(terms, n):
     return 0
 
 
+def cmd_jsapi(terms, n):
+    tl = [t.lower() for t in terms]
+    rows = []
+    for r in load_jsonl("graph/jsapi.jsonl"):
+        hay = (r["title"] + " " + " ".join(r.get("jsapi_names", []))).lower()
+        if all(t in hay for t in tl):
+            rows.append(r)
+    # 专页优先：现行压归档，调用名少的（专属文档）压总览页
+    rows.sort(key=lambda r: (r.get("archived", False), len(r.get("jsapi_names", [])), r["doc_path"]))
+    for r in rows[:n]:
+        tag = " ⚠归档" if r.get("archived") else ""
+        names = [x for x in r.get("jsapi_names", []) if any(t in x.lower() for t in tl)] or r.get("jsapi_names", [])
+        print(f"{r['title']}{tag} · 含: {', '.join(names[:4])}")
+        print(f"  {r['doc_path']}")
+        print(f"  {r['source_url']}")
+    if not rows:
+        print(f"JSAPI 表无命中（表只收正文含 dd.* 调用名的客户端JSAPI文档），自动全文兜底 dkdoc grep '{terms[0]}' :")
+        return cmd_grep([terms[0]], n)
+    if len(rows) > n:
+        print(f"…共 {len(rows)} 篇，-n 加大上限")
+    return 0
+
+
 def cmd_perm(terms, n):
     q = terms[0] if terms else ""
     rows = load_jsonl("graph/permission.jsonl")
@@ -267,7 +291,7 @@ def main():
         print(ROOT)
         return 0
     table = {"find": cmd_find, "api": cmd_api, "err": cmd_err, "event": cmd_event,
-             "perm": cmd_perm, "links": cmd_links, "cat": cmd_cat, "grep": cmd_grep}
+             "jsapi": cmd_jsapi, "perm": cmd_perm, "links": cmd_links, "cat": cmd_cat, "grep": cmd_grep}
     if cmd not in table:
         return usage(f"未知子命令 {cmd}")
     return table[cmd](terms, n)

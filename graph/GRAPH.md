@@ -7,6 +7,7 @@
 | `links.jsonl` | 文档 →引用→ 文档（站内互链） | ~8100 条 | ops/scripts/build_links.py |
 | `api.jsonl` | 文档 →描述→ API endpoint（含 method/权限点/应用类型/新旧版本/归档标记） | 1337 接口 | ops/scripts/build_qa_index.py |
 | `event.jsonl` | 文档 →定义→ 事件类型（event_types 数组） | 185 篇带标识 | 同上 |
+| `jsapi.jsonl` | 文档 →包含→ 客户端 JSAPI 调用名（jsapi_names 数组，如 dd.setNavigationBar） | 762 篇带标识 | 同上 |
 | `errcode.jsonl` | 错误码 →解释于→ 文档（全局错误码大表逐条展开） | 2515 条 | 同上 |
 | `permission.jsonl` | 权限点 →覆盖→ API 列表（官方权限映射文档是空壳，此表补齐） | 244 权限点 | 同上 |
 | `hubs.md` | 被引用 Top 100 文档（入度榜） | — | build_links.py |
@@ -29,6 +30,9 @@ jq -c 'select(.explanation|test("部门"))' graph/errcode.jsonl
 
 # 按事件名找事件文档
 jq -c 'select(.event_types[]? == "user_add_org")' graph/event.jsonl
+
+# 按 JSAPI 调用名找客户端文档（现行专页优先用 bin/dkdoc jsapi）
+jq -c 'select(.jsapi_names[]? == "dd.setNavigationBar") | {title,doc_path,archived}' graph/jsapi.jsonl
 
 # 某权限点覆盖哪些接口
 jq -c 'select(.permission_scope=="Contact.User.Read")' graph/permission.jsonl

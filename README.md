@@ -29,7 +29,7 @@ python3 <路径>/bin/dkdoc cat <路径|slug>        # 读正文
 
 ```
 AGENTS.md                   Agent 操作手册：定位/最佳实践/找不到怎么办/ingest/维护  ← 入口
-bin/dkdoc                   查询 CLI：find/api/err/event/perm/links/cat/grep（python3 标准库）
+bin/dkdoc                   查询 CLI：find/api/err/event/jsapi/perm/links/cat/grep（python3 标准库）
 index/
   INDEX.md                  L1 总索引：26 子类 + 一句话路由提示
   <大类>/<子类>.md           L2 子类清单；>200 篇的大类目再按功能域拆 L3

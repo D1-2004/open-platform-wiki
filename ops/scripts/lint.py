@@ -107,7 +107,7 @@ def check_tombstones(docs_meta):
 
 def check_graph_tables():
     bad = 0
-    for table, field in (("api.jsonl", "doc_path"), ("event.jsonl", "doc_path")):
+    for table, field in (("api.jsonl", "doc_path"), ("event.jsonl", "doc_path"), ("jsapi.jsonl", "doc_path")):
         for r in load_jsonl(os.path.join("graph", table)) or []:
             p = r.get(field)
             if p and not os.path.exists(os.path.join(ROOT, p)):
